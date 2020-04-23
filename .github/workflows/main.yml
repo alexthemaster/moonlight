@@ -1,0 +1,30 @@
+name: Build
+on: 
+    push: 
+        branches:
+            - master
+jobs:
+    tsc:
+        name: tsc
+        runs-on: ubuntu-latest
+        steps: 
+            - name: Checkout project
+              uses: actions/checkout@v2
+            - name: Setup Node.js
+              uses: actions/setup-node@v1.4.2
+              with:
+                node-version: 12
+            - name: Set Git parameters
+              run: |
+              git config --global user.name Penfoldium
+              git config --global user.email crumbs@penfoldium.org
+            - name: Switch to the compiled branch
+              run: git checkout compiled || git checkout -b compiled
+            - name: Build project
+              run: npx tsc
+            - name: Add files to git and commit
+              run: |
+              git add .
+              git commit -m "build ${{ github.sha }}"
+            - name: Push files to GitHub
+              run: git push origin HEAD:compiled
