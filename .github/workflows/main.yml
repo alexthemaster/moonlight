@@ -16,15 +16,15 @@ jobs:
                 node-version: 12
             - name: Set Git parameters
               run: |
-              git config --global user.name Penfoldium
-              git config --global user.email crumbs@penfoldium.org
+                git config --global user.name Penfoldium
+                git config --global user.email crumbs@penfoldium.org
             - name: Switch to the compiled branch
               run: git checkout compiled || git checkout -b compiled
             - name: Build project
               run: npx tsc
             - name: Add files to git and commit
               run: |
-              git add .
-              git commit -m "build ${{ github.sha }}"
+                git add .
+                git commit -m "build ${{ github.sha }}"
             - name: Push files to GitHub
               run: git push origin HEAD:compiled
