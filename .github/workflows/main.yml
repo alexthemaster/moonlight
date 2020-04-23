@@ -25,4 +25,4 @@ jobs:
                 git add .
                 git commit -m "Build ${{ github.sha }}"
             - name: Push files to GitHub
-              run: git push origin HEAD:compiled
+              run: git push origin HEAD:compiled --force
