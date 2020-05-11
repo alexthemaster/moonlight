@@ -6,13 +6,23 @@
   "files": [
     "dist"
   ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run docs && git add docs"
+    }
+  },
+  "scripts": {
+    "build": "rm -rf dist && tsc",
+    "just-docs": "rm -rf docs && jsdoc -r dist/src -t ./node_modules/minami -d docs -u tutorials",
+    "docs": "npm run build || true && npm run just-docs"
+  },
   "types": "./dist/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/penfoldium/moonlight.git"
   },
   "engines": {
-    "node": ">12.0.0"
+    "node": ">= 12.0.0"
   },
   "keywords": [
     "discord.js",
@@ -34,7 +44,18 @@
     "discord.js": "^12.2.0"
   },
   "devDependencies": {
+    "@types/fs-extra": "^8.1.0",
+    "@types/klaw": "^3.0.1",
     "@types/node": "^13.13.2",
+    "@types/ws": "^7.2.4",
+    "discord.js": "^12.2.0",
+    "husky": "^4.2.5",
+    "jsdoc": "^3.6.4",
+    "minami": "^1.2.3",
     "typescript": "^3.8.3"
+  },
+  "dependencies": {
+    "fs-extra": "^9.0.0",
+    "klaw": "^3.0.0"
   }
 }

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>structures/Managers/Base/BaseManager.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Tutorials</li><li class="nav-item"><a href="tutorial-creatingEvents.html">creatingEvents</a></li><li class="nav-heading">Classes</li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="BasePiece.html">BasePiece</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="BasePiece.html#init">init</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="BasePiece.html#reload">reload</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="BasePiece.html#run">run</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Command.html">Command</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Command.html#init">init</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Command.html#reload">reload</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Command.html#run">run</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="CommandManager.html">CommandManager</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="CommandManager.html#init">init</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="CommandManager.html#load">load</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Event.html">Event</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Event.html#init">init</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Event.html#reload">reload</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Event.html#run">run</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="EventManager.html">EventManager</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="EventManager.html#init">init</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="EventManager.html#load">load</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Monitor.html">Monitor</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Monitor.html#init">init</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Monitor.html#reload">reload</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Monitor.html#run">run</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="MonitorManager.html">MonitorManager</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="MonitorManager.html#init">init</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="MonitorManager.html#load">load</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="MoonlightBaseManager.html">MoonlightBaseManager</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="MoonlightBaseManager.html#init">init</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="MoonlightBaseManager.html#load">load</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="MoonlightClient.html">MoonlightClient</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="MoonlightClient.html#login">login</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Stopwatch.html">Stopwatch</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Stopwatch.html#reset">reset</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Stopwatch.html#stop">stop</a></span></li><li class="nav-heading">Externals</li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="external-Client.html">Client</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="external-ClientOptions.html">ClientOptions</a></span></li><li class="nav-heading"><a href="global.html">Globals</a></li>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">structures/Managers/Base/BaseManager.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>"use strict";
+var __importDefault = (this &amp;&amp; this.__importDefault) || function (mod) {
+    return (mod &amp;&amp; mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const klaw_1 = __importDefault(require("klaw"));
+const fs_extra_1 = __importDefault(require("fs-extra"));
+const path_1 = __importDefault(require("path"));
+const __1 = require("../../../..");
+const util_1 = require("../../../util");
+/**
+ * @property {MoonlightClient} client
+ * @property {string} name The name of the manager
+ * @property {unknown} type The class type the manager holds
+ * @abstract
+ */
+class MoonlightBaseManager extends Map {
+    constructor(client, name, type) {
+        super();
+        this.client = client;
+        this.name = name;
+        this.type = type;
+    }
+    /**
+     * Initialize the manager
+     */
+    async init() {
+        // We define the array that will hold the files returned by walk 
+        let files;
+        // Try walking over the core and user directories, and if it somehow fails then call init again 
+        try {
+            files = await this._walk();
+        }
+        catch (err) {
+            return this.init();
+        }
+        // Try to load all the files into the manager
+        try {
+            const stopwatch = new util_1.Stopwatch();
+            await Promise.all(files.map(async (file) => await this.load(file.path)));
+            stopwatch.stop();
+            console.info(`Loaded ${this.size} ${this.name} in ${stopwatch.getElapsedHuman}!`);
+            return true;
+        }
+        catch (err) {
+            // If something went wrong then emit an error event and throw the error
+            this.client.emit('error', err);
+            return false;
+        }
+    }
+    /**
+     * Loads a class into the manager
+     * @param {string} filePath The path to the file
+     */
+    async load(filePath) {
+        var _a;
+        try {
+            // If the file is cached then delete that cache
+            if (require.cache[filePath])
+                delete require.cache[filePath];
+            // Require the file and use the default export, if there is one
+            let req = require(filePath);
+            if (req.default)
+                req = req.default;
+            if (typeof req !== 'function')
+                throw `The file at ${filePath} is not a class / function.`;
+            // Initialize the class and check if it's an instance of the base type provided in the constructor
+            const init = new req(this.client, this);
+            if ((init instanceof this.type) == false)
+                throw `The file at ${filePath} doesn't appear to be an instance of ${this.type.name}`;
+            // If the user provided a name in the options then use that, otherwise use the name of the file
+            const name = ((_a = init.name) === null || _a === void 0 ? void 0 : _a.toLowerCase()) || path_1.default.parse(filePath).name;
+            // If the class is an instance of Command and there are aliases present then set them 
+            if (init instanceof __1.Command) {
+                if (init.aliases &amp;&amp; Array.isArray(init.aliases)) {
+                    init.aliases.forEach(alias => this.client.aliases.set(alias, name));
+                }
+            }
+            // Dynamically instert the reload function into the class
+            init.reload = function () {
+                return this.manager.load(filePath);
+            };
+            // Finally set the class into the system
+            super.set(name, init);
+            return true;
+        }
+        catch (err) {
+            // If something went wrong then emit an error event and throw the error
+            this.client.emit('error', err);
+            throw err;
+        }
+    }
+    /**
+     * Returns an array of all the core and user files
+     * @private
+     */
+    _walk() {
+        return new Promise((resolve, reject) => {
+            const items = new Array();
+            klaw_1.default(path_1.default.join(this.client.mainDir, this.name))
+                .on('data', item => items.push(item))
+                .on('end', async () => {
+                if (!await fs_extra_1.default.pathExists(path_1.default.join(this.client.coreDir, this.name))) {
+                    const filtered = items.filter(item => item.path.endsWith('.js'));
+                    return resolve(filtered);
+                }
+                ;
+                klaw_1.default(path_1.default.join(this.client.coreDir, this.name))
+                    .on('data', item => items.push(item))
+                    .on('end', () => {
+                    const filtered = items.filter(item => item.path.endsWith('.js'));
+                    resolve(filtered);
+                });
+            })
+                .on('error', () => {
+                fs_extra_1.default.ensureDir(path_1.default.join(this.client.mainDir, this.name))
+                    .then(() => reject())
+                    .catch(err => new Error(err));
+            });
+        });
+    }
+}
+exports.default = MoonlightBaseManager;
+//# sourceMappingURL=BaseManager.js.map</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.4</a> on Mon May 11 2020 19:39:08 GMT+0300 (Eastern European Summer Time) using the Minami theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>
