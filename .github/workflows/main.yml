@@ -24,6 +24,7 @@ jobs:
               run: npx tsc
             - name: Add files to git and commit them
               run: |
+                sed --in-place '/dist\//d' .gitignore
                 git add .
                 git commit -m "Build ${{ github.sha }}"
             - name: Push files to GitHub
