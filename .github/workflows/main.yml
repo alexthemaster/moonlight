@@ -18,6 +18,8 @@ jobs:
               run: |
                 git config --global user.name Penfoldium
                 git config --global user.email crumbs@penfoldium.org
+            - name: Install packages
+              run: npm install
             - name: Build project
               run: npx tsc
             - name: Add files to git and commit them
