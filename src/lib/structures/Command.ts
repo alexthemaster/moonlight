@@ -1,6 +1,6 @@
 import { MoonlightClient } from "../..";
-import BaseManager from './Managers/Base/BaseManager';
-import BasePiece, { BasePieceOptions } from './BasePiece';
+import { MoonlightBaseManager as BaseManager} from './Managers/Base/BaseManager';
+import { BasePiece, BasePieceOptions } from './BasePiece';
 import { Message } from "discord.js";
 
 /**
@@ -14,7 +14,7 @@ import { Message } from "discord.js";
  * @abstract
  * @property {string[]} aliases
  */
-export default class Command extends BasePiece<Command> {
+export class Command extends BasePiece<Command> {
     public aliases: string[];
 
     public run(message: Message, ...arg: any[]): void {

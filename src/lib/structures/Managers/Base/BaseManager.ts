@@ -10,7 +10,7 @@ import { Stopwatch } from '../../../util';
  * @property {unknown} type The class type the manager holds
  * @abstract
  */
-export default class MoonlightBaseManager<K, V> extends Map<K, V> {
+export class MoonlightBaseManager<K, V> extends Map<K, V> {
     public client: MoonlightClient;
     public name: string;
     public type: unknown;

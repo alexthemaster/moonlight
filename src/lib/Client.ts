@@ -1,11 +1,11 @@
 import { Client, ClientOptions } from 'discord.js';
 import path from 'path';
-import Command from './structures/Command';
-import CommandManager from './structures/Managers/CommandManager';
-import Event from './structures/Event';
-import EventsManager from './structures/Managers/EventManager';
-import Monitor from './structures/Monitor';
-import MonitorManager from "./structures/Managers/MonitorManagers";
+import { Command } from './structures/Command';
+import { CommandManager } from './structures/Managers/CommandManager';
+import { Event } from './structures/Event';
+import { EventManager } from './structures/Managers/EventManager';
+import { Monitor } from './structures/Monitor';
+import { MonitorManager } from "./structures/Managers/MonitorManagers";
 import { Stopwatch } from './util';
 
 
@@ -44,14 +44,15 @@ import { Stopwatch } from './util';
  * @property {EventManager} events The event manager that stores all events
  * @property {string[]} prefixes An array containing all the prefixes
  */
-export default class MoonlightClient extends Client {
+export class MoonlightClient extends Client {
     public mainDir: string = path.dirname(require.main!.filename);
     public coreDir: string = path.join(__dirname, '../')
     public commands: CommandManager<string, Command> = new CommandManager(this);
     public aliases: Map<string, string> = new Map();
-    public events: EventsManager<string, Event> = new EventsManager(this);
+    public events: EventManager<string, Event> = new EventManager(this);
     public monitors: MonitorManager<string, Monitor> = new MonitorManager(this);
     public prefixes: string[] = new Array();
+    public options!: MoonlightClientOptions;
 
     /**
      * @param {MoonlightClientOptions} options The Moonlight Client Options
@@ -60,10 +61,10 @@ export default class MoonlightClient extends Client {
     constructor(options?: MoonlightClientOptions) {
         super(options);
 
-        if ((this.options as MoonlightClientOptions)?.prefix) {
-            if (Array.isArray((this.options as MoonlightClientOptions).prefix)) {
-                this.prefixes.push(...((this.options as MoonlightClientOptions).prefix as string[]));
-            } else this.prefixes.push(((this.options as MoonlightClientOptions).prefix as string));
+        if (options?.prefix) {
+            if (Array.isArray(options.prefix)) {
+                this.prefixes.push(...(options.prefix as string[]));
+            } else this.prefixes.push((options.prefix as string));
         }
 
         if (options?.displayErrors || !options?.displayErrors) {
@@ -95,7 +96,7 @@ export default class MoonlightClient extends Client {
         ])
         stopwatch.stop();
         console.info(`Loaded everything in: ${stopwatch.getElapsedHuman}`);
-        
+
         this.events.forEach(event => {
             if (event.disabled) return;
 
@@ -103,7 +104,7 @@ export default class MoonlightClient extends Client {
 
             this.on((event.event as any), (...arg: any[]) => event.run(...arg));
         });
-        
+
 
         return super.login(token);
     }

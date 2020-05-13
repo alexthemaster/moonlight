@@ -1,6 +1,6 @@
-import Event from '../lib/structures/Event';
-import BaseManager from '../lib/structures/Managers/Base/BaseManager';
-import { default as MoonlightClient, MoonlightClientOptions } from '../lib/Client';
+import { Event } from '../lib/structures/Event';
+import { MoonlightBaseManager as BaseManager} from '../lib/structures/Managers/Base/BaseManager';
+import { MoonlightClient, MoonlightClientOptions } from '../lib/Client';
 
 export default class extends Event {
     constructor(client: MoonlightClient, manager: BaseManager<string, Event>) {

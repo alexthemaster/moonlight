@@ -1,7 +1,7 @@
 // Inspired by Klasa's Stopwatch https://github.com/dirigeants/klasa/blob/master/src/lib/util/Stopwatch.js
 // MIT License
 
-export default class Stopwatch {
+export class Stopwatch {
     private _startTime!: bigint;
     private _stopTime: bigint | null;
 

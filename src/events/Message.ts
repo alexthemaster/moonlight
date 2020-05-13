@@ -1,8 +1,8 @@
-import Event from '../lib/structures/Event';
-import { default as MoonlightClient, MoonlightClientOptions } from '../lib/Client';
+import { Event } from '../lib/structures/Event';
+import { MoonlightClient, MoonlightClientOptions } from '../lib/Client';
 import { Message } from 'discord.js';
-import BaseManager from '../lib/structures/Managers/Base/BaseManager';
-import Command from '../lib/structures/Command';
+import { MoonlightBaseManager as BaseManager } from '../lib/structures/Managers/Base/BaseManager';
+import { Command } from '../lib/structures/Command';
 
 export default class extends Event {
     constructor(client: MoonlightClient, manager: BaseManager<string, Event>) {

@@ -1,6 +1,6 @@
 import { MoonlightClient } from "../..";
-import BaseManager from './Managers/Base/BaseManager';
-import BasePiece, { BasePieceOptions } from './BasePiece';
+import { MoonlightBaseManager as BaseManager } from './Managers/Base/BaseManager';
+import { BasePiece, BasePieceOptions } from './BasePiece';
 
 /**
  * @typedef {BasePieceOptions} EventOptions
@@ -14,7 +14,7 @@ import BasePiece, { BasePieceOptions } from './BasePiece';
  * @param {EventOptions} options 
  * @abstract
  */
-export default class Event extends BasePiece<Event> {
+export class Event extends BasePiece<Event> {
     public event: string;
     public once: boolean;
 

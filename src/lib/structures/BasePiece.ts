@@ -1,5 +1,5 @@
-import MoonlightClient from '../Client';
-import BaseManager from './Managers/Base/BaseManager';
+import { MoonlightClient } from '../Client';
+import { MoonlightBaseManager as BaseManager } from './Managers/Base/BaseManager';
 
 /**
  * @typedef BasePieceOptions
@@ -16,7 +16,7 @@ import BaseManager from './Managers/Base/BaseManager';
  * @property {BasePieceOptions} options
  * @abstract
  */
-export default class BasePiece<T> {
+export class BasePiece<T> {
     public client: MoonlightClient;
     public disabled: boolean;
     public manager: BaseManager<string, T>;

@@ -1,4 +1,4 @@
-export default class Arguments {
+export class Arguments {
     public args: string[];
     public text: string;
     private _requiredRegex: RegExp = /\<(.*?)\>/g;

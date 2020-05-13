@@ -1,6 +1,6 @@
 import { MoonlightClient } from "../..";
-import BaseManager from './Managers/Base/BaseManager';
-import BasePiece, { BasePieceOptions } from './BasePiece';
+import { MoonlightBaseManager as BaseManager } from './Managers/Base/BaseManager';
+import { BasePiece, BasePieceOptions } from './BasePiece';
 import { Message } from "discord.js";
 
 /**
@@ -15,7 +15,7 @@ import { Message } from "discord.js";
  * @extends BasePiece
  * @abstract
  */
-export default class Monitor extends BasePiece<Monitor> {
+export class Monitor extends BasePiece<Monitor> {
     public ignoreSelf: boolean;
     public ignoreBots: boolean;
     public ignoreOthers: boolean;
