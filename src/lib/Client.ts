@@ -45,12 +45,18 @@ import { Stopwatch } from './util';
  * @property {string[]} prefixes An array containing all the prefixes
  */
 export class MoonlightClient extends Client {
+
+    // Directories
     public mainDir: string = path.dirname(require.main!.filename);
     public coreDir: string = path.join(__dirname, '../')
+
+    // Managers
     public commands: CommandManager<string, Command> = new CommandManager(this);
     public aliases: Map<string, string> = new Map();
     public events: EventManager<string, Event> = new EventManager(this);
     public monitors: MonitorManager<string, Monitor> = new MonitorManager(this);
+
+    // Additional options
     public prefixes: string[] = new Array();
     public options!: MoonlightClientOptions;
 
@@ -62,9 +68,8 @@ export class MoonlightClient extends Client {
         super(options);
 
         if (options?.prefix) {
-            if (Array.isArray(options.prefix)) {
-                this.prefixes.push(...(options.prefix as string[]));
-            } else this.prefixes.push((options.prefix as string));
+            if (Array.isArray(options.prefix)) this.prefixes.push(...(options.prefix as string[]));
+            else this.prefixes.push((options.prefix as string));
         }
 
         if (options?.displayErrors || !options?.displayErrors) {
@@ -89,12 +94,16 @@ export class MoonlightClient extends Client {
      */
     public async login(token?: string | undefined): Promise<string> {
         const stopwatch: Stopwatch = new Stopwatch();
+
+        // Initialize all the managers
         await Promise.all([
             this.events.init(),
             this.commands.init(),
             this.monitors.init()
         ])
+
         stopwatch.stop();
+
         console.info(`Loaded everything in: ${stopwatch.getElapsedHuman}`);
 
         this.events.forEach(event => {
@@ -105,7 +114,7 @@ export class MoonlightClient extends Client {
             this.on((event.event as any), (...arg: any[]) => event.run(...arg));
         });
 
-
+        // Finally login
         return super.login(token);
     }
 }
