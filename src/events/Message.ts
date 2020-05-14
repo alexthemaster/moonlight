@@ -1,5 +1,5 @@
 import { Event } from '../lib/structures/Event';
-import { MoonlightClient, MoonlightClientOptions } from '../lib/Client';
+import { MoonlightClient } from '../lib/Client';
 import { Message } from 'discord.js';
 import { MoonlightBaseManager as BaseManager } from '../lib/structures/Managers/Base/BaseManager';
 import { Command } from '../lib/structures/Command';
