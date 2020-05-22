@@ -24,7 +24,7 @@ jobs:
               run: |
                 mkdir compiled
                 cd compiled
-                git clone https://${{ secrets.GITHUB_TOKEN }}@github.com/penfoldium/moonlight.git
+                git clone https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/penfoldium/moonlight.git
                 git checkout compiled
             - name: Build project
               run: npx tsc
