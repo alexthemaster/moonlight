@@ -22,8 +22,9 @@ jobs:
               run: npm install
             - name: Clone the gh-pages branch
               run: |
-                git clone https://${{ secrets.GITHUB_TOKEN }}@github.com/penfoldium/moonlight.git /compiled
-                cd compiled 
+                mkdir compiled
+                cd compiled
+                git clone https://${{ secrets.GITHUB_TOKEN }}@github.com/penfoldium/moonlight.git
                 git checkout compiled
             - name: Build project
               run: npx tsc
