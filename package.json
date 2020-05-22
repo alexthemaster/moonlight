@@ -6,11 +6,6 @@
   "files": [
     "dist"
   ],
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run docs && git add docs"
-    }
-  },
   "scripts": {
     "build": "rm -rf dist && tsc",
     "docs": "rm -rf docs && typedoc"
