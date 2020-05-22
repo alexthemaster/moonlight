@@ -20,12 +20,17 @@ jobs:
                 git config --global user.email crumbs@penfoldium.org
             - name: Install packages
               run: npm install
+            - name: Clone the gh-pages branch
+              run: |
+              git clone https://${{ secrets.GITHUB_TOKEN }}@github.com/penfoldium/moonlight.git /compiled
+              cd compiled
+              git checkout compiled
             - name: Build project
               run: npx tsc
             - name: Add files to git and commit them
               run: |
-                sed --in-place '/dist\//d' .gitignore
+                cp /dist /compiled 
                 git add .
                 git commit -m "Build ${{ github.sha }}"
             - name: Push files to GitHub
-              run: git push origin HEAD:compiled --force
+              run: git push origin compiled
