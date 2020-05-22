@@ -13,7 +13,6 @@
   },
   "scripts": {
     "build": "rm -rf dist && tsc",
-    "just-docs": "rm -rf docs && typedoc",
     "docs": "rm -rf docs && typedoc"
   },
   "types": "./dist/index.d.ts",
