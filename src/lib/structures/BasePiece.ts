@@ -2,24 +2,15 @@ import { MoonlightClient } from '../Client';
 import { MoonlightBaseManager as BaseManager } from './Managers/Base/BaseManager';
 
 /**
- * @typedef BasePieceOptions
- * @property {string} [name]
- * @property {boolean} [disabled=false]
- */
-
-/**
  * @class
- * @property {MoonlightClient} client
- * @property {string} name The name of the piece
- * @property {boolean} disabled Whether or not this piece is disabled
- * @property {BaseManager} manager The manager this piece is part of
- * @property {BasePieceOptions} options
  * @abstract
  */
 export class BasePiece<T> {
-    public client: MoonlightClient;
+    public readonly client: MoonlightClient;
+    /** Whether or not this piece is disabled */
     public disabled: boolean;
-    public manager: BaseManager<string, T>;
+    /** The manager this piece is part of */
+    public readonly manager: BaseManager<string, T>;
     public options: BasePieceOptions | undefined;
 
     /** */
@@ -27,16 +18,12 @@ export class BasePiece<T> {
         throw new Error(`Run function not defined in ${__filename}`);
     }
 
-    /**
-     * A function that runs at the bot startup once
-     */
+    /** A function that runs at the bot startup once */
     public init(): void {
 
     }
 
-    /**
-     * A function that reloads the file
-     */
+    /** A function that reloads the file */
     public reload() { }
 
     public enable(): void {
@@ -57,5 +44,6 @@ export class BasePiece<T> {
 
 export interface BasePieceOptions {
     name?: string;
+    /** Whether or not this piece should be disabled */
     disabled?: boolean;
 }

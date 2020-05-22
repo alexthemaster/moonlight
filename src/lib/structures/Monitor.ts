@@ -4,21 +4,15 @@ import { BasePiece, BasePieceOptions } from './BasePiece';
 import { Message } from "discord.js";
 
 /**
- * @typedef {BasePieceOptions}
- * @property {boolean} [ignoreSelf = false] Whether or not to ignore the bot user
- * @property {boolean} [ignoreBots = false] Whether or not to ignore bots
- * @property {boolean} [ignoreOthers = false] Whether or not to ignore anyone other than the bot user
- */
-
-/**
- * @class
- * @extends BasePiece
  * @abstract
  */
 export class Monitor extends BasePiece<Monitor> {
-    public ignoreSelf: boolean;
-    public ignoreBots: boolean;
-    public ignoreOthers: boolean;
+    /** Whether or not to ignore the bot user */
+    public readonly ignoreSelf: boolean;
+    /** Whether or not to ignore bots */
+    public readonly ignoreBots: boolean;
+    /** Whether or not to ignore anyone other than the bot user */
+    public readonly ignoreOthers: boolean;
 
     public run(message: Message): void {
         throw new Error(`Run function not defined in ${__filename}`);
@@ -33,7 +27,10 @@ export class Monitor extends BasePiece<Monitor> {
 }
 
 interface MonitorOptions extends BasePieceOptions {
+    /** Whether or not to ignore the bot user */
     ignoreSelf?: boolean;
+    /** Whether or not to ignore bots */
     ignoreBots?: boolean;
+    /** Whether or not to ignore anyone other than the bot user */
     ignoreOthers?: boolean;
 }

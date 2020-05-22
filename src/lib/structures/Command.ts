@@ -4,18 +4,12 @@ import { BasePiece, BasePieceOptions } from './BasePiece';
 import { Message } from "discord.js";
 
 /**
- * @typedef {BasePieceOptions} CommandOptions
- * @property {string[]} [aliases] An array of aliases
- */
-
-/**
  * @class
- * @extends BasePiece
  * @abstract
- * @property {string[]} aliases
  */
 export class Command extends BasePiece<Command> {
-    public aliases: string[];
+    /** An array of aliases */
+    public readonly aliases: string[];
 
     public run(message: Message, ...arg: any[]): void {
         throw new Error(`Run function not defined in ${__filename}`);

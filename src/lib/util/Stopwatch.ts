@@ -11,7 +11,7 @@ export class Stopwatch {
 
     /** 
      * Starts the Stopwatch
-     * @param {number} [digits = 2] The number of digits to appear after the decimal point when returning the a human readable format
+     * @param digits The number of digits to appear after the decimal point when returning the a human readable format
      */
     constructor(digits: number = 2) {
         this._digits = digits;
@@ -22,9 +22,7 @@ export class Stopwatch {
         this._start();
     };
 
-    /** Reset the stopwatch 
-     * @returns {this}
-     */
+    /** Reset the stopwatch  */
     public reset(): this {
         this._stopped = false;
         this._start();
@@ -32,16 +30,12 @@ export class Stopwatch {
         return this;
     }
 
-    /** Start the stopwatch
-     * @private
-     */
+    /** Start the stopwatch */
     private _start(): void {
         this._startTime = process.hrtime.bigint();
     }
 
-    /** Stop the stopwatch
-     * @returns {this}
-     */
+    /** Stop the stopwatch */
     public stop(): this {
         this._stopped = true;
         this._stopTime = process.hrtime.bigint();
@@ -49,18 +43,12 @@ export class Stopwatch {
         return this;
     }
 
-    /** Returns the elapsed time in nanoseconds
-     * @returns {bigint}
-     * @readonly
-     */
+    /** Returns the elapsed time in nanoseconds */
     public get getElapsed(): bigint {
         return (this._stopped && this._stopTime) ? this._stopTime - this._startTime : process.hrtime.bigint() - this._startTime;
     }
 
-    /** Returns the elased time in a human readable format
-     * @returns {string}
-     * @readonly
-     */
+    /** Returns the elased time in a human readable format */
     public get getElapsedHuman(): string {
         const time: number = Number(this.getElapsed);
 
@@ -72,7 +60,7 @@ export class Stopwatch {
     }
 }
 
-enum Measurements {
+const enum Measurements {
     MICROSECONDS = 1000,
     MILLISECONDS = 1000000,
     SECONDS = Measurements.MILLISECONDS * 1000,

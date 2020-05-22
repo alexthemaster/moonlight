@@ -15,14 +15,6 @@ import { Stopwatch } from './util';
  */
 
 /**
- * @typedef {external:ClientOptions} MoonlightClientOptions
- * @property {string|string[]} [prefix] The prefix or an array of prefixes the bot will use
- * @property {boolean} [displayErrors=true] Whether or not to display error messages send as the error event
- * @property {function} [readyMessage] Set the ready message to display when thgge bot is ready -> should return a string
- * @example { ..., prefix: ['p.', 'p!'], displayErrors: false, readyMessage: (client) => `Logged in as ${client.user.tag}` }
- */
-
-/**
  * @external Client 
  * @see {@link https://discord.js.org/#/docs/main/stable/class/Client}
  */
@@ -36,34 +28,31 @@ import { Stopwatch } from './util';
  * The Moonlight Client
  * @license MIT
  * @extends external:Client
- * @property {string} mainDir The user's directory
- * @property {string} coreDir The core directory, where the Moonlight files are located
- * @property {CommandManager} commands The command manager that stores all command
- * @property {Map} aliases A map which stores all command aliases
- * @property {MonitorManager} monitors The monitor manager that stores all monitors
- * @property {EventManager} events The event manager that stores all events
- * @property {string[]} prefixes An array containing all the prefixes
  */
 export class MoonlightClient extends Client {
 
     // Directories
-    public mainDir: string = path.dirname(require.main!.filename);
+    /** The user's directory */
+    public readonly mainDir: string = path.dirname(require.main!.filename);
+    /** The core directory, where the Moonlight files are located */
     public coreDir: string = path.join(__dirname, '../')
 
     // Managers
-    public commands: CommandManager<string, Command> = new CommandManager(this);
-    public aliases: Map<string, string> = new Map();
-    public events: EventManager<string, Event> = new EventManager(this);
-    public monitors: MonitorManager<string, Monitor> = new MonitorManager(this);
+    /** The command manager that stores all command */
+    public readonly commands: CommandManager<string, Command> = new CommandManager(this);
+    /** A map which stores all command aliases */
+    public readonly aliases: Map<string, string> = new Map();
+    /** The event manager that stores all */
+    public readonly events: EventManager<string, Event> = new EventManager(this);
+    /** The monitor manager that stores all monitors */
+    public readonly monitors: MonitorManager<string, Monitor> = new MonitorManager(this);
 
     // Additional options
-    public prefixes: string[] = new Array();
+    /** An array containing all the prefixes */
+    public readonly prefixes: string[] = new Array();
     public options!: MoonlightClientOptions;
 
-    /**
-     * @param {MoonlightClientOptions} options The Moonlight Client Options
-     * @example { prefix: ['p.', 'p!'], displayErrors: false, readyMessage: (client) => `Logged in as ${client.user.tag}` }
-     */
+    /** @param options The Moonlight Client Options */
     constructor(options?: MoonlightClientOptions) {
         super(options);
 
@@ -78,18 +67,15 @@ export class MoonlightClient extends Client {
     }
 
 
-    /**
-     * Returns a Map containing every Moonlight manager
-     * @returns {Map}
-     */
+    /** Returns a Map containing every Moonlight manager */
     get managers() {
         return new Map<string, Command | Event | Monitor>([...this.commands, ...this.events, ...this.monitors]);
     }
 
     /**
      * The function that initiates the bot and then logs the client in, establishing a websocket connection to Discord.
-     * @param {string} token Token of the bot account to log in with
-     * @returns {Promise<string>} Token
+     * @param token Token of the bot account to log in with
+     * @returns Token
      * @example(client.login('token'))
      */
     public async login(token?: string | undefined): Promise<string> {
@@ -119,8 +105,12 @@ export class MoonlightClient extends Client {
     }
 }
 
+/** @example { ..., prefix: ['p.', 'p!'], displayErrors: false, readyMessage: (client) => `Logged in as ${client.user.tag}` } */
 export interface MoonlightClientOptions extends ClientOptions {
+    /** The prefix or an array of prefixes the bot will use */
     prefix?: string | string[];
+    /** Whether or not to display error messages send as the error event */
     displayErrors?: boolean;
+    /** Set the ready message to display when thgge bot is ready -> should return a string */
     readyMessage?(client: MoonlightClient): string;
 };

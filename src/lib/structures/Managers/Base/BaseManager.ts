@@ -4,16 +4,13 @@ import path from 'path';
 import { MoonlightClient, Command } from '../../../..';
 import { Stopwatch } from '../../../util';
 
-/**
- * @property {MoonlightClient} client
- * @property {string} name The name of the manager
- * @property {unknown} type The class type the manager holds
- * @abstract
- */
+/** @abstract */
 export class MoonlightBaseManager<K, V> extends Map<K, V> {
-    public client: MoonlightClient;
-    public name: string;
-    public type: unknown;
+    public readonly client: MoonlightClient;
+    /** The name of the manager */
+    public readonly name: string;
+    /** The class type the manager holds */
+    public readonly type: unknown;
 
     constructor(client: MoonlightClient, name: string, type: unknown) {
         super();
@@ -23,9 +20,7 @@ export class MoonlightBaseManager<K, V> extends Map<K, V> {
         this.type = type;
     }
 
-    /**
-     * Initialize the manager
-     */
+    /** Initialize the manager */
     public async init(): Promise<boolean> {
         // We define the array that will hold the files returned by walk 
         let files: Item[];
@@ -55,7 +50,7 @@ export class MoonlightBaseManager<K, V> extends Map<K, V> {
 
     /**
      * Loads a class into the manager
-     * @param {string} filePath The path to the file 
+     * @param filePath The path to the file 
      */
     public async load(filePath: string): Promise<boolean> {
         try {
@@ -100,10 +95,7 @@ export class MoonlightBaseManager<K, V> extends Map<K, V> {
         }
     }
 
-    /**
-     * Returns an array of all the core and user files
-     * @private
-     */
+    /** Returns an array of all the core and user files */
     private _walk(): Promise<Item[]> {
         return new Promise((resolve, reject) => {
             const items: Item[] = new Array();

@@ -17,5 +17,12 @@
     "esModuleInterop": true,
 
     "forceConsistentCasingInFileNames": true 
+  },
+  "typedocOptions": {
+    "includeDeclarations": true,
+    "out": "docs",
+    "includes": "tutorials",
+    "excludeNotExported": true,
+    "excludeExternals": true
   }
 }

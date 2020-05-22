@@ -3,6 +3,7 @@ import { MoonlightClient } from '../lib/Client';
 import { MoonlightBaseManager as BaseManager } from '../lib/structures/Managers/Base/BaseManager';
 import { Message } from 'discord.js';
 
+/** @ignore */
 export default class extends Command {
     constructor(client: MoonlightClient, manager: BaseManager<string, Command>) {
         super(client, manager);

@@ -1,22 +1,15 @@
 import { MoonlightClient } from "../..";
 import { MoonlightBaseManager as BaseManager } from './Managers/Base/BaseManager';
 import { BasePiece, BasePieceOptions } from './BasePiece';
-
 /**
- * @typedef {BasePieceOptions} EventOptions
- * @property {string} event The event to listen to
- * @property {boolean} [once=false] Whether or not to run this event only once
- */
-
-/**
- * @class
- * @extends BasePiece
- * @param {EventOptions} options 
+ * [[include:creatingEvents.md]]
  * @abstract
  */
 export class Event extends BasePiece<Event> {
-    public event: string;
-    public once: boolean;
+    /** The event to listen to */
+    public readonly event: string;
+    /** Whether or not to run this event only once */
+    public readonly once: boolean;
 
     public enable(): void {
         if (!this.disabled) this.disabled = false;
@@ -35,7 +28,9 @@ export class Event extends BasePiece<Event> {
     }
 }
 
-interface EventOptions extends BasePieceOptions{
-    event: string,
-    once?: boolean
+interface EventOptions extends BasePieceOptions {
+    /** The event to listen to */
+    event: string;
+    /** Whether or not to run this event only once */
+    once?: boolean;
 }

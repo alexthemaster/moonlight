@@ -13,8 +13,8 @@
   },
   "scripts": {
     "build": "rm -rf dist && tsc",
-    "just-docs": "rm -rf docs && jsdoc -r dist/src -t ./node_modules/minami -d docs -u tutorials",
-    "docs": "npm run build || true && npm run just-docs"
+    "just-docs": "rm -rf docs && typedoc",
+    "docs": "rm -rf docs && typedoc"
   },
   "types": "./dist/index.d.ts",
   "repository": {
@@ -50,8 +50,7 @@
     "@types/ws": "^7.2.4",
     "discord.js": "^12.2.0",
     "husky": "^4.2.5",
-    "jsdoc": "^3.6.4",
-    "minami": "^1.2.3",
+    "typedoc": "^0.17.7",
     "typescript": "^3.8.3"
   },
   "dependencies": {

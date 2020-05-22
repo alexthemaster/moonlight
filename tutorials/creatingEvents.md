@@ -1,6 +1,4 @@
-# Creating Events
-
-An [event](./Event.html) is pretty easy to create! Just place a file wherever in your `events` folder and use the following syntax: 
+An event is pretty easy to create! Just place a file wherever in your `events` folder and use the following syntax: 
 
 ```js
 const { Event } = require('@penfoldium/moonlight');
