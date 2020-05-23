@@ -68,7 +68,7 @@ jobs:
               run: typedoc
             - name: Add files to git and commit them
               run: |
-                cp -r ./docs ./gh-pages 
+                cp -a ./docs/. ./gh-pages 
                 cd gh-pages
                 git add .
                 git commit -m "Docs ${{ github.sha }}"
