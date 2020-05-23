@@ -33,9 +33,9 @@ export class MoonlightClient extends Client {
 
     // Directories
     /** The user's directory */
-    public readonly mainDir: string = path.dirname(require.main!.filename);
+    public mainDir: string = path.dirname(require.main!.filename);
     /** The core directory, where the Moonlight files are located */
-    public coreDir: string = path.join(__dirname, '../')
+    public readonly coreDir: string = path.join(__dirname, '../')
 
     // Managers
     /** The command manager that stores all command */
