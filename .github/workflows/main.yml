@@ -54,7 +54,9 @@ jobs:
                 git config --global user.name Penfoldium
                 git config --global user.email crumbs@penfoldium.org
             - name: Install packages
-              run: npm install
+              run: |
+                NODE_ENV=development
+                npm install
             - name: Clone the gh-pages branch
               run: |
                 mkdir gh-pages
