@@ -31,7 +31,7 @@ jobs:
             - name: Add files to git and commit them
               run: |
                 cp -r ./dist ./compiled/dist 
-                cp ./package.* ./compiled
+                cp ./package* ./compiled
                 cd compiled
                 git add .
                 git commit -m "Build ${{ github.sha }}"
