@@ -30,8 +30,12 @@ jobs:
               run: npx tsc
             - name: Add files to git and commit them
               run: |
-                cp /dist /compiled 
+                cp -r ./dist ./compiled/dist 
+                cp ./package.* ./compiled
+                cd compiled
                 git add .
                 git commit -m "Build ${{ github.sha }}"
             - name: Push files to GitHub
-              run: git push origin compiled
+              run: |
+                cd compiled
+                git push origin compiled
