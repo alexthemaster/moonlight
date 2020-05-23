@@ -19,7 +19,7 @@ jobs:
                 git config --global user.name Penfoldium
                 git config --global user.email crumbs@penfoldium.org
             - name: Install packages
-              run: npm install
+              run: npm ci
             - name: Clone the compiled branch
               run: |
                 mkdir compiled
@@ -55,16 +55,15 @@ jobs:
                 git config --global user.email crumbs@penfoldium.org
             - name: Install packages
               run: |
-                NODE_ENV=development
-                npm install
+                npm ci
             - name: Clone the gh-pages branch
               run: |
                 mkdir gh-pages
                 cd gh-pages
                 git clone https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/penfoldium/moonlight.git .
                 git checkout gh-pages
-            - name: Install typedoc
-              run: npm install --global typedoc
+            - name: Install typedoc and typescript
+              run: npm install --global typedoc typescript
             - name: Build the docs
               run: typedoc
             - name: Add files to git and commit them
