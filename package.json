@@ -43,7 +43,6 @@
     "@types/node": "^13.13.2",
     "@types/ws": "^7.2.4",
     "discord.js": "^12.2.0",
-    "husky": "^4.2.5",
     "typedoc": "^0.17.7",
     "typescript": "^3.8.3"
   },
