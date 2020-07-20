@@ -102,8 +102,8 @@
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_lib_structures_command_.command.html#aliases" class="tsd-kind-icon">aliases</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_lib_structures_command_.command.html#client" class="tsd-kind-icon">client</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_lib_structures_command_.command.html#disabled" class="tsd-kind-icon">disabled</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_lib_structures_command_.command.html#manager" class="tsd-kind-icon">manager</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_lib_structures_command_.command.html#options" class="tsd-kind-icon">options</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_lib_structures_command_.command.html#pool" class="tsd-kind-icon">pool</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
@@ -125,14 +125,14 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Command<span class="tsd-signature-symbol">(</span>client<span class="tsd-signature-symbol">: </span><a href="_lib_client_.moonlightclient.html" class="tsd-signature-type">MoonlightClient</a>, manager<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">BaseManager</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="_lib_structures_command_.command.html" class="tsd-signature-type">Command</a><span class="tsd-signature-symbol">&gt;</span>, options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">CommandOptions</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_lib_structures_command_.command.html" class="tsd-signature-type">Command</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Command<span class="tsd-signature-symbol">(</span>client<span class="tsd-signature-symbol">: </span><a href="_lib_client_.moonlightclient.html" class="tsd-signature-type">MoonlightClient</a>, pool<span class="tsd-signature-symbol">: </span><a href="_lib_structures_pools_base_basepool_.basepool.html" class="tsd-signature-type">BasePool</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="_lib_structures_command_.command.html" class="tsd-signature-type">Command</a><span class="tsd-signature-symbol">&gt;</span>, options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">CommandOptions</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_lib_structures_command_.command.html" class="tsd-signature-type">Command</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_lib_structures_basepiece_.basepiece.html">BasePiece</a>.<a href="_lib_structures_basepiece_.basepiece.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/847356f/src/lib/structures/Command.ts#L16">home/runner/work/moonlight/moonlight/src/lib/structures/Command.ts:16</a></li>
+									<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/d441e8c/src/lib/structures/Command.ts#L16">home/runner/work/moonlight/moonlight/src/lib/structures/Command.ts:16</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -141,7 +141,7 @@
 									<h5>client: <a href="_lib_client_.moonlightclient.html" class="tsd-signature-type">MoonlightClient</a></h5>
 								</li>
 								<li>
-									<h5>manager: <span class="tsd-signature-type">BaseManager</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="_lib_structures_command_.command.html" class="tsd-signature-type">Command</a><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5>pool: <a href="_lib_structures_pools_base_basepool_.basepool.html" class="tsd-signature-type">BasePool</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="_lib_structures_command_.command.html" class="tsd-signature-type">Command</a><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <span class="tsd-signature-type">CommandOptions</span></h5>
@@ -160,7 +160,7 @@
 					<div class="tsd-signature tsd-kind-icon">aliases<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/847356f/src/lib/structures/Command.ts#L12">home/runner/work/moonlight/moonlight/src/lib/structures/Command.ts:12</a></li>
+							<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/d441e8c/src/lib/structures/Command.ts#L12">home/runner/work/moonlight/moonlight/src/lib/structures/Command.ts:12</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -176,7 +176,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_lib_structures_event_.event.html">Event</a>.<a href="_lib_structures_event_.event.html#client">client</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/847356f/src/lib/structures/BasePiece.ts#L9">home/runner/work/moonlight/moonlight/src/lib/structures/BasePiece.ts:9</a></li>
+							<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/d441e8c/src/lib/structures/BasePiece.ts#L9">home/runner/work/moonlight/moonlight/src/lib/structures/BasePiece.ts:9</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -187,28 +187,12 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_lib_structures_event_.event.html">Event</a>.<a href="_lib_structures_event_.event.html#disabled">disabled</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/847356f/src/lib/structures/BasePiece.ts#L11">home/runner/work/moonlight/moonlight/src/lib/structures/BasePiece.ts:11</a></li>
+							<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/d441e8c/src/lib/structures/BasePiece.ts#L11">home/runner/work/moonlight/moonlight/src/lib/structures/BasePiece.ts:11</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
 							<p>Whether or not this piece is disabled</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-					<a name="manager" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagReadonly">Readonly</span> manager</h3>
-					<div class="tsd-signature tsd-kind-icon">manager<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">BaseManager</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="_lib_structures_command_.command.html" class="tsd-signature-type">Command</a><span class="tsd-signature-symbol">&gt;</span></div>
-					<aside class="tsd-sources">
-						<p>Inherited from <a href="_lib_structures_event_.event.html">Event</a>.<a href="_lib_structures_event_.event.html#manager">manager</a></p>
-						<ul>
-							<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/847356f/src/lib/structures/BasePiece.ts#L13">home/runner/work/moonlight/moonlight/src/lib/structures/BasePiece.ts:13</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>The manager this piece is part of</p>
 						</div>
 					</div>
 				</section>
@@ -219,9 +203,25 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_lib_structures_event_.event.html">Event</a>.<a href="_lib_structures_event_.event.html#options">options</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/847356f/src/lib/structures/BasePiece.ts#L14">home/runner/work/moonlight/moonlight/src/lib/structures/BasePiece.ts:14</a></li>
+							<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/d441e8c/src/lib/structures/BasePiece.ts#L14">home/runner/work/moonlight/moonlight/src/lib/structures/BasePiece.ts:14</a></li>
 						</ul>
 					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+					<a name="pool" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagReadonly">Readonly</span> pool</h3>
+					<div class="tsd-signature tsd-kind-icon">pool<span class="tsd-signature-symbol">:</span> <a href="_lib_structures_pools_base_basepool_.basepool.html" class="tsd-signature-type">BasePool</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="_lib_structures_command_.command.html" class="tsd-signature-type">Command</a><span class="tsd-signature-symbol">&gt;</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="_lib_structures_event_.event.html">Event</a>.<a href="_lib_structures_event_.event.html#pool">pool</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/d441e8c/src/lib/structures/BasePiece.ts#L13">home/runner/work/moonlight/moonlight/src/lib/structures/BasePiece.ts:13</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The pool this piece is part of</p>
+						</div>
+					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
@@ -237,7 +237,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_lib_structures_monitor_.monitor.html">Monitor</a>.<a href="_lib_structures_monitor_.monitor.html#disable">disable</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/847356f/src/lib/structures/BasePiece.ts#L33">home/runner/work/moonlight/moonlight/src/lib/structures/BasePiece.ts:33</a></li>
+									<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/d441e8c/src/lib/structures/BasePiece.ts#L33">home/runner/work/moonlight/moonlight/src/lib/structures/BasePiece.ts:33</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -255,7 +255,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_lib_structures_monitor_.monitor.html">Monitor</a>.<a href="_lib_structures_monitor_.monitor.html#enable">enable</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/847356f/src/lib/structures/BasePiece.ts#L29">home/runner/work/moonlight/moonlight/src/lib/structures/BasePiece.ts:29</a></li>
+									<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/d441e8c/src/lib/structures/BasePiece.ts#L29">home/runner/work/moonlight/moonlight/src/lib/structures/BasePiece.ts:29</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -273,7 +273,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_lib_structures_event_.event.html">Event</a>.<a href="_lib_structures_event_.event.html#init">init</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/847356f/src/lib/structures/BasePiece.ts#L22">home/runner/work/moonlight/moonlight/src/lib/structures/BasePiece.ts:22</a></li>
+									<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/d441e8c/src/lib/structures/BasePiece.ts#L22">home/runner/work/moonlight/moonlight/src/lib/structures/BasePiece.ts:22</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -296,7 +296,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_lib_structures_event_.event.html">Event</a>.<a href="_lib_structures_event_.event.html#reload">reload</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/847356f/src/lib/structures/BasePiece.ts#L27">home/runner/work/moonlight/moonlight/src/lib/structures/BasePiece.ts:27</a></li>
+									<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/d441e8c/src/lib/structures/BasePiece.ts#L27">home/runner/work/moonlight/moonlight/src/lib/structures/BasePiece.ts:27</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -319,7 +319,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_lib_structures_event_.event.html">Event</a>.<a href="_lib_structures_event_.event.html#run">run</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/847356f/src/lib/structures/Command.ts#L14">home/runner/work/moonlight/moonlight/src/lib/structures/Command.ts:14</a></li>
+									<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/d441e8c/src/lib/structures/Command.ts#L14">home/runner/work/moonlight/moonlight/src/lib/structures/Command.ts:14</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -368,19 +368,19 @@
 						<a href="../modules/_lib_structures_event_.html">&quot;lib/structures/<wbr>Event&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="../modules/_lib_structures_managers_base_basemanager_.html">&quot;lib/structures/<wbr>Managers/<wbr>Base/<wbr>Base<wbr>Manager&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="../modules/_lib_structures_managers_commandmanager_.html">&quot;lib/structures/<wbr>Managers/<wbr>Command<wbr>Manager&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="../modules/_lib_structures_managers_eventmanager_.html">&quot;lib/structures/<wbr>Managers/<wbr>Event<wbr>Manager&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="../modules/_lib_structures_managers_monitormanagers_.html">&quot;lib/structures/<wbr>Managers/<wbr>Monitor<wbr>Managers&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
 						<a href="../modules/_lib_structures_monitor_.html">&quot;lib/structures/<wbr>Monitor&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_lib_structures_pools_base_basepool_.html">&quot;lib/structures/<wbr>Pools/<wbr>Base/<wbr>Base<wbr>Pool&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_lib_structures_pools_commandpool_.html">&quot;lib/structures/<wbr>Pools/<wbr>Command<wbr>Pool&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_lib_structures_pools_eventpool_.html">&quot;lib/structures/<wbr>Pools/<wbr>Event<wbr>Pool&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_lib_structures_pools_monitorpool_.html">&quot;lib/structures/<wbr>Pools/<wbr>Monitor<wbr>Pool&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="../modules/_lib_util_arguments_.html">&quot;lib/util/<wbr>Arguments&quot;</a>
@@ -413,10 +413,10 @@
 								<a href="_lib_structures_command_.command.html#disabled" class="tsd-kind-icon">disabled</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="_lib_structures_command_.command.html#manager" class="tsd-kind-icon">manager</a>
+								<a href="_lib_structures_command_.command.html#options" class="tsd-kind-icon">options</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="_lib_structures_command_.command.html#options" class="tsd-kind-icon">options</a>
+								<a href="_lib_structures_command_.command.html#pool" class="tsd-kind-icon">pool</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="_lib_structures_command_.command.html#disable" class="tsd-kind-icon">disable</a>
