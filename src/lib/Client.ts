@@ -112,7 +112,7 @@ export interface MoonlightClientOptions extends ClientOptions {
     displayErrors?: boolean;
     /** 
      * Set the ready message to display when the bot is ready -> should return a string
-     * @example readyMessage: (client) => `Logged in and serving in {client.guilds.size}!` 
+     * @example readyMessage: (client) => `Logged in and serving in ${client.guilds.size}!` 
      */
     readyMessage?(client: MoonlightClient): string;
 };
