@@ -32,7 +32,7 @@ jobs:
               run: typedoc
             - name: Add files to git and commit them
               run: |
-                rsync -r ./docs ./gh-pages 
+                rsync -r ./docs/. ./gh-pages 
                 cd gh-pages
                 git add .
                 git commit -m "docs(): ${{ github.sha }}"
