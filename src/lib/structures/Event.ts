@@ -1,5 +1,5 @@
 import { MoonlightClient } from "../..";
-import { MoonlightBaseManager as BaseManager } from './Managers/Base/BaseManager';
+import { BasePool } from './Pools/Base/BasePool';
 import { BasePiece, BasePieceOptions } from './BasePiece';
 /**
  * [[include:creatingEvents.md]]
@@ -15,12 +15,12 @@ export class Event extends BasePiece<Event> {
         if (!this.disabled) this.disabled = false;
     }
 
-    public disable():void {
+    public disable(): void {
         if (!!this.disabled) this.disabled = true;
     }
 
-    constructor(client: MoonlightClient, manager: BaseManager<string, Event>, options: EventOptions) {
-        super(client, manager, options);
+    constructor(client: MoonlightClient, pool: BasePool<string, Event>, options: EventOptions) {
+        super(client, pool, options);
         if (!options.event) throw new Error(`No event name provided in one of the event files.`)
         this.event = options.event;
         this.disabled = options.disabled || false;

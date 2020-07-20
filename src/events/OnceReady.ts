@@ -1,10 +1,10 @@
 import { Event } from '../lib/structures/Event';
-import { MoonlightBaseManager as BaseManager } from '../lib/structures/Managers/Base/BaseManager';
+import { BasePool } from '../lib/structures/Pools/Base/BasePool';
 import { MoonlightClient } from '../lib/Client';
 
 export default class extends Event {
-    constructor(client: MoonlightClient, manager: BaseManager<string, Event>) {
-        super(client, manager, {
+    constructor(client: MoonlightClient, pool: BasePool<string, Event>) {
+        super(client, pool, {
             name: 'coreOnceReady',
             event: 'ready',
             once: true
@@ -18,6 +18,6 @@ export default class extends Event {
 
         this.client.prefixes.push(`${this.client.user!.username}, `, `<@!${this.client.user!.id}>`);
 
-        this.client.managers.forEach(file => file.init());
+        this.client.pools.forEach(pool => pool.init());
     }
 }

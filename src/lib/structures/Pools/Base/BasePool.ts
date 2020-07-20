@@ -5,11 +5,11 @@ import { MoonlightClient, Command } from '../../../..';
 import { Stopwatch } from '../../../util';
 
 /** @abstract */
-export class MoonlightBaseManager<K, V> extends Map<K, V> {
+export class BasePool<K, V> extends Map<K, V> {
     public readonly client: MoonlightClient;
-    /** The name of the manager */
+    /** The name of the pool */
     public readonly name: string;
-    /** The class type the manager holds */
+    /** The class type the pool holds */
     public readonly type: unknown;
 
     constructor(client: MoonlightClient, name: string, type: unknown) {
@@ -20,7 +20,7 @@ export class MoonlightBaseManager<K, V> extends Map<K, V> {
         this.type = type;
     }
 
-    /** Initialize the manager */
+    /** Initialize the pool */
     public async init(): Promise<boolean> {
         // We define the array that will hold the files returned by walk 
         let files: Item[];
@@ -32,7 +32,7 @@ export class MoonlightBaseManager<K, V> extends Map<K, V> {
             return this.init()
         }
 
-        // Try to load all the files into the manager
+        // Try to load all the files into the pool
         try {
             const stopwatch = new Stopwatch();
             await Promise.all(files.map(async file => await this.load(file.path)));
@@ -49,7 +49,7 @@ export class MoonlightBaseManager<K, V> extends Map<K, V> {
     }
 
     /**
-     * Loads a class into the manager
+     * Loads a class into the pool
      * @param filePath The path to the file 
      */
     public async load(filePath: string): Promise<boolean> {
@@ -81,7 +81,7 @@ export class MoonlightBaseManager<K, V> extends Map<K, V> {
 
             // Dynamically instert the reload function into the class
             init.reload = function () {
-                return this.manager.load(filePath);
+                return this.pool.load(filePath);
             }
 
             // Finally set the class into the system

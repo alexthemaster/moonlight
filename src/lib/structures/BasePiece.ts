@@ -1,5 +1,5 @@
 import { MoonlightClient } from '../Client';
-import { MoonlightBaseManager as BaseManager } from './Managers/Base/BaseManager';
+import { BasePool } from './Pools/Base/BasePool';
 
 /**
  * @class
@@ -9,8 +9,8 @@ export class BasePiece<T> {
     public readonly client: MoonlightClient;
     /** Whether or not this piece is disabled */
     public disabled: boolean;
-    /** The manager this piece is part of */
-    public readonly manager: BaseManager<string, T>;
+    /** The pool this piece is part of */
+    public readonly pool: BasePool<string, T>;
     public options: BasePieceOptions | undefined;
 
     /** */
@@ -34,11 +34,11 @@ export class BasePiece<T> {
         if (!!this.disabled) this.disabled = true;
     }
 
-    constructor(client: MoonlightClient, manager: BaseManager<string, T>, options?: BasePieceOptions) {
+    constructor(client: MoonlightClient, pool: BasePool<string, T>, options?: BasePieceOptions) {
         this.client = client;
         this.options = options;
         this.disabled = options?.disabled || false;
-        this.manager = manager;
+        this.pool = pool;
     }
 }
 

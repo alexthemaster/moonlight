@@ -1,13 +1,12 @@
 import { Client, ClientOptions } from 'discord.js';
-import path from 'path';
 import { Command } from './structures/Command';
-import { CommandManager } from './structures/Managers/CommandManager';
+import { CommandPool } from './structures/Pools/CommandPool';
 import { Event } from './structures/Event';
-import { EventManager } from './structures/Managers/EventManager';
+import { EventPool } from './structures/Pools/EventPool';
 import { Monitor } from './structures/Monitor';
-import { MonitorManager } from "./structures/Managers/MonitorManagers";
+import { MonitorPool } from "./structures/Pools/MonitorManagers";
 import { Stopwatch } from './util';
-
+import path from 'path';
 
 /**
  * @external ClientOptions
@@ -37,15 +36,15 @@ export class MoonlightClient extends Client {
     /** The core directory, where the Moonlight files are located */
     public readonly coreDir: string = path.join(__dirname, '../')
 
-    // Managers
-    /** The command manager that stores all command */
-    public readonly commands: CommandManager<string, Command> = new CommandManager(this);
+    // Pool
+    /** The command pool that stores all commands */
+    public readonly commands: CommandPool<string, Command> = new CommandPool(this);
     /** A map which stores all command aliases */
     public readonly aliases: Map<string, string> = new Map();
-    /** The event manager that stores all */
-    public readonly events: EventManager<string, Event> = new EventManager(this);
-    /** The monitor manager that stores all monitors */
-    public readonly monitors: MonitorManager<string, Monitor> = new MonitorManager(this);
+    /** The event pool that stores all */
+    public readonly events: EventPool<string, Event> = new EventPool(this);
+    /** The monitor pool that stores all monitors */
+    public readonly monitors: MonitorPool<string, Monitor> = new MonitorPool(this);
 
     // Additional options
     /** An array containing all the prefixes */
@@ -67,8 +66,8 @@ export class MoonlightClient extends Client {
     }
 
 
-    /** Returns a Map containing every Moonlight manager */
-    get managers() {
+    /** Returns a Map containing every Moonlight pool */
+    get pools() {
         return new Map<string, Command | Event | Monitor>([...this.commands, ...this.events, ...this.monitors]);
     }
 
@@ -81,7 +80,7 @@ export class MoonlightClient extends Client {
     public async login(token?: string | undefined): Promise<string> {
         const stopwatch: Stopwatch = new Stopwatch();
 
-        // Initialize all the managers
+        // Initialize all the pools
         await Promise.all([
             this.events.init(),
             this.commands.init(),

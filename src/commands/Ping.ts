@@ -1,12 +1,12 @@
 import { Command } from '../lib/structures/Command';
 import { MoonlightClient } from '../lib/Client';
-import { MoonlightBaseManager as BaseManager } from '../lib/structures/Managers/Base/BaseManager';
+import { BasePool } from '../lib/structures/Pools/Base/BasePool';
 import { Message } from 'discord.js';
 
 /** @ignore */
 export default class extends Command {
-    constructor(client: MoonlightClient, manager: BaseManager<string, Command>) {
-        super(client, manager);
+    constructor(client: MoonlightClient, pool: BasePool<string, Command>) {
+        super(client, pool);
     }
 
     public async run(message: Message) {

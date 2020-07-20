@@ -1,5 +1,5 @@
 import { MoonlightClient } from "../..";
-import { MoonlightBaseManager as BaseManager } from './Managers/Base/BaseManager';
+import { BasePool } from './Pools/Base/BasePool';
 import { BasePiece, BasePieceOptions } from './BasePiece';
 import { Message } from "discord.js";
 
@@ -18,8 +18,8 @@ export class Monitor extends BasePiece<Monitor> {
         throw new Error(`Run function not defined in ${__filename}`);
     }
 
-    constructor(client: MoonlightClient, manager: BaseManager<string, Monitor>, options: MonitorOptions) {
-        super(client, manager, options)
+    constructor(client: MoonlightClient, pool: BasePool<string, Monitor>, options: MonitorOptions) {
+        super(client, pool, options)
         this.ignoreSelf = options.ignoreSelf || false;
         this.ignoreBots = options.ignoreBots || false;
         this.ignoreOthers = options.ignoreOthers || false;

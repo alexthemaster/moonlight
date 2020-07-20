@@ -1,8 +1,8 @@
-import { MoonlightBaseManager as BaseManager } from './Base/BaseManager';
+import { BasePool } from './Base/BasePool';
 import { MoonlightClient } from '../../..';
 import { Event } from '../Event';
 
-export class EventManager<K, V> extends BaseManager<K, V> {
+export class EventPool<K, V> extends BasePool<K, V> {
     constructor(client: MoonlightClient) {
         super(client, 'events', Event);
     }
