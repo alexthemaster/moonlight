@@ -110,6 +110,9 @@ export interface MoonlightClientOptions extends ClientOptions {
     prefix?: string | string[];
     /** Whether or not to display error messages send as the error event */
     displayErrors?: boolean;
-    /** Set the ready message to display when thgge bot is ready -> should return a string */
+    /** 
+     * Set the ready message to display when the bot is ready -> should return a string
+     * @example readyMessage: (client) => `Logged in and serving in {client.guilds.size}!` 
+     */
     readyMessage?(client: MoonlightClient): string;
 };
