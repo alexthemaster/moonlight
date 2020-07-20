@@ -4,7 +4,7 @@ import { CommandPool } from './structures/Pools/CommandPool';
 import { Event } from './structures/Event';
 import { EventPool } from './structures/Pools/EventPool';
 import { Monitor } from './structures/Monitor';
-import { MonitorPool } from "./structures/Pools/MonitorManagers";
+import { MonitorPool } from "./structures/Pools/MonitorPool";
 import { Stopwatch } from './util';
 import path from 'path';
 
