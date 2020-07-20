@@ -5,7 +5,6 @@ on:
             - master    
 jobs: 
     docs:
-        name: Docs
         runs-on: ubuntu-latest
         steps: 
             - name: Checkout project
