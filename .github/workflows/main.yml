@@ -4,8 +4,8 @@ on:
         branches:
             - master
 jobs:
-    compile:
-        name: Compile
+    build:
+        name: Build
         runs-on: ubuntu-latest
         steps: 
             - name: Checkout project
@@ -20,25 +20,25 @@ jobs:
                 git config --global user.email crumbs@penfoldium.org
             - name: Install packages
               run: npm ci
-            - name: Clone the compiled branch
+            - name: Clone the build branch
               run: |
-                mkdir compiled
-                cd compiled
+                mkdir build
+                cd build
                 git clone https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/penfoldium/moonlight.git .
-                git checkout compiled
+                git checkout build
             - name: Build project
               run: npx tsc
             - name: Add files to git and commit them
               run: |
-                cp -r ./dist ./compiled/dist 
-                cp ./package* ./compiled
-                cd compiled
+                rsync -r ./dist ./build 
+                rsync ./package* ./build
+                cd build
                 git add .
-                git commit -m "Build ${{ github.sha }}"
+                git commit -m "build(): ${{ github.sha }}"
             - name: Push files to GitHub
               run: |
-                cd compiled
-                git push origin compiled
+                cd build
+                git push origin build
     docs:
         name: Docs
         runs-on: ubuntu-latest
@@ -68,10 +68,10 @@ jobs:
               run: typedoc
             - name: Add files to git and commit them
               run: |
-                cp -a ./docs/. ./gh-pages 
+                rsync -r ./docs ./gh-pages 
                 cd gh-pages
                 git add .
-                git commit -m "Docs ${{ github.sha }}"
+                git commit -m "docs(): ${{ github.sha }}"
             - name: Push files to GitHub
               run: |
                 cd gh-pages
