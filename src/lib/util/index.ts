@@ -1,2 +1,2 @@
-export * from "./Stopwatch"; 
-export * from "./Arguments";
+export * from "./Stopwatch";
+export * from "./ArgumentParser";
