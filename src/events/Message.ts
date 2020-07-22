@@ -3,6 +3,7 @@ import { MoonlightClient } from '../lib/Client';
 import { Message } from 'discord.js';
 import { BasePool } from '../lib/structures/Pools/Base/BasePool';
 import { Command } from '../lib/structures/Command';
+import moment from 'moment';
 
 export default class extends Event {
     constructor(client: MoonlightClient, pool: BasePool<string, Event>) {
@@ -33,8 +34,35 @@ export default class extends Event {
         const command = args.shift()?.toLowerCase();
         if (!command) return;
 
-        const cmd: Command | null = this.client.commands.get(command) || this.client.commands.get((this.client.aliases.get(command) as string)) || null;
+        const cmd: Command | null = this.client.commands.get(command.toLowerCase()) || this.client.commands.get((this.client.aliases.get(command.toLowerCase()) as string)) || null;
         if (!cmd) return;
+
+        if (!this.client.owners.some(owner => owner === message.author.id) && this.client.cooldowns.has(cmd)) {
+
+            // Shout-out to this amazing Stack Overflow answer for this solution https://stackoverflow.com/a/53829705
+            const cooldownEnd = moment(this.client.cooldowns.get(cmd));
+            const now = moment();
+            moment.relativeTimeThreshold('ss', 60);
+            moment.updateLocale('en', {
+                relativeTime: {
+                    s: function (number) {
+                        return number + ' seconds';
+                    }
+                }
+            });
+
+            const duration = moment.duration(cooldownEnd.diff(now)).humanize();
+
+            return message.channel.send(`You have already used this command recently. Please try again ${duration}.`);
+        };
+
+        const cooldownEnd = moment(new Date()).add(cmd.cooldown, 'seconds').toDate();
+
+        this.client.cooldowns.set(cmd, cooldownEnd);
+
+        setTimeout(() => {
+            this.client.cooldowns.delete(cmd);
+        }, cmd.cooldown * 1000);
 
         if (cmd.disabled) return message.channel.send(`This command was globally disabled by the bot owner.`);
 

@@ -46,6 +46,11 @@ export class MoonlightClient extends Client {
     /** The monitor pool that stores all monitors */
     public readonly monitors: MonitorPool<string, Monitor> = new MonitorPool(this);
 
+    /** The Map that stores command cooldowns */
+    public cooldowns: Map<Command, Date> = new Map();
+
+    public owners: string[] = new Array();
+
     // Additional options
     /** An array containing all the prefixes */
     public readonly prefixes: string[] = new Array();
@@ -63,6 +68,8 @@ export class MoonlightClient extends Client {
         if (options?.displayErrors || !options?.displayErrors) {
             this.on('error', error => console.error(`[Error] ${error}`));
         }
+
+        if (options?.owners) this.owners.push(...options.owners);
     }
 
 
@@ -110,6 +117,8 @@ export interface MoonlightClientOptions extends ClientOptions {
     prefix?: string | string[];
     /** Whether or not to display error messages send as the error event */
     displayErrors?: boolean;
+    /** An array that contains the ID's of the owners */
+    owners?: string[];
     /** 
      * Set the ready message to display when the bot is ready -> should return a string
      * @example readyMessage: (client) => `Logged in and serving in ${client.guilds.size}!` 

@@ -69,7 +69,7 @@ export class BasePool<K, V> extends Map<K, V> {
             if ((init instanceof (this.type as Function)) == false) throw `The file at ${filePath} doesn't appear to be an instance of ${(this.type as Function).name}`;
 
             // If the user provided a name in the options then use that, otherwise use the name of the file
-            const name = init.name?.toLowerCase() || path.parse(filePath).name;
+            const name = init.name?.toLowerCase() || path.parse(filePath).name.toLowerCase();
 
 
             // If the class is an instance of Command and there are aliases present then set them 
