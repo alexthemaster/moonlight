@@ -20,9 +20,9 @@ export class Monitor extends BasePiece<Monitor> {
 
     constructor(client: MoonlightClient, pool: BasePool<string, Monitor>, options: MonitorOptions) {
         super(client, pool, options)
-        this.ignoreSelf = options.ignoreSelf || false;
-        this.ignoreBots = options.ignoreBots || false;
-        this.ignoreOthers = options.ignoreOthers || false;
+        this.ignoreSelf = options.ignoreSelf ?? false;
+        this.ignoreBots = options.ignoreBots ?? false;
+        this.ignoreOthers = options.ignoreOthers ?? false;
     }
 }
 

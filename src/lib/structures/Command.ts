@@ -16,6 +16,8 @@ export class Command extends BasePiece<Command> {
     public readonly canRunInDM: boolean;
     /** The amount of time in seconds of the command's cooldown */
     public readonly cooldown: number;
+    /** Whether or not this command can only be run by the owner */
+    public readonly ownerOnly: boolean;
 
     public run(_message: Message, ..._arg: any[]): void {
         throw new Error(`Run function not defined in ${__filename}`);
@@ -27,6 +29,7 @@ export class Command extends BasePiece<Command> {
         this.nsfw = options?.nsfw ?? false;
         this.canRunInDM = options?.canRunInDM ?? true;
         this.cooldown = options?.cooldown ?? 0;
+        this.ownerOnly = options?.ownerOnly ?? false;
     }
 }
 
@@ -38,5 +41,7 @@ interface CommandOptions extends BasePieceOptions {
     /** Whether or not this command can be called by a user when DM-ing the bot */
     canRunInDM?: boolean;
     /** The amount of time in seconds of a command's cooldown */
-    cooldown: number;
+    cooldown?: number;
+    /** Whether or not this command can only be run by the owner */
+    ownerOnly?: boolean;
 }

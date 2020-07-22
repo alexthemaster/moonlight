@@ -23,8 +23,8 @@ export class Event extends BasePiece<Event> {
         super(client, pool, options);
         if (!options.event) throw new Error(`No event name provided in one of the event files.`)
         this.event = options.event;
-        this.disabled = options.disabled || false;
-        this.once = options.once || false;
+        this.disabled = options.disabled ?? false;
+        this.once = options.once ?? false;
     }
 }
 
