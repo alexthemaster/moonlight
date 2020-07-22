@@ -75,7 +75,7 @@ export class BasePool<K, V> extends Map<K, V> {
             // If the class is an instance of Command and there are aliases present then set them 
             if (init instanceof Command) {
                 if ((init as Command).aliases && Array.isArray((init as Command).aliases)) {
-                    (init as Command).aliases.forEach(alias => this.client.aliases.set(alias, name))
+                    (init as Command).aliases.forEach(alias => this.client.aliases.set(alias.toLowerCase(), name))
                 }
             }
 
