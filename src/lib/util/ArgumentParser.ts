@@ -15,14 +15,14 @@ export class ArgumentParser {
         const args: ArgsObject = {};
 
         this.args.forEach(argument => {
-            if (this._requiredRegex.test(argument)) this._processRegex(this._requiredRegex, args, argument, 'required');
-            else if (this._optionalRegex.test(argument)) this._processRegex(this._optionalRegex, args, argument, 'optional');
+            if (this._requiredRegex.test(argument)) this._processArgument(this._requiredRegex, args, argument, 'required');
+            else if (this._optionalRegex.test(argument)) this._processArgument(this._optionalRegex, args, argument, 'optional');
         });
 
         return args;
     };
 
-    private _processRegex(regex: RegExp, argumentObject: ArgsObject, argument: string, type: ArgumentType): void {
+    private _processArgument(regex: RegExp, argumentObject: ArgsObject, argument: string, type: ArgumentType): void {
         const match: string = argument.match(regex)!.map(string => string.slice(1, string.length).slice(0, -1))[0];
         const split = match.split(':');
         const arg = split[0];
