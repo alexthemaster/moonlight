@@ -9,6 +9,8 @@ export class BasePiece<T> {
     public readonly client: MoonlightClient;
     /** Whether or not this piece is disabled */
     public disabled: boolean;
+    /** The description of the piece */
+    public readonly description?: string;
     /** The pool this piece is part of */
     public readonly pool: BasePool<string, T>;
     public options: BasePieceOptions | undefined;
@@ -37,7 +39,8 @@ export class BasePiece<T> {
     constructor(client: MoonlightClient, pool: BasePool<string, T>, options?: BasePieceOptions) {
         this.client = client;
         this.options = options;
-        this.disabled = options?.disabled || false;
+        this.description = options?.description;
+        this.disabled = options?.disabled ?? false;
         this.pool = pool;
     }
 }
@@ -46,4 +49,6 @@ export interface BasePieceOptions {
     name?: string;
     /** Whether or not this piece should be disabled */
     disabled?: boolean;
+    /** The description of the piece */
+    description?: string;
 }

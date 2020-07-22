@@ -38,6 +38,10 @@ export default class extends Event {
 
         if (cmd.disabled) return message.channel.send(`This command was globally disabled by the bot owner.`);
 
+        if (!cmd.canRunInDM && message.channel.type === 'dm') return;
+
+        if (cmd.nsfw && message.channel.type !== 'dm' && !message.channel.nsfw) return message.channel.send('This command can only be used in NSFW chnanels.');
+
         cmd.run(message);
     }
 }
