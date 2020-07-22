@@ -38,7 +38,6 @@ export default class extends Event {
         if (!cmd) return;
 
         if (!this.client.owners.some(owner => owner === message.author.id) && this.client.cooldowns.has(cmd)) {
-
             // Shout-out to this amazing Stack Overflow answer for this solution https://stackoverflow.com/a/53829705
             const cooldownEnd = moment(this.client.cooldowns.get(cmd));
             const now = moment();
