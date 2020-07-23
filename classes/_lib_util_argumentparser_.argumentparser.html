@@ -89,6 +89,8 @@
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_lib_util_argumentparser_.argumentparser.html#_optionalregex" class="tsd-kind-icon">_optional<wbr>Regex</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_lib_util_argumentparser_.argumentparser.html#_requiredregex" class="tsd-kind-icon">_required<wbr>Regex</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_lib_util_argumentparser_.argumentparser.html#args" class="tsd-kind-icon">args</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_lib_util_argumentparser_.argumentparser.html#delimiter" class="tsd-kind-icon">delimiter</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_lib_util_argumentparser_.argumentparser.html#parsed" class="tsd-kind-icon">parsed</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_lib_util_argumentparser_.argumentparser.html#text" class="tsd-kind-icon">text</a></li>
 							</ul>
 						</section>
@@ -108,13 +110,13 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Argument<wbr>Parser<span class="tsd-signature-symbol">(</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span>, text<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_lib_util_argumentparser_.argumentparser.html" class="tsd-signature-type">ArgumentParser</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Argument<wbr>Parser<span class="tsd-signature-symbol">(</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span>, text<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, delimiter<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_lib_util_argumentparser_.argumentparser.html" class="tsd-signature-type">ArgumentParser</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/781575e/src/lib/util/ArgumentParser.ts#L5">home/runner/work/moonlight/moonlight/src/lib/util/ArgumentParser.ts:5</a></li>
+									<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/7f7265d/src/lib/util/ArgumentParser.ts#L9">home/runner/work/moonlight/moonlight/src/lib/util/ArgumentParser.ts:9</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -124,6 +126,9 @@
 								</li>
 								<li>
 									<h5>text: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> delimiter: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> = undefined</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="_lib_util_argumentparser_.argumentparser.html" class="tsd-signature-type">ArgumentParser</a></h4>
@@ -139,7 +144,7 @@
 					<div class="tsd-signature tsd-kind-icon">_optional<wbr>Regex<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">RegExp</span><span class="tsd-signature-symbol"> = /\[(.*?)\]/g</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/781575e/src/lib/util/ArgumentParser.ts#L5">home/runner/work/moonlight/moonlight/src/lib/util/ArgumentParser.ts:5</a></li>
+							<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/7f7265d/src/lib/util/ArgumentParser.ts#L9">home/runner/work/moonlight/moonlight/src/lib/util/ArgumentParser.ts:9</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -149,7 +154,7 @@
 					<div class="tsd-signature tsd-kind-icon">_required<wbr>Regex<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">RegExp</span><span class="tsd-signature-symbol"> = /\&lt;(.*?)\&gt;/g</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/781575e/src/lib/util/ArgumentParser.ts#L4">home/runner/work/moonlight/moonlight/src/lib/util/ArgumentParser.ts:4</a></li>
+							<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/7f7265d/src/lib/util/ArgumentParser.ts#L8">home/runner/work/moonlight/moonlight/src/lib/util/ArgumentParser.ts:8</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -159,17 +164,37 @@
 					<div class="tsd-signature tsd-kind-icon">args<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/781575e/src/lib/util/ArgumentParser.ts#L2">home/runner/work/moonlight/moonlight/src/lib/util/ArgumentParser.ts:2</a></li>
+							<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/7f7265d/src/lib/util/ArgumentParser.ts#L4">home/runner/work/moonlight/moonlight/src/lib/util/ArgumentParser.ts:4</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="delimiter" class="tsd-anchor"></a>
+					<h3>delimiter</h3>
+					<div class="tsd-signature tsd-kind-icon">delimiter<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/7f7265d/src/lib/util/ArgumentParser.ts#L6">home/runner/work/moonlight/moonlight/src/lib/util/ArgumentParser.ts:6</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="parsed" class="tsd-anchor"></a>
+					<h3>parsed</h3>
+					<div class="tsd-signature tsd-kind-icon">parsed<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/7f7265d/src/lib/util/ArgumentParser.ts#L7">home/runner/work/moonlight/moonlight/src/lib/util/ArgumentParser.ts:7</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="text" class="tsd-anchor"></a>
 					<h3>text</h3>
-					<div class="tsd-signature tsd-kind-icon">text<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<div class="tsd-signature tsd-kind-icon">text<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/781575e/src/lib/util/ArgumentParser.ts#L3">home/runner/work/moonlight/moonlight/src/lib/util/ArgumentParser.ts:3</a></li>
+							<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/7f7265d/src/lib/util/ArgumentParser.ts#L5">home/runner/work/moonlight/moonlight/src/lib/util/ArgumentParser.ts:5</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -186,7 +211,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/781575e/src/lib/util/ArgumentParser.ts#L14">home/runner/work/moonlight/moonlight/src/lib/util/ArgumentParser.ts:14</a></li>
+									<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/7f7265d/src/lib/util/ArgumentParser.ts#L56">home/runner/work/moonlight/moonlight/src/lib/util/ArgumentParser.ts:56</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">ArgsObject</span></h4>
@@ -203,7 +228,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/781575e/src/lib/util/ArgumentParser.ts#L25">home/runner/work/moonlight/moonlight/src/lib/util/ArgumentParser.ts:25</a></li>
+									<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/7f7265d/src/lib/util/ArgumentParser.ts#L67">home/runner/work/moonlight/moonlight/src/lib/util/ArgumentParser.ts:67</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -247,6 +272,15 @@
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="../modules/_lib_client_.html">&quot;lib/<wbr>Client&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_lib_arguments_number_.html">&quot;lib/arguments/<wbr>Number&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_lib_arguments_string_.html">&quot;lib/arguments/<wbr>String&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_lib_arguments_index_.html">&quot;lib/arguments/index&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="../modules/_lib_structures_basepiece_.html">&quot;lib/structures/<wbr>Base<wbr>Piece&quot;</a>
@@ -303,6 +337,12 @@
 								<a href="_lib_util_argumentparser_.argumentparser.html#args" class="tsd-kind-icon">args</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="_lib_util_argumentparser_.argumentparser.html#delimiter" class="tsd-kind-icon">delimiter</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="_lib_util_argumentparser_.argumentparser.html#parsed" class="tsd-kind-icon">parsed</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="_lib_util_argumentparser_.argumentparser.html#text" class="tsd-kind-icon">text</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
@@ -333,6 +373,9 @@
 			<ul class="tsd-legend">
 				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
 				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
