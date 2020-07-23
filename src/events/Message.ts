@@ -4,6 +4,8 @@ import { Message } from 'discord.js';
 import { BasePool } from '../lib/structures/Pools/Base/BasePool';
 import { Command } from '../lib/structures/Command';
 import moment from 'moment';
+import { parse } from 'path';
+import { ArgumentParser } from '../lib/util';
 
 export default class extends Event {
     constructor(client: MoonlightClient, pool: BasePool<string, Event>) {
@@ -69,6 +71,14 @@ export default class extends Event {
 
         if (cmd.nsfw && message.channel.type !== 'dm' && !message.channel.nsfw) return message.channel.send('This command can only be used in NSFW chnanels.');
 
-        cmd.run(message);
+        let parsedArgs: {};
+
+        try {
+            parsedArgs = new ArgumentParser(cmd.usage, args.join(' '), cmd.usageDelim).parsed;
+        } catch (err) {
+            return message.channel.send(err);
+        }
+
+        cmd.run(message, parsedArgs);
     }
 }

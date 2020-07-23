@@ -18,6 +18,10 @@ export class Command extends BasePiece<Command> {
     public readonly cooldown: number;
     /** Whether or not this command can only be run by the owner */
     public readonly ownerOnly: boolean;
+    /** The usage string for the command */
+    public readonly usage: string;
+    /** The usage delimiter */
+    public readonly usageDelim: string | undefined;
 
     public run(_message: Message, ..._arg: any[]): void {
         throw new Error(`Run function not defined in ${__filename}`);
@@ -30,6 +34,8 @@ export class Command extends BasePiece<Command> {
         this.canRunInDM = options?.canRunInDM ?? true;
         this.cooldown = options?.cooldown ?? 0;
         this.ownerOnly = options?.ownerOnly ?? false;
+        this.usage = options?.usage ?? '';
+        this.usageDelim = options?.usageDelim ?? undefined;
     }
 }
 
@@ -44,4 +50,8 @@ interface CommandOptions extends BasePieceOptions {
     cooldown?: number;
     /** Whether or not this command can only be run by the owner */
     ownerOnly?: boolean;
+    /** The usage string for the command */
+    usage?: string;
+    /** The usage delimiter */
+    usageDelim?: string | undefined;
 }

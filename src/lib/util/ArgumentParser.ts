@@ -8,8 +8,8 @@ export class ArgumentParser {
     private _requiredRegex: RegExp = /\<(.*?)\>/g;
     private _optionalRegex: RegExp = /\[(.*?)\]/g;
 
-    constructor(args: string[], text: string, delimiter: string | undefined = undefined) {
-        this.args = args;
+    constructor(args: string, text: string, delimiter: string | undefined = undefined) {
+        this.args = args.split(/ +/g);
         this.delimiter = delimiter;
         // @ts-expect-error
         this.text = text.split(this.delimiter);
