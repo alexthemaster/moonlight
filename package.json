@@ -40,7 +40,7 @@
   "devDependencies": {
     "@types/fs-extra": "^9.0.1",
     "@types/klaw": "^3.0.1",
-    "@types/node": "^14.0.24",
+    "@types/node": "^14.0.25",
     "@types/ws": "^7.2.6",
     "discord.js": "^12.2.0",
     "typedoc": "^0.17.8",
