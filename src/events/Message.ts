@@ -1,11 +1,10 @@
 import { Event } from '../lib/structures/Event';
 import { MoonlightClient } from '../lib/Client';
-import { Message } from 'discord.js';
 import { BasePool } from '../lib/structures/Pools/Base/BasePool';
 import { Command } from '../lib/structures/Command';
-import moment from 'moment';
-import { parse } from 'path';
 import { ArgumentParser } from '../lib/util';
+import { Message } from 'discord.js';
+import moment from 'moment';
 
 export default class extends Event {
     constructor(client: MoonlightClient, pool: BasePool<string, Event>) {
