@@ -1,5 +1,5 @@
 function number(input: number) {
-    if (isNaN(input)) throw 'This argument should be a number!';
+    if (isNaN(input)) throw 'The provided argument should be a number!';
     else return Number(input);
 }
 

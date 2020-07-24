@@ -74,8 +74,8 @@ export default class extends Event {
 
         try {
             parsedArgs = new ArgumentParser(cmd.usage, args.join(' '), cmd.usageDelim).parsed;
-        } catch (err) {
-            return message.channel.send(err);
+        } catch (res) {
+            return message.channel.send(res.message);
         }
 
         cmd.run(message, parsedArgs);
