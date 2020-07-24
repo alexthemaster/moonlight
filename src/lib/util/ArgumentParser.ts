@@ -29,13 +29,15 @@ export class ArgumentParser {
                 this.text = new Array();
                 this.text[0] = temp;
                 toParse = temp;
-            } else toParse = this.text.shift();
+            } else toParse = this.text[0];
 
             if (!argumentObject.argumentType) {
-                if (arg !== toParse && argumentObject.type !== 'optional') {
-                    throw `${toParse} is supposed to be equal to the ${arg} argument`
+                if (arg !== toParse) {
+                    if (argumentObject.type !== 'optional') throw `${toParse} is supposed to be equal to the ${arg} argument`;
+                    else continue;
                 }
-                else this.parsed[arg] = arg;
+                this.text.shift();
+                this.parsed[arg] = arg;
                 continue;
             }
 
