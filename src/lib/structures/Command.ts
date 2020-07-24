@@ -22,9 +22,16 @@ export class Command extends BasePiece<Command> {
     public readonly usage: string;
     /** The usage delimiter */
     public readonly usageDelim: string | undefined;
+    /** The map containing the customized responses */
+    public readonly customizedResponses: Map<string, string> = new Map<string, string>();
 
     public run(_message: Message, ..._arg: any[]): void {
         throw new Error(`Run function not defined in ${__filename}`);
+    }
+
+    /** Customize the message thrown when an argument fails to parse */
+    public customizeResponse(argument: string, response: string): void {
+        this.customizedResponses.set(argument, response);
     }
 
     constructor(client: MoonlightClient, pool: BasePool<string, Command>, options?: CommandOptions) {

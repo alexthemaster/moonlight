@@ -75,6 +75,7 @@ export default class extends Event {
         try {
             parsedArgs = new ArgumentParser(cmd.usage, args.join(' '), cmd.usageDelim).parsed;
         } catch (res) {
+            if (cmd.customizedResponses.has(res.arg)) return message.channel.send(cmd.customizedResponses.get(res.arg));
             return message.channel.send(res.message);
         }
 
