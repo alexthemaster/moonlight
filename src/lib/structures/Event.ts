@@ -1,13 +1,14 @@
 import { MoonlightClient } from "../..";
 import { BasePool } from './Pools/Base/BasePool';
 import { BasePiece, BasePieceOptions } from './BasePiece';
+import { ClientEvents } from 'discord.js';
 /**
  * [[include:creatingEvents.md]]
  * @abstract
  */
 export class Event extends BasePiece<Event> {
     /** The event to listen to */
-    public readonly event: string;
+    public readonly event: keyof ClientEvents;
     /** Whether or not to run this event only once */
     public readonly once: boolean;
 
@@ -30,7 +31,7 @@ export class Event extends BasePiece<Event> {
 
 interface EventOptions extends BasePieceOptions {
     /** The event to listen to */
-    event: string;
+    event: keyof ClientEvents;
     /** Whether or not to run this event only once */
     once?: boolean;
 }
