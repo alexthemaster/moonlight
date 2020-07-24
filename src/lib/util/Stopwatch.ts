@@ -1,4 +1,4 @@
-// Inspired by Klasa's Stopwatch https://github.com/dirigeants/klasa/blob/master/src/lib/util/Stopwatch.js
+// Inspired by Dirigeants's Stopwatch https://github.com/dirigeants/stopwatch
 // MIT License
 
 export class Stopwatch {
