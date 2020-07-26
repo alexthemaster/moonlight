@@ -91,7 +91,7 @@ export class BasePool<K, V> extends Map<K, V> {
 
             // If something went wrong then emit an error event and throw the error
             this.client.emit('error', err);
-            throw err;
+            return false;
         }
     }
 
