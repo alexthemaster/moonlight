@@ -24,6 +24,7 @@ export default class extends Event {
             monitor.run(message);
         });
 
+        // Return if the author of a message is a bot
         if (message.author.bot) return;
 
         // If the message doesn't start with ANY prefix then return
@@ -37,7 +38,7 @@ export default class extends Event {
         const command = args.shift()?.toLowerCase();
         if (!command) return;
 
-        const cmd: Command | null = this.client.commands.get(command.toLowerCase()) || this.client.commands.get((this.client.aliases.get(command.toLowerCase()) as string)) || null;
+        const cmd: Command | null = this.client.commands.get(command.toLowerCase()) ?? this.client.commands.get((this.client.aliases.get(command.toLowerCase()) as string)) ?? null;
         if (!cmd) return;
 
         if (!this.client.owners.some(owner => owner === message.author.id) && this.client.cooldowns.has(cmd)) {

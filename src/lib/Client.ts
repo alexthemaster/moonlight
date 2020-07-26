@@ -65,7 +65,7 @@ export class MoonlightClient extends Client {
             else this.prefixes.push((options.prefix as string));
         }
 
-        if (options?.displayErrors || !options?.displayErrors) {
+        if (options?.displayErrors ?? !options?.displayErrors) {
             this.on('error', error => console.error(`[Error] ${error}`));
         }
 
