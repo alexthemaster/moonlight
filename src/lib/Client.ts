@@ -57,7 +57,7 @@ export class MoonlightClient extends Client {
     public options!: MoonlightClientOptions;
 
     /** @param options The Moonlight Client Options */
-    constructor(options?: MoonlightClientOptions) {
+    constructor(options: MoonlightClientOptions = { displayErrors: true }) {
         super(options);
 
         if (options?.prefix) {
@@ -65,7 +65,7 @@ export class MoonlightClient extends Client {
             else this.prefixes.push((options.prefix as string));
         }
 
-        if (options?.displayErrors) {
+        if (options.displayErrors) {
             this.on('error', error => console.error(`[Error] ${error}`));
         }
 
@@ -115,7 +115,7 @@ export class MoonlightClient extends Client {
 export interface MoonlightClientOptions extends ClientOptions {
     /** The prefix or an array of prefixes the bot will use */
     prefix?: string | string[];
-    /** Whether or not to display error messages send as the error event */
+    /** Whether or not to display error messages sent by the error event */
     displayErrors?: boolean;
     /** An array that contains the ID's of the owners */
     owners?: string[];
