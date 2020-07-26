@@ -14,7 +14,7 @@ export default class extends Event {
         })
     }
 
-    public run(message: Message) {
+    public async run(message: Message) {
         // Run the monitors
         this.client.monitors.forEach(monitor => {
             if (monitor.ignoreOthers && message.author !== this.client.user) return;
@@ -98,7 +98,7 @@ export default class extends Event {
         // We parse the arguments
         let parsedArgs: object;
         try {
-            parsedArgs = new ArgumentParser(cmd.usage, args.join(' '), cmd.usageDelim).parsed;
+            parsedArgs = await new ArgumentParser(cmd.usage, args.join(' '), cmd.usageDelim, this.client, message).parse();
         } catch (res) {
             if (cmd.customizedResponses.has(res.arg)) return message.channel.send(cmd.customizedResponses.get(res.arg));
             return message.channel.send(res.message);

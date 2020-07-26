@@ -1,4 +1,6 @@
 import * as Arguments from '../arguments';
+import { MoonlightClient } from '../Client';
+import { Message } from 'discord.js';
 
 export class ArgumentParser {
     /** The arguments used for parsing the text */
@@ -7,8 +9,8 @@ export class ArgumentParser {
     public text: string[];
     /** The delimiter that specifies how to separate the text for checking */
     public delimiter: string | undefined;
-    /** The parsed arguments */
-    public parsed: any;
+    private _client: MoonlightClient;
+    private _message: Message;
     private _requiredRegex: RegExp = /\<(.*?)\>/g;
     private _optionalRegex: RegExp = /\[(.*?)\]/g;
 
@@ -17,12 +19,17 @@ export class ArgumentParser {
      * @param text The text to parse
      * @param delimiter The delimiter that specifies how to separate the text for checking
      */
-    constructor(args: string, text: string, delimiter: string | undefined = undefined) {
+    constructor(args: string, text: string, delimiter: string | undefined = undefined, client: MoonlightClient, message: Message) {
         this.args = args.split(/ +/g);
         this.delimiter = delimiter;
         // @ts-expect-error
         this.text = text.split(this.delimiter);
-        this.parsed = {};
+        this._client = client;
+        this._message = message;
+    }
+
+    public async parse() {
+        const parsed: any = {};
 
         const parsedArgs: ArgsObject = this._parseArguments();
 
@@ -42,6 +49,8 @@ export class ArgumentParser {
                 toParse = temp;
             } else toParse = this.text[0];
 
+            if (!toParse.length) throw { arg, message: `${arg} is a required argument!` };
+
             // If there isn't an argument type specified then we check for a direct string match, and if the argument is not optional also throw a message 
             if (!argumentObject.argumentType) {
                 if (arg !== toParse) {
@@ -50,7 +59,7 @@ export class ArgumentParser {
                 }
 
                 this.text.shift();
-                this.parsed[arg] = arg;
+                parsed[arg] = arg;
                 continue;
             }
 
@@ -60,13 +69,15 @@ export class ArgumentParser {
             else {
                 try {
                     // @ts-expect-error
-                    this.parsed[arg] = Arguments[argumentObject.argumentType](toParse)
+                    parsed[arg] = await Arguments[argumentObject.argumentType](toParse, this._client, this._message)
                 } catch (err) {
                     if (argumentObject.type === 'optional') return;
                     throw { arg, message: err };
                 }
             }
         }
+
+        return parsed;
     }
 
     private _parseArguments(): ArgsObject {
