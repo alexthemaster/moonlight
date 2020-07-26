@@ -57,17 +57,20 @@ export class MoonlightClient extends Client {
     public options!: MoonlightClientOptions;
 
     /** @param options The Moonlight Client Options */
-    constructor(options: MoonlightClientOptions = { displayErrors: true }) {
+    constructor(options: MoonlightClientOptions = {}) {
         super(options);
+
+        options.displayErrors = options.displayErrors ?? true;
 
         if (options?.prefix) {
             if (Array.isArray(options.prefix)) this.prefixes.push(...(options.prefix as string[]));
             else this.prefixes.push((options.prefix as string));
         }
 
-        if (options.displayErrors) {
-            this.on('error', error => console.error(`[Error] ${error}`));
-        }
+        this.on('error', error => {
+            if (options.displayErrors) console.error(`[Error] ${error}`);
+        });
+
 
         if (options?.owners) this.owners.push(...options.owners);
     }
