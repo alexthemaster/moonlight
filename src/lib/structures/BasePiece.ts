@@ -15,7 +15,6 @@ export class BasePiece<T> {
     public readonly pool: BasePool<string, T>;
     public options: BasePieceOptions | undefined;
 
-    /** */
     public run(...arg: any[]): void {
         throw new Error(`Run function not defined in ${__filename}`);
     }
