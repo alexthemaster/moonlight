@@ -76,6 +76,14 @@ export default class extends Event {
         if (cmd.nsfw && message.channel.type !== 'dm' && !message.channel.nsfw) return message.channel.send('This command can only be used in NSFW chnanels.');
 
 
+        if (message.guild) {
+            const missingPerms = message.member?.permissionsIn(message.channel).missing(cmd.requiredPermissions);
+            const missingBotPerms = message.guild.me?.permissionsIn(message.channel).missing(cmd.requiredBotPermissions);
+
+            if (missingBotPerms?.length) return message.channel.send(`Insufficient bot permissions, missing: \`${missingBotPerms.map(perm => FriendlyPermission[perm]).join(', ')}\``);
+            if (missingPerms?.length) return message.channel.send(`Insufficient user permissions, missing: \`${missingPerms.map(perm => FriendlyPermission[perm]).join(', ')}\``);
+        }
+
         // We parse the flags
         while (args.some(arg => arg.startsWith('--'))) {
             const find = args.find(arg => arg.startsWith('--'));
@@ -98,4 +106,38 @@ export default class extends Event {
 
         cmd.run(message, parsedArgs);
     }
+}
+
+enum FriendlyPermission {
+    CREATE_INSTANT_INVITE = "Create Invite",
+    KICK_MEMBERS = "Kick Members",
+    BAN_MEMBERS = "Ban Members",
+    ADMINISTRATOR = "Administrator",
+    MANAGE_CHANNELS = "Manage Channels",
+    MANAGE_GUILD = "Manage Server",
+    ADD_REACTIONS = "Add Reactions",
+    VIEW_AUDIT_LOG = "View Audit Log",
+    PRIORITY_SPEAKER = "Priority Speaker",
+    STREAM = "Video",
+    VIEW_CHANNEL = "Read Messages",
+    SEND_MESSAGES = "Send Messages",
+    SEND_TTS_MESSAGES = "Send TTS Messages",
+    MANAGE_MESSAGES = "Manage Messages",
+    EMBED_LINKS = "Embed Links",
+    ATTACH_FILES = "Attach Files",
+    READ_MESSAGE_HISTORY = "Read Message History",
+    MENTION_EVERYONE = "Mention @everyone, @here, and All Roles",
+    USE_EXTERNAL_EMOJIS = "Use External Emojis",
+    VIEW_GUILD_INSIGHTS = "View Guild Insights",
+    CONNECT = "Connect",
+    SPEAK = "Speak",
+    MUTE_MEMBERS = "Mute Members",
+    DEAFEN_MEMBERS = "Deafen Members",
+    MOVE_MEMBERS = "Move Members",
+    USE_VAD = "Use Voice Activity",
+    CHANGE_NICKNAME = "Change Nickname",
+    MANAGE_NICKNAMES = "Manage Nicknames",
+    MANAGE_ROLES = "Manage Roles",
+    MANAGE_WEBHOOKS = "Manage Webhooks",
+    MANAGE_EMOJIS = "Manage Emojis"
 }

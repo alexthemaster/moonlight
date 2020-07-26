@@ -1,7 +1,7 @@
 import { MoonlightClient } from "../..";
 import { BasePool } from './Pools/Base/BasePool';
 import { BasePiece, BasePieceOptions } from './BasePiece';
-import { Message } from "discord.js";
+import { Message, PermissionString } from "discord.js";
 
 /**
  * @class
@@ -22,6 +22,10 @@ export class Command extends BasePiece<Command> {
     public readonly usage: string;
     /** The usage delimiter */
     public readonly usageDelim: string | undefined;
+    /** The permissions the user is required to have to run the command */
+    public readonly requiredPermissions: PermissionString[];
+    /** The permissions the bot requires to run the command */
+    public readonly requiredBotPermissions: PermissionString[];
     /** The map containing the customized responses */
     public readonly customizedResponses: Map<string, string> = new Map<string, string>();
     /** The flags provided by the user when running the command */
@@ -45,6 +49,8 @@ export class Command extends BasePiece<Command> {
         this.ownerOnly = options?.ownerOnly ?? false;
         this.usage = options?.usage ?? '';
         this.usageDelim = options?.usageDelim ?? undefined;
+        this.requiredPermissions = options?.requiredPermissions ?? new Array();
+        this.requiredBotPermissions = options?.requiredBotPermissions ?? new Array();
     }
 }
 
@@ -63,4 +69,8 @@ interface CommandOptions extends BasePieceOptions {
     usage?: string;
     /** The usage delimiter */
     usageDelim?: string | undefined;
+    /** The permissions the user is required to have to run the command */
+    requiredPermissions?: PermissionString[];
+    /** The permissions the bot requires to run the command */
+    requiredBotPermissions?: PermissionString[];
 }
