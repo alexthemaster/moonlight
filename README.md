@@ -15,13 +15,10 @@ Moonlight comes with a lot of features OOTB, including (but not limited to):
 
 FYI you can see future features [here](https://github.com/penfoldium/moonlight/projects/1)!
 
-
 ## 💿 Installation
-
 Moonlight will eventually be published on NPM under `@penfoldium/moonlight`, but for now feel free to use the #build branch (`npm install penfoldium/moonlight#build`) (**rolling release, can break any time**)
 
 ## 📚 Documentation 
-
 [Getting started](https://penfoldium.github.io/moonlight/classes/_lib_client_.moonlightclient.html#getting-started-with-moonlight)
 
 [Creating events](https://penfoldium.github.io/classes/_lib_structures_event_.event.html#creating-events)
