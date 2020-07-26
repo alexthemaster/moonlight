@@ -72,8 +72,20 @@ export default class extends Event {
 
         if (cmd.nsfw && message.channel.type !== 'dm' && !message.channel.nsfw) return message.channel.send('This command can only be used in NSFW chnanels.');
 
-        let parsedArgs: object;
 
+        // We parse the flags
+        while (args.some(arg => arg.startsWith('--'))) {
+            const find = args.find(arg => arg.startsWith('--'));
+            args.splice(args.indexOf(find!), 1);
+            const arg = find!.substring(2).split('=');
+            const flag = arg[0];
+            const flagValue = arg[1];
+
+            cmd.flags.set(flag, flagValue);
+        }
+
+        // We parse the arguments
+        let parsedArgs: object;
         try {
             parsedArgs = new ArgumentParser(cmd.usage, args.join(' '), cmd.usageDelim).parsed;
         } catch (res) {
