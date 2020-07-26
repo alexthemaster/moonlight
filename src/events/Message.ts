@@ -24,6 +24,8 @@ export default class extends Event {
             monitor.run(message);
         });
 
+        if (message.author.bot) return;
+
         // If the message doesn't start with ANY prefix then return
         if (!this.client.prefixes.some(prefix => message.content.startsWith(prefix))) return;
 
