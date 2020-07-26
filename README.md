@@ -21,7 +21,7 @@ Moonlight will eventually be published on NPM under `@penfoldium/moonlight`, but
 ## 📚 Documentation 
 [Getting started](https://penfoldium.github.io/moonlight/classes/_lib_client_.moonlightclient.html#getting-started-with-moonlight)
 
-[Creating events](https://penfoldium.github.io/classes/_lib_structures_event_.event.html#creating-events)
+[Creating events](https://penfoldium.github.io/moonlight/classes/_lib_structures_event_.event.html#creating-events)
 
 ## GitHub Actions status
 ![Documentation](https://github.com/penfoldium/moonlight/workflows/Documentation/badge.svg)
