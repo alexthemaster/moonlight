@@ -16,7 +16,7 @@ export class Command extends BasePiece<Command> {
     public readonly canRunInDM: boolean;
     /** The amount of time in seconds of the command's cooldown */
     public readonly cooldown: number;
-    /** Whether or not this command can only be run by the owner */
+    /** Whether or not this command can only be run by a bot owner */
     public readonly ownerOnly: boolean;
     /** The usage string for the command */
     public readonly usage: string;
@@ -24,6 +24,8 @@ export class Command extends BasePiece<Command> {
     public readonly usageDelim: string | undefined;
     /** The map containing the customized responses */
     public readonly customizedResponses: Map<string, string> = new Map<string, string>();
+    /** The flags provided by the user when running the command */
+    public readonly flags: Map<string, string> = new Map<string, string>();
 
     public run(_message: Message, ..._arg: any[]): void {
         throw new Error(`Run function not defined in ${__filename}`);
@@ -55,7 +57,7 @@ interface CommandOptions extends BasePieceOptions {
     canRunInDM?: boolean;
     /** The amount of time in seconds of a command's cooldown */
     cooldown?: number;
-    /** Whether or not this command can only be run by the owner */
+    /** Whether or not this command can only be run by a bot owner */
     ownerOnly?: boolean;
     /** The usage string for the command */
     usage?: string;

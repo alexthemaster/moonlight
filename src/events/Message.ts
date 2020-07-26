@@ -64,13 +64,15 @@ export default class extends Event {
             this.client.cooldowns.delete(cmd);
         }, cmd.cooldown * 1000);
 
-        if (cmd.disabled) return message.channel.send(`This command was globally disabled by the bot owner.`);
+        if (cmd.ownerOnly && !this.client.owners.includes(message.author.id)) return message.channel.send('This command can only be used by the bot owner(s)!');
+
+        if (cmd.disabled) return message.channel.send('This command was globally disabled by the bot owner.');
 
         if (!cmd.canRunInDM && message.channel.type === 'dm') return;
 
         if (cmd.nsfw && message.channel.type !== 'dm' && !message.channel.nsfw) return message.channel.send('This command can only be used in NSFW chnanels.');
 
-        let parsedArgs: {};
+        let parsedArgs: object;
 
         try {
             parsedArgs = new ArgumentParser(cmd.usage, args.join(' '), cmd.usageDelim).parsed;
