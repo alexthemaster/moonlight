@@ -24,7 +24,7 @@ import path from 'path';
  */
 
 /**
- * The Moonlight Client
+ * [[include:gettingStarted.md]] 
  * @license MIT
  * @extends external:Client
  */
