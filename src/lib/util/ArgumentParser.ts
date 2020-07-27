@@ -19,7 +19,7 @@ export class ArgumentParser {
      * @param text The text to parse
      * @param delimiter The delimiter that specifies how to separate the text for checking
      */
-    constructor(args: string, text: string, delimiter: string | undefined = undefined, client: MoonlightClient, message: Message) {
+    constructor(args: string, text: string, delimiter: string | undefined, client: MoonlightClient, message: Message) {
         this.args = args.split(/ +/g);
         this.delimiter = delimiter;
         // @ts-expect-error
@@ -56,11 +56,11 @@ export class ArgumentParser {
                 if (arg !== toParse) {
                     if (argumentObject.type !== 'optional') throw { arg, message: `The argument is supposed to be equal to \`${arg}\`!` };
                     else continue;
+                } else {
+                    this.text.shift();
+                    parsed[arg] = arg;
+                    continue;
                 }
-
-                this.text.shift();
-                parsed[arg] = arg;
-                continue;
             }
 
             // If the argument type is not something present in the parsers, then thow a message
@@ -70,6 +70,7 @@ export class ArgumentParser {
                 try {
                     // @ts-expect-error
                     parsed[arg] = await Arguments[argumentObject.argumentType](toParse, this._client, this._message)
+                    this.text.shift();
                 } catch (err) {
                     if (argumentObject.type === 'optional') return;
                     throw { arg, message: err };
