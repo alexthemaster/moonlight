@@ -61,6 +61,8 @@ export class MoonlightClient extends Client {
         super(options);
 
         options.displayErrors = options.displayErrors ?? true;
+        options.useMentionPrefix = options.useMentionPrefix ?? true;
+        options.useUsernamePrefix = options.useUsernamePrefix ?? true;
 
         if (options?.prefix) {
             if (Array.isArray(options.prefix)) this.prefixes.push(...(options.prefix as string[]));
@@ -122,6 +124,10 @@ export interface MoonlightClientOptions extends ClientOptions {
     displayErrors?: boolean;
     /** An array that contains the ID's of the owners */
     owners?: string[];
+    /** Whether or not to use mention prefix */
+    useMentionPrefix?: boolean;
+    /** Whether or not to use username prefix - e.g. if the bot is called "Penfold" then the username prefix will be "Penfold, " */
+    useUsernamePrefix?: boolean;
     /** 
      * Set the ready message to display when the bot is ready -> should return a string
      * @example readyMessage: (client) => `Logged in and serving in ${client.guilds.size}!` 

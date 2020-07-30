@@ -28,7 +28,8 @@ export default class extends Event {
         // This will remove the duplicates
         this.client.owners = [...new Set(this.client.owners)];
 
-        this.client.prefixes.push(`${this.client.user!.username}, `, `<@!${this.client.user!.id}>`);
+        if (this.client.options.useUsernamePrefix) this.client.prefixes.push(`${this.client.user!.username}, `);
+        if (this.client.options.useMentionPrefix) this.client.prefixes.push(`<@!${this.client.user!.id}>`);
 
         this.client.pools.forEach(pool => pool.init());
     }
