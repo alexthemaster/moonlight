@@ -50,7 +50,7 @@ export class MoonlightClient extends Client {
     public readonly cooldowns: Map<Command, Date> = new Map();
 
     /** An array of owners */
-    public readonly owners: string[] = new Array();
+    public owners: string[] = new Array();
 
     // Additional options
     /** An array containing all the prefixes */
