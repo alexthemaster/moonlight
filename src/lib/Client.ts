@@ -47,9 +47,10 @@ export class MoonlightClient extends Client {
     public readonly monitors: MonitorPool<string, Monitor> = new MonitorPool(this);
 
     /** The Map that stores command cooldowns */
-    public cooldowns: Map<Command, Date> = new Map();
+    public readonly cooldowns: Map<Command, Date> = new Map();
 
-    public owners: string[] = new Array();
+    /** An array of owners */
+    public readonly owners: string[] = new Array();
 
     // Additional options
     /** An array containing all the prefixes */
