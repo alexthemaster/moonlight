@@ -31,6 +31,9 @@ export default class extends Event {
         if (this.client.options.useUsernamePrefix) this.client.prefixes.push(`${this.client.user!.username}, `);
         if (this.client.options.useMentionPrefix) this.client.prefixes.push(`<@!${this.client.user!.id}>`);
 
-        this.client.pools.forEach(pool => pool.init());
+        // Run the init function for every file in every pool
+        await Promise.all(Array.from(this.client.pools).map(async ([_, pool]) => await pool.init()));
+
+        this.client.emit('moonlightReady');
     }
 }

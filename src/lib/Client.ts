@@ -135,3 +135,9 @@ export interface MoonlightClientOptions extends ClientOptions {
      */
     readyMessage?(client: MoonlightClient): string;
 };
+
+declare module 'discord.js' {
+    interface ClientEvents {
+        moonlightReady: [];
+    }
+}

@@ -1,5 +1,7 @@
 ## Creating events
 
+### ⚠ Note: if you want to run something AFTER the bot is ready, please use the `moonlightReady` event instead of simply using `ready`
+
 An event is arguably one of the most important things your bot will listen to. 
 
 To get started with events, just add a file in your `events` folder and use the following example for JavaScript: 
