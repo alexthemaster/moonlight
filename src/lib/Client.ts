@@ -98,7 +98,7 @@ export class MoonlightClient extends Client {
             this.events.init(),
             this.commands.init(),
             this.monitors.init()
-        ])
+        ]);
 
         stopwatch.stop();
 
@@ -107,9 +107,9 @@ export class MoonlightClient extends Client {
         this.events.forEach(event => {
             if (event.disabled) return;
 
-            if (event.once) return this.once((event.event as any), (...arg: any[]) => event.run(...arg));
+            if (event.once) return this.once(event.event, (...arg) => event.run(...arg));
 
-            this.on((event.event as any), (...arg: any[]) => event.run(...arg));
+            this.on(event.event, (...arg) => event.run(...arg));
         });
 
         // Finally login
