@@ -1,3 +1,4 @@
+/// <reference path="../../../build/dist/lib/Client.d.ts" />
 /// <reference path="../Client.d.ts" />
 import { MoonlightClient } from '../Client';
 import { Message } from 'discord.js';
