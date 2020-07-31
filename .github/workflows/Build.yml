@@ -19,14 +19,14 @@ jobs:
                 git config --global user.email crumbs@penfoldium.org
             - name: Install packages
               run: npm ci
+            - name: Build project
+              run: npx tsc
             - name: Clone the build branch
               run: |
                 mkdir build
                 cd build
                 git clone https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/penfoldium/moonlight.git .
                 git checkout build
-            - name: Build project
-              run: npx tsc
             - name: Add files to git and commit them
               run: |
                 rsync -r ./dist ./build 
