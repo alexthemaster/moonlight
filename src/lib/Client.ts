@@ -91,7 +91,7 @@ export class MoonlightClient extends Client {
      * @example(client.login('token'))
      */
     public async login(token?: string | undefined): Promise<string> {
-        const stopwatch: Stopwatch = new Stopwatch();
+        const stopwatch = new Stopwatch();
 
         // Initialize all the pools
         await Promise.all([
