@@ -8,7 +8,7 @@ import { MonitorPool } from "./structures/Pools/MonitorPool";
 import { Stopwatch } from './util';
 import path from 'path';
 
-/**
+/** 
  * @external ClientOptions
  * @see {@link https://discord.js.org/#/docs/main/stable/typedef/ClientOptions}
  */
@@ -66,8 +66,8 @@ export class MoonlightClient extends Client {
         this.options.useUsernamePrefix = options.useUsernamePrefix ?? true;
 
         if (options?.prefix) {
-            if (Array.isArray(options.prefix)) this.prefixes.push(...(options.prefix as string[]));
-            else this.prefixes.push((options.prefix as string));
+            if (Array.isArray(options.prefix)) this.prefixes.push(...options.prefix);
+            else this.prefixes.push(options.prefix);
         }
 
         this.on('error', error => {
