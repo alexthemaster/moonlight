@@ -104,7 +104,11 @@ export default class extends Event {
             return message.channel.send(res.message);
         }
 
-        cmd.run(message, parsedArgs);
+        try {
+            cmd.run(message, parsedArgs);
+        } catch (err) {
+            message.channel.send(`Something went wrong: \`\`\`${err}\`\`\``);
+        }
     }
 }
 
