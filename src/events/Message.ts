@@ -105,7 +105,7 @@ export default class extends Event {
         }
 
         try {
-            cmd.run(message, parsedArgs);
+            await cmd.run(message, parsedArgs);
         } catch (err) {
             message.channel.send(`Something went wrong: \`\`\`${err}\`\`\``);
         }
