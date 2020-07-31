@@ -98,7 +98,12 @@ class default_1 extends Event_1.Event {
                 return message.channel.send(cmd.customizedResponses.get(res.arg));
             return message.channel.send(res.message);
         }
-        cmd.run(message, parsedArgs);
+        try {
+            await cmd.run(message, parsedArgs);
+        }
+        catch (err) {
+            message.channel.send(`Something went wrong: ${err}`);
+        }
     }
 }
 exports.default = default_1;

@@ -1,1 +1,1 @@
-{"version":3,"file":"Channel.d.ts","sourceRoot":"","sources":["../../../src/lib/arguments/Channel.ts"],"names":[],"mappings":";;;AAAA,OAAO,EAAE,eAAe,EAAE,MAAM,WAAW,CAAC;AAE5C,wBAAsB,OAAO,CAAC,KAAK,EAAE,MAAM,EAAE,MAAM,EAAE,eAAe,yCAInE;AAID,eAAO,MAAM,YAAY,QAA2B,CAAC"}
+{"version":3,"file":"Channel.d.ts","sourceRoot":"","sources":["../../../src/lib/arguments/Channel.ts"],"names":[],"mappings":";;AAAA,OAAO,EAAE,eAAe,EAAE,MAAM,WAAW,CAAC;AAE5C,wBAAsB,OAAO,CAAC,KAAK,EAAE,MAAM,EAAE,MAAM,EAAE,eAAe,yCAInE;AAID,eAAO,MAAM,YAAY,QAA2B,CAAC"}
