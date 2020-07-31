@@ -71,7 +71,7 @@ export class MoonlightClient extends Client {
         }
 
         this.on('error', error => {
-            if (options.displayErrors) console.error(`[Error] ${error}`);
+            if (this.options.displayErrors) console.error(`[Error] ${error}`);
         });
 
 
