@@ -28,11 +28,11 @@ export class BasePiece<T> {
     public reload() { }
 
     public enable(): void {
-        if (this.disabled) this.disabled = false;
+        this.disabled = false;
     }
 
     public disable(): void {
-        if (!this.disabled) this.disabled = true;
+        this.disabled = true;
     }
 
     constructor(client: MoonlightClient, pool: BasePool<string, T>, options?: BasePieceOptions) {
