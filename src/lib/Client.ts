@@ -8,7 +8,7 @@ import { MonitorPool } from "./structures/Pools/MonitorPool";
 import { Stopwatch } from './util';
 import path from 'path';
 
-/** 
+/**
  * @external ClientOptions
  * @see {@link https://discord.js.org/#/docs/main/stable/typedef/ClientOptions}
  */
