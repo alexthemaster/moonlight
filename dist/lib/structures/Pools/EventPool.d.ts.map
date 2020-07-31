@@ -1,0 +1,1 @@
+{"version":3,"file":"EventPool.d.ts","sourceRoot":"","sources":["../../../../src/lib/structures/Pools/EventPool.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,QAAQ,EAAE,MAAM,iBAAiB,CAAC;AAC3C,OAAO,EAAE,eAAe,EAAE,MAAM,UAAU,CAAC;AAG3C,qBAAa,SAAS,CAAC,CAAC,EAAE,CAAC,CAAE,SAAQ,QAAQ,CAAC,CAAC,EAAE,CAAC,CAAC;gBACnC,MAAM,EAAE,eAAe;CAGtC"}

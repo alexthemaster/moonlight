@@ -1,0 +1,1 @@
+{"version":3,"file":"OnceReady.d.ts","sourceRoot":"","sources":["../../src/events/OnceReady.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,KAAK,EAAE,MAAM,yBAAyB,CAAC;AAChD,OAAO,EAAE,QAAQ,EAAE,MAAM,uCAAuC,CAAC;AACjE,OAAO,EAAE,eAAe,EAAE,MAAM,eAAe,CAAC;AAGhD,MAAM,CAAC,OAAO,MAAO,SAAQ,KAAK;gBAClB,MAAM,EAAE,eAAe,EAAE,IAAI,EAAE,QAAQ,CAAC,MAAM,EAAE,KAAK,CAAC;IAQrD,GAAG;CAwBnB"}

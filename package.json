@@ -1,0 +1,54 @@
+{
+  "name": "@penfoldium/moonlight",
+  "version": "1.0.0",
+  "description": "Yet another discord.js framework",
+  "main": "./dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rm -rf dist && tsc",
+    "docs": "rm -rf docs && typedoc"
+  },
+  "types": "./dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/penfoldium/moonlight.git"
+  },
+  "engines": {
+    "node": ">= 12.0.0"
+  },
+  "keywords": [
+    "discord.js",
+    "framework",
+    "discord.js",
+    "framework",
+    "penfoldium",
+    "d.js",
+    "d.js",
+    "framework"
+  ],
+  "author": "Penfoldium",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/penfoldium/moonlight/issues"
+  },
+  "homepage": "https://github.com/penfoldium/moonlight#readme",
+  "peerDependencies": {
+    "discord.js": "^12.2.0"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^9.0.1",
+    "@types/klaw": "^3.0.1",
+    "@types/node": "^14.0.27",
+    "@types/ws": "^7.2.6",
+    "discord.js": "^12.2.0",
+    "typedoc": "^0.17.8",
+    "typescript": "^3.9.7"
+  },
+  "dependencies": {
+    "fs-extra": "^9.0.1",
+    "klaw": "^3.0.0",
+    "moment": "^2.27.0"
+  }
+}
