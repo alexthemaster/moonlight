@@ -72,11 +72,14 @@ export class BasePool<K, V> extends Map<K, V> {
             const name = init.name?.toLowerCase() ?? path.parse(filePath).name.toLowerCase();
 
 
-            // If the class is an instance of Command and there are aliases present then set them 
+            // If the class is an instance of Command then do some extra stuff
             if (init instanceof Command) {
                 if ((init as Command).aliases && Array.isArray((init as Command).aliases)) {
                     (init as Command).aliases.forEach(alias => this.client.aliases.set(alias.toLowerCase(), name))
                 }
+
+                const category = path.parse(filePath).dir.split('commands\\')[1];
+                init.category = category ?? 'Uncategorized';
             }
 
             // Dynamically instert the reload function into the class
