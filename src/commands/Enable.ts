@@ -14,6 +14,7 @@ export default class extends Command {
         if (!this.client.pools.has(args.piece)) return message.channel.send(`No such piece named \`${args.piece}\``);
 
         const piece = this.client.pools.get(args.piece);
+        if (!piece?.disabled) return message.channel.send(`This piece is already enabled!`);
         piece!.enable();
 
         return message.channel.send(`Successfully enabled the \`${args.piece}\` piece!`);
