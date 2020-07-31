@@ -6,8 +6,8 @@ import { Message } from 'discord.js';
 /** @ignore */
 export default class extends Command {
     constructor(client: MoonlightClient, pool: BasePool<string, Command>) {
-        super(client, pool, { cooldown: 5, ownerOnly: true, usage: '<piece:string>' });
-        this.customizeResponse('piece', 'Please provide a piece name to enable!')
+        super(client, pool, { ownerOnly: true, usage: '<piece:string>' });
+        this.customizeResponse('piece', 'Please provide a piece name to enable!');
     }
 
     public async run(message: Message, args: DisableCommandArgs) {
