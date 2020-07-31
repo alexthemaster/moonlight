@@ -42,9 +42,9 @@ class ArgumentParser {
         const parsedArgs = this._parseArguments();
         for (const arg in parsedArgs) {
             const argumentObject = parsedArgs[arg];
-            // If there isn't any more text to process and the argument is optional then return, else throw a message
+            // If there isn't any more text to process and the argument is optional then continue, else throw a message
             if (!this.text.length && argumentObject.type === 'optional')
-                return;
+                continue;
             else if (!this.text.length)
                 throw { arg, message: `${arg} is a required argument!` };
             let toParse;
@@ -56,6 +56,9 @@ class ArgumentParser {
             }
             else
                 toParse = this.text[0];
+            // If there isn't anything to parse and the argument is optional then continue, else throw a message
+            if (!toParse.length && argumentObject.type === 'optional')
+                continue;
             if (!toParse.length)
                 throw { arg, message: `${arg} is a required argument!` };
             // If there isn't an argument type specified then we check for a direct string match, and if the argument is not optional also throw a message 
