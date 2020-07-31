@@ -23,11 +23,11 @@ class BasePiece {
     /** A function that reloads the file */
     reload() { }
     enable() {
-        if (!this.disabled)
+        if (this.disabled)
             this.disabled = false;
     }
     disable() {
-        if (!!this.disabled)
+        if (!this.disabled)
             this.disabled = true;
     }
 }
