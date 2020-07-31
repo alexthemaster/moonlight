@@ -5,7 +5,7 @@ const util_1 = require("../lib/util");
 /** @ignore */
 class default_1 extends Command_1.Command {
     constructor(client, pool) {
-        super(client, pool, { cooldown: 5, ownerOnly: true, usage: '[everything] [piece:string]' });
+        super(client, pool, { ownerOnly: true, usage: '[everything] [piece:string]' });
     }
     async run(message, args) {
         if (!args.everything && !args.piece)
