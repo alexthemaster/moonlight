@@ -61,9 +61,9 @@ export class MoonlightClient extends Client {
     constructor(options: MoonlightClientOptions = {}) {
         super(options);
 
-        options.displayErrors = options.displayErrors ?? true;
-        options.useMentionPrefix = options.useMentionPrefix ?? true;
-        options.useUsernamePrefix = options.useUsernamePrefix ?? true;
+        this.options.displayErrors = options.displayErrors ?? true;
+        this.options.useMentionPrefix = options.useMentionPrefix ?? true;
+        this.options.useUsernamePrefix = options.useUsernamePrefix ?? true;
 
         if (options?.prefix) {
             if (Array.isArray(options.prefix)) this.prefixes.push(...(options.prefix as string[]));
