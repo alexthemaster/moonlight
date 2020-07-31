@@ -74,8 +74,8 @@ export class BasePool<K, V> extends Map<K, V> {
 
             // If the class is an instance of Command then do some extra stuff
             if (init instanceof Command) {
-                if ((init as Command).aliases && Array.isArray((init as Command).aliases)) {
-                    (init as Command).aliases.forEach(alias => this.client.aliases.set(alias.toLowerCase(), name))
+                if (init.aliases && Array.isArray(init.aliases)) {
+                    init.aliases.forEach(alias => this.client.aliases.set(alias.toLowerCase(), name))
                 }
 
                 const category = path.parse(filePath).dir.split('commands\\')[1];
