@@ -11,6 +11,7 @@ const MonitorPool_1 = require("./structures/Pools/MonitorPool");
 const TaskPool_1 = require("./structures/Pools/TaskPool");
 const util_1 = require("./util");
 const path_1 = __importDefault(require("path"));
+require("./extendables/MoonlightGuildMember");
 /**
  * @external ClientOptions
  * @see {@link https://discord.js.org/#/docs/main/stable/typedef/ClientOptions}
@@ -49,8 +50,6 @@ class MoonlightClient extends discord_js_1.Client {
         this.monitors = new MonitorPool_1.MonitorPool(this);
         /** The task pool that stores all tasks */
         this.tasks = new TaskPool_1.TaskPool(this);
-        /** The Map that stores command cooldowns */
-        this.cooldowns = new Map();
         /** An array of owners */
         this.owners = new Array();
         // Additional options

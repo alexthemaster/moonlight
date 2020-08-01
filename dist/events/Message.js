@@ -42,27 +42,29 @@ class default_1 extends Event_1.Event {
         const cmd = (_c = (_b = this.client.commands.get(command.toLowerCase())) !== null && _b !== void 0 ? _b : this.client.commands.get(this.client.aliases.get(command.toLowerCase()))) !== null && _c !== void 0 ? _c : null;
         if (!cmd)
             return;
-        if (!this.client.owners.some(owner => owner === message.author.id) && this.client.cooldowns.has(cmd)) {
-            // Shout-out to this amazing Stack Overflow answer for this solution https://stackoverflow.com/a/53829705
-            const cooldownEnd = moment_1.default(this.client.cooldowns.get(cmd));
-            const now = moment_1.default();
-            moment_1.default.relativeTimeThreshold('ss', 60);
-            moment_1.default.updateLocale('en', {
-                relativeTime: {
-                    s: function (number) {
-                        return number + ' seconds';
+        if (message.guild) {
+            if (!this.client.owners.some(owner => owner === message.author.id) && message.member.cooldowns.has(cmd)) {
+                // Shout-out to this amazing Stack Overflow answer for this solution https://stackoverflow.com/a/53829705
+                const cooldownEnd = moment_1.default(message.member.cooldowns.get(cmd));
+                const now = moment_1.default();
+                moment_1.default.relativeTimeThreshold('ss', 60);
+                moment_1.default.updateLocale('en', {
+                    relativeTime: {
+                        s: function (number) {
+                            return number + ' seconds';
+                        }
                     }
-                }
-            });
-            const duration = moment_1.default.duration(cooldownEnd.diff(now)).humanize();
-            return message.channel.send(`You have already used this command recently. Please try again ${duration}.`);
+                });
+                const duration = moment_1.default.duration(cooldownEnd.diff(now)).humanize();
+                return message.channel.send(`You have already used this command recently. Please try again ${duration}.`);
+            }
+            ;
+            const cooldownEnd = moment_1.default(new Date()).add(cmd.cooldown, 'seconds').toDate();
+            message.member.cooldowns.set(cmd, cooldownEnd);
+            setTimeout(() => {
+                message.member.cooldowns.delete(cmd);
+            }, cmd.cooldown * 1000);
         }
-        ;
-        const cooldownEnd = moment_1.default(new Date()).add(cmd.cooldown, 'seconds').toDate();
-        this.client.cooldowns.set(cmd, cooldownEnd);
-        setTimeout(() => {
-            this.client.cooldowns.delete(cmd);
-        }, cmd.cooldown * 1000);
         if (cmd.ownerOnly && !this.client.owners.includes(message.author.id))
             return message.channel.send('This command can only be used by the bot owner(s)!');
         if (cmd.disabled)

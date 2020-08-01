@@ -1,0 +1,1 @@
+{"version":3,"file":"MoonlightGuildMember.d.ts","sourceRoot":"","sources":["../../../src/lib/extendables/MoonlightGuildMember.ts"],"names":[],"mappings":";;AAAA,OAAO,EAAE,OAAO,EAAE,MAAM,uBAAuB,CAAC;AAGhD,QAAA,MAAM,WAAW,yCAAgC,CAAC;AAElD,cAAM,oBAAqB,SAAQ,WAAW;IAC1C,4CAA4C;IAC5C,SAAgB,SAAS,EAAE,GAAG,CAAC,OAAO,EAAE,IAAI,CAAC,CAAa;CAC7D;AAID,OAAO,EAAE,oBAAoB,EAAE,CAAC"}

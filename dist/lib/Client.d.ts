@@ -7,6 +7,7 @@ import { Monitor } from './structures/Monitor';
 import { MonitorPool } from './structures/Pools/MonitorPool';
 import { Task } from "./structures/Task";
 import { TaskPool } from './structures/Pools/TaskPool';
+import './extendables/MoonlightGuildMember';
 /**
  * @external ClientOptions
  * @see {@link https://discord.js.org/#/docs/main/stable/typedef/ClientOptions}
@@ -39,8 +40,6 @@ export declare class MoonlightClient extends Client {
     readonly monitors: MonitorPool<string, Monitor>;
     /** The task pool that stores all tasks */
     readonly tasks: TaskPool<string, Task>;
-    /** The Map that stores command cooldowns */
-    readonly cooldowns: Map<Command, Date>;
     /** An array of owners */
     owners: string[];
     /** An array containing all the prefixes */
