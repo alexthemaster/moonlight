@@ -1,7 +1,7 @@
-import { Command } from '../lib/structures/Command';
-import { MoonlightClient } from '../lib/Client';
-import { Stopwatch } from '../lib/util';
-import { BasePool } from '../lib/structures/Pools/Base/BasePool';
+import { Command } from '../../lib/structures/Command';
+import { MoonlightClient } from '../../lib/Client';
+import { Stopwatch } from '../../lib/util';
+import { BasePool } from '../../lib/structures/Pools/Base/BasePool';
 import { Message } from 'discord.js';
 
 /** @ignore */

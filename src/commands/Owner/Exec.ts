@@ -1,7 +1,7 @@
-import { Command } from '../lib/structures/Command';
-import { MoonlightClient } from '../lib/Client';
-import { BasePool } from '../lib/structures/Pools/Base/BasePool';
-import { Stopwatch } from '../lib/util';
+import { Command } from '../../lib/structures/Command';
+import { MoonlightClient } from '../../lib/Client';
+import { BasePool } from '../../lib/structures/Pools/Base/BasePool';
+import { Stopwatch } from '../../lib/util';
 import { Message } from 'discord.js';
 import { exec } from 'child_process';
 import { promisify } from 'util';
