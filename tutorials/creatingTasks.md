@@ -1,8 +1,8 @@
 ## Creating tasks
 
-A task is a piece of code that runs at a given time / periodically (using cron).
+A task is a piece of code that runs at a given time or periodically (using cron).
 
-For creating a cron, you can head over to [crontab.guru](https://crontab.guru) - we also support the non-standard's! (@yearly, @annually, @monthly, @weekly, @daily and @hourly)
+To create a cron, you can head over to [crontab.guru](https://crontab.guru) - we also support the non-standards! (@yearly, @annually, @monthly, @weekly, @daily and @hourly)
 
 To get started with tasks, just add a file in your `tasks` folder and use the following example for JavaScript: 
 
@@ -14,7 +14,7 @@ module.exports = class extends Task {
         super(...args, {
             name: 'name', // defaults to the filename
             disabled: false, // defaults to false
-            time: '* * * * *', // this can either take in a cron or a Date
+            time: '* * * * *', // this can accept either a cron or a Date
         })
     }
 
@@ -39,7 +39,7 @@ export default class extends Task {
         super(client, pool, {
             name: 'name', // defaults to the filename
             disabled: false, // defaults to false
-            time: '* * * * *', // this can either take in a cron or a Date
+            time: '* * * * *', // this can accept either a cron or a Date
         })
     }
 

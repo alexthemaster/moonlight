@@ -24,8 +24,8 @@ module.exports = class extends Command {
             requiredBotPermissions: [] // an array of permissions the bot requires to run the command properly
         });
 
-        // You can also use a function called customizeResponse to custize the response of arguments that failed to parse
-        // Example: the usage string is <user:user> but the user that ran the command hasn't mentioned another user / provided a valid user ID
+        // You can also use a function called customizeResponse to customize the response of arguments that failed to parse
+        // Example: the usage string is <user:user> but the user that ran the command hasn't mentioned another user or provided an invalid user ID
         // this.customizeResponse('user', "Please provide a user");
     }
 
@@ -62,8 +62,8 @@ export default class extends Command {
             requiredBotPermissions: [] // an array of permissions the bot requires to run the command properly
         });
 
-        // You can also use a function called customizeResponse to custize the response of arguments that failed to parse
-        // Example: the usage string is <user:user> but the user that ran the command hasn't mentioned another user / provided a valid user ID
+        // You can also use a function called customizeResponse to customize the response of arguments that failed to parse
+        // Example: the usage string is <user:user> but the user that ran the command hasn't mentioned another user or provided an invalid user ID
         // this.customizeResponse('user', "Please provide a user");
     }
 
