@@ -2,6 +2,8 @@
 
 Commands are arguably the most important thing a Discord bot can have.
 
+Note: commands have flags which you can access by running this.flags (the flags are a Map!)
+
 To get started with commands, just add a file in your `commands` folder and use the following example for JavaScript: 
 
 ```js
