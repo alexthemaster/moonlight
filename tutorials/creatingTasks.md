@@ -32,7 +32,7 @@ or the following for TypeScript:
 ```ts
 import { Task, MoonlightClient, BasePool } from '@penfoldium/moonlight';
 
-export default class extends Event {
+export default class extends Task {
     constructor(client: MoonlightClient, pool: BasePool<string, Task>) {
         super(client, pool, {
             cron: '* * * * *'
