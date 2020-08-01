@@ -10,6 +10,8 @@ import { TaskPool } from './structures/Pools/TaskPool';
 import { Stopwatch } from './util';
 import path from 'path';
 
+import './extendables/MoonlightGuildMember';
+
 /**
  * @external ClientOptions
  * @see {@link https://discord.js.org/#/docs/main/stable/typedef/ClientOptions}
@@ -49,9 +51,6 @@ export class MoonlightClient extends Client {
     public readonly monitors: MonitorPool<string, Monitor> = new MonitorPool(this);
     /** The task pool that stores all tasks */
     public readonly tasks: TaskPool<string, Task> = new TaskPool(this);
-
-    /** The Map that stores command cooldowns */
-    public readonly cooldowns: Map<Command, Date> = new Map();
 
     /** An array of owners */
     public owners: string[] = new Array();

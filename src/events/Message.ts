@@ -1,5 +1,6 @@
 import { Event } from '../lib/structures/Event';
 import { MoonlightClient } from '../lib/Client';
+import { MoonlightGuildMember } from '../lib/extendables/MoonlightGuildMember';
 import { BasePool } from '../lib/structures/Pools/Base/BasePool';
 import { Command } from '../lib/structures/Command';
 import { ArgumentParser } from '../lib/util';
@@ -41,31 +42,33 @@ export default class extends Event {
         const cmd: Command | null = this.client.commands.get(command.toLowerCase()) ?? this.client.commands.get((this.client.aliases.get(command.toLowerCase()) as string)) ?? null;
         if (!cmd) return;
 
-        if (!this.client.owners.some(owner => owner === message.author.id) && this.client.cooldowns.has(cmd)) {
-            // Shout-out to this amazing Stack Overflow answer for this solution https://stackoverflow.com/a/53829705
-            const cooldownEnd = moment(this.client.cooldowns.get(cmd));
-            const now = moment();
-            moment.relativeTimeThreshold('ss', 60);
-            moment.updateLocale('en', {
-                relativeTime: {
-                    s: function (number) {
-                        return number + ' seconds';
+        if (message.guild) {
+            if (!this.client.owners.some(owner => owner === message.author.id) && (message.member as MoonlightGuildMember).cooldowns.has(cmd)) {
+                // Shout-out to this amazing Stack Overflow answer for this solution https://stackoverflow.com/a/53829705
+                const cooldownEnd = moment((message.member as MoonlightGuildMember).cooldowns.get(cmd));
+                const now = moment();
+                moment.relativeTimeThreshold('ss', 60);
+                moment.updateLocale('en', {
+                    relativeTime: {
+                        s: function (number) {
+                            return number + ' seconds';
+                        }
                     }
-                }
-            });
+                });
 
-            const duration = moment.duration(cooldownEnd.diff(now)).humanize();
+                const duration = moment.duration(cooldownEnd.diff(now)).humanize();
 
-            return message.channel.send(`You have already used this command recently. Please try again ${duration}.`);
-        };
+                return message.channel.send(`You have already used this command recently. Please try again ${duration}.`);
+            };
 
-        const cooldownEnd = moment(new Date()).add(cmd.cooldown, 'seconds').toDate();
+            const cooldownEnd = moment(new Date()).add(cmd.cooldown, 'seconds').toDate();
 
-        this.client.cooldowns.set(cmd, cooldownEnd);
+            (message.member as MoonlightGuildMember).cooldowns.set(cmd, cooldownEnd);
 
-        setTimeout(() => {
-            this.client.cooldowns.delete(cmd);
-        }, cmd.cooldown * 1000);
+            setTimeout(() => {
+                (message.member as MoonlightGuildMember).cooldowns.delete(cmd);
+            }, cmd.cooldown * 1000);
+        }
 
         if (cmd.ownerOnly && !this.client.owners.includes(message.author.id)) return message.channel.send('This command can only be used by the bot owner(s)!');
 
@@ -74,7 +77,6 @@ export default class extends Event {
         if (!cmd.canRunInDM && message.channel.type === 'dm') return;
 
         if (cmd.nsfw && message.channel.type !== 'dm' && !message.channel.nsfw) return message.channel.send('This command can only be used in NSFW chnanels.');
-
 
         if (message.guild) {
             const missingPerms = message.member?.permissionsIn(message.channel).missing(cmd.requiredPermissions);
