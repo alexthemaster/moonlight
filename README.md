@@ -21,6 +21,8 @@ Moonlight will eventually be published on npm as `@penfoldium/moonlight` but for
 
 [Creating events](https://penfoldium.github.io/moonlight/classes/_lib_structures_event_.event.html#creating-events)
 
+[Creating tasks](https://penfoldium.github.io/moonlight/classes/_lib_structures_task_.task.html#creating-tasks)
+
 ## GitHub Actions status
 ![Documentation](https://github.com/penfoldium/moonlight/workflows/Documentation/badge.svg)
 ![Build](https://github.com/penfoldium/moonlight/workflows/Build/badge.svg) 
