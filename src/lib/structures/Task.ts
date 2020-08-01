@@ -9,12 +9,13 @@ import { CronJob } from 'cron';
  * @abstract
  */
 export class Task extends BasePiece<Task> {
-    public cron: string;
+    public time: string | Date;
     private _job: CronJob | null = null;;
 
     constructor(client: MoonlightClient, pool: BasePool<string, Task>, options: TaskOptions) {
         super(client, pool, options);
-        this.cron = options.cron;
+        this.time = options.time;
+
         if (this.disabled) return;
         this._createJob();
     }
@@ -33,14 +34,16 @@ export class Task extends BasePiece<Task> {
 
     private _createJob(): void {
         // @ts-expect-error
-        const time = CronNonStandardToStandard[this.cron] ?? this.cron;
+        const time = (this.time instanceof Date) ? this.time : CronNonStandardToStandard[this.time] ?? this.time;
+
         this._job = new CronJob(time, () => {
             this.run();
         });
+
         this._job.start();
     }
 }
 
 interface TaskOptions extends BasePieceOptions {
-    cron: string;
+    time: string | Date;
 }
