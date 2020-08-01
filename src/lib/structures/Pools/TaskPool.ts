@@ -4,6 +4,6 @@ import { Task } from '../Task';
 
 export class TaskPool<K, V> extends BasePool<K, V> {
     constructor(client: MoonlightClient) {
-        super(client, 'task', Task);
+        super(client, 'tasks', Task);
     }
 }
