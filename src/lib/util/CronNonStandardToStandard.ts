@@ -1,4 +1,4 @@
-export const enum CronNonStandardToStandard {
+export enum CronNonStandardToStandard {
     "@yearly" = "0 0 1 1 *",
     "@annually" = "0 0 1 1 *",
     "@monthly" = "0 0 1 * *",
