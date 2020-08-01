@@ -1,0 +1,1 @@
+{"version":3,"file":"MoonlightUser.d.ts","sourceRoot":"","sources":["../../../src/lib/extendables/MoonlightUser.ts"],"names":[],"mappings":";;AAAA,OAAO,EAAE,OAAO,EAAE,MAAM,uBAAuB,CAAC;AAGhD,QAAA,MAAM,IAAI,kCAAyB,CAAC;AAEpC,cAAM,aAAc,SAAQ,IAAI;IAC5B,4CAA4C;IAC5C,SAAgB,SAAS,EAAE,GAAG,CAAC,OAAO,EAAE,IAAI,CAAC,CAAa;CAC7D;AAID,OAAO,EAAE,aAAa,EAAE,CAAC"}

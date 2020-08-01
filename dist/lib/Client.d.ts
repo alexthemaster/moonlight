@@ -7,7 +7,7 @@ import { Monitor } from './structures/Monitor';
 import { MonitorPool } from './structures/Pools/MonitorPool';
 import { Task } from "./structures/Task";
 import { TaskPool } from './structures/Pools/TaskPool';
-import './extendables/MoonlightGuildMember';
+import './extendables/MoonlightUser';
 /**
  * @external ClientOptions
  * @see {@link https://discord.js.org/#/docs/main/stable/typedef/ClientOptions}

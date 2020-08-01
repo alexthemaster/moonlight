@@ -11,7 +11,7 @@ const MonitorPool_1 = require("./structures/Pools/MonitorPool");
 const TaskPool_1 = require("./structures/Pools/TaskPool");
 const util_1 = require("./util");
 const path_1 = __importDefault(require("path"));
-require("./extendables/MoonlightGuildMember");
+require("./extendables/MoonlightUser");
 /**
  * @external ClientOptions
  * @see {@link https://discord.js.org/#/docs/main/stable/typedef/ClientOptions}
