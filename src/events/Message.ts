@@ -74,7 +74,7 @@ export default class extends Event {
 
         if (!cmd.canRunInDM && message.channel.type === 'dm') return;
 
-        if (cmd.nsfw && message.channel.type !== 'dm' && !message.channel.nsfw) return message.channel.send('This command can only be used in NSFW chnanels.');
+        if (cmd.nsfw && message.channel.type !== 'dm' && !message.channel.nsfw) return message.channel.send('This command can only be used in NSFW channels.');
 
         if (message.guild) {
             const missingPerms = message.member?.permissionsIn(message.channel).missing(cmd.requiredPermissions);
