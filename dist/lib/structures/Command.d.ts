@@ -3,7 +3,7 @@ import { BasePool } from './Pools/Base/BasePool';
 import { BasePiece, BasePieceOptions } from './BasePiece';
 import { Message, PermissionString } from "discord.js";
 /**
- * @class
+ * [[include:creatingCommands.md]]
  * @abstract
  */
 export declare class Command extends BasePiece<Command> {

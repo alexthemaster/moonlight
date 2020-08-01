@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Command = void 0;
 const BasePiece_1 = require("./BasePiece");
 /**
- * @class
+ * [[include:creatingCommands.md]]
  * @abstract
  */
 class Command extends BasePiece_1.BasePiece {
