@@ -12,7 +12,7 @@ const { Task } = require('@penfoldium/moonlight');
 module.exports = class extends Task {
     constructor(...args) {
         super(...args, {
-            cron: '* * * * *' // this can either take in a cron or a Date
+            time: '* * * * *' // this can either take in a cron or a Date
         })
     }
 
