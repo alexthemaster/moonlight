@@ -4,7 +4,9 @@ import { CommandPool } from './structures/Pools/CommandPool';
 import { Event } from './structures/Event';
 import { EventPool } from './structures/Pools/EventPool';
 import { Monitor } from './structures/Monitor';
-import { MonitorPool } from "./structures/Pools/MonitorPool";
+import { MonitorPool } from './structures/Pools/MonitorPool';
+import { Task } from "./structures/Task";
+import { TaskPool } from './structures/Pools/TaskPool';
 import { Stopwatch } from './util';
 import path from 'path';
 
@@ -41,10 +43,12 @@ export class MoonlightClient extends Client {
     public readonly commands: CommandPool<string, Command> = new CommandPool(this);
     /** A map which stores all command aliases */
     public readonly aliases: Map<string, string> = new Map();
-    /** The event pool that stores all */
+    /** The event pool that stores all events */
     public readonly events: EventPool<string, Event> = new EventPool(this);
     /** The monitor pool that stores all monitors */
     public readonly monitors: MonitorPool<string, Monitor> = new MonitorPool(this);
+    /** The task pool that stores all tasks */
+    public readonly tasks: TaskPool<string, Task> = new TaskPool(this);
 
     /** The Map that stores command cooldowns */
     public readonly cooldowns: Map<Command, Date> = new Map();
@@ -97,7 +101,8 @@ export class MoonlightClient extends Client {
         await Promise.all([
             this.events.init(),
             this.commands.init(),
-            this.monitors.init()
+            this.monitors.init(),
+            this.tasks.init()
         ]);
 
         stopwatch.stop();
