@@ -12,7 +12,7 @@ const { Task } = require('@penfoldium/moonlight');
 module.exports = class extends Task {
     constructor(...args) {
         super(...args, {
-            cron: '* * * * *'
+            cron: '* * * * *' // this cron makes it so this task will run every minute
         })
     }
 
@@ -35,7 +35,7 @@ import { Task, MoonlightClient, BasePool } from '@penfoldium/moonlight';
 export default class extends Task {
     constructor(client: MoonlightClient, pool: BasePool<string, Task>) {
         super(client, pool, {
-            cron: '* * * * *'
+            cron: '* * * * *' // this cron makes it so this task will run every minute
         })
     }
 
