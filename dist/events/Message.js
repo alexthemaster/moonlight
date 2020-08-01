@@ -70,7 +70,7 @@ class default_1 extends Event_1.Event {
         if (!cmd.canRunInDM && message.channel.type === 'dm')
             return;
         if (cmd.nsfw && message.channel.type !== 'dm' && !message.channel.nsfw)
-            return message.channel.send('This command can only be used in NSFW chnanels.');
+            return message.channel.send('This command can only be used in NSFW channels.');
         if (message.guild) {
             const missingPerms = (_d = message.member) === null || _d === void 0 ? void 0 : _d.permissionsIn(message.channel).missing(cmd.requiredPermissions);
             const missingBotPerms = (_e = message.guild.me) === null || _e === void 0 ? void 0 : _e.permissionsIn(message.channel).missing(cmd.requiredBotPermissions);
