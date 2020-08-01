@@ -33,7 +33,7 @@ jobs:
                 rsync ./package* ./build
                 cd build
                 git add .
-                git commit -m "build(): ${{ github.sha }}"
+                git commit -m "build: ${{ github.sha }}"
             - name: Push files to GitHub
               run: |
                 cd build

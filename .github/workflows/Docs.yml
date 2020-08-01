@@ -34,7 +34,7 @@ jobs:
                 rsync -r ./docs/. ./gh-pages 
                 cd gh-pages
                 git add .
-                git commit -m "docs(): ${{ github.sha }}"
+                git commit -m "docs: ${{ github.sha }}"
             - name: Push files to GitHub
               run: |
                 cd gh-pages
