@@ -79,7 +79,9 @@
 <span class="hljs-built_in">module</span>.exports = <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Task</span> </span>{
     <span class="hljs-keyword">constructor</span>(...args) {
         <span class="hljs-built_in">super</span>(...args, {
-            <span class="hljs-attr">time</span>: <span class="hljs-string">&#x27;* * * * *&#x27;</span> <span class="hljs-comment">// this can either take in a cron or a Date</span>
+            <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;name&#x27;</span>, <span class="hljs-comment">// defaults to the filename</span>
+            <span class="hljs-attr">disabled</span>: <span class="hljs-literal">false</span>, <span class="hljs-comment">// defaults to false</span>
+            <span class="hljs-attr">time</span>: <span class="hljs-string">&#x27;* * * * *&#x27;</span>, <span class="hljs-comment">// this can either take in a cron or a Date</span>
         })
     }
 
@@ -98,7 +100,9 @@
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">class</span> <span class="hljs-keyword">extends</span> Task {
     <span class="hljs-keyword">constructor</span>(<span class="hljs-params">client: MoonlightClient, pool: BasePool&lt;<span class="hljs-built_in">string</span>, Task&gt;</span>) {
         <span class="hljs-built_in">super</span>(client, pool, {
-            time: <span class="hljs-string">&#x27;* * * * *&#x27;</span> <span class="hljs-comment">// this can either take in a cron or a Date</span>
+            name: <span class="hljs-string">&#x27;name&#x27;</span>, <span class="hljs-comment">// defaults to the filename</span>
+            disabled: <span class="hljs-literal">false</span>, <span class="hljs-comment">// defaults to false</span>
+            time: <span class="hljs-string">&#x27;* * * * *&#x27;</span>, <span class="hljs-comment">// this can either take in a cron or a Date</span>
         })
     }
 
@@ -180,7 +184,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_lib_structures_basepiece_.basepiece.html">BasePiece</a>.<a href="_lib_structures_basepiece_.basepiece.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/526a7ff/src/lib/structures/Task.ts#L13">home/runner/work/moonlight/moonlight/src/lib/structures/Task.ts:13</a></li>
+									<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/3b4bb68/src/lib/structures/Task.ts#L13">home/runner/work/moonlight/moonlight/src/lib/structures/Task.ts:13</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -208,7 +212,7 @@
 					<div class="tsd-signature tsd-kind-icon">_job<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">CronJob</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> = null</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/526a7ff/src/lib/structures/Task.ts#L13">home/runner/work/moonlight/moonlight/src/lib/structures/Task.ts:13</a></li>
+							<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/3b4bb68/src/lib/structures/Task.ts#L13">home/runner/work/moonlight/moonlight/src/lib/structures/Task.ts:13</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -219,7 +223,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_lib_structures_basepiece_.basepiece.html">BasePiece</a>.<a href="_lib_structures_basepiece_.basepiece.html#client">client</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/526a7ff/src/lib/structures/BasePiece.ts#L9">home/runner/work/moonlight/moonlight/src/lib/structures/BasePiece.ts:9</a></li>
+							<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/3b4bb68/src/lib/structures/BasePiece.ts#L9">home/runner/work/moonlight/moonlight/src/lib/structures/BasePiece.ts:9</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -230,7 +234,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_lib_structures_basepiece_.basepiece.html">BasePiece</a>.<a href="_lib_structures_basepiece_.basepiece.html#description">description</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/526a7ff/src/lib/structures/BasePiece.ts#L13">home/runner/work/moonlight/moonlight/src/lib/structures/BasePiece.ts:13</a></li>
+							<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/3b4bb68/src/lib/structures/BasePiece.ts#L13">home/runner/work/moonlight/moonlight/src/lib/structures/BasePiece.ts:13</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -246,7 +250,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_lib_structures_basepiece_.basepiece.html">BasePiece</a>.<a href="_lib_structures_basepiece_.basepiece.html#disabled">disabled</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/526a7ff/src/lib/structures/BasePiece.ts#L11">home/runner/work/moonlight/moonlight/src/lib/structures/BasePiece.ts:11</a></li>
+							<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/3b4bb68/src/lib/structures/BasePiece.ts#L11">home/runner/work/moonlight/moonlight/src/lib/structures/BasePiece.ts:11</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -262,7 +266,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_lib_structures_basepiece_.basepiece.html">BasePiece</a>.<a href="_lib_structures_basepiece_.basepiece.html#options">options</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/526a7ff/src/lib/structures/BasePiece.ts#L16">home/runner/work/moonlight/moonlight/src/lib/structures/BasePiece.ts:16</a></li>
+							<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/3b4bb68/src/lib/structures/BasePiece.ts#L16">home/runner/work/moonlight/moonlight/src/lib/structures/BasePiece.ts:16</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -273,7 +277,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_lib_structures_basepiece_.basepiece.html">BasePiece</a>.<a href="_lib_structures_basepiece_.basepiece.html#pool">pool</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/526a7ff/src/lib/structures/BasePiece.ts#L15">home/runner/work/moonlight/moonlight/src/lib/structures/BasePiece.ts:15</a></li>
+							<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/3b4bb68/src/lib/structures/BasePiece.ts#L15">home/runner/work/moonlight/moonlight/src/lib/structures/BasePiece.ts:15</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -288,7 +292,7 @@
 					<div class="tsd-signature tsd-kind-icon">time<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Date</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/526a7ff/src/lib/structures/Task.ts#L12">home/runner/work/moonlight/moonlight/src/lib/structures/Task.ts:12</a></li>
+							<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/3b4bb68/src/lib/structures/Task.ts#L12">home/runner/work/moonlight/moonlight/src/lib/structures/Task.ts:12</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -305,7 +309,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/526a7ff/src/lib/structures/Task.ts#L35">home/runner/work/moonlight/moonlight/src/lib/structures/Task.ts:35</a></li>
+									<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/3b4bb68/src/lib/structures/Task.ts#L35">home/runner/work/moonlight/moonlight/src/lib/structures/Task.ts:35</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -323,7 +327,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_lib_structures_basepiece_.basepiece.html">BasePiece</a>.<a href="_lib_structures_basepiece_.basepiece.html#disable">disable</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/526a7ff/src/lib/structures/Task.ts#L29">home/runner/work/moonlight/moonlight/src/lib/structures/Task.ts:29</a></li>
+									<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/3b4bb68/src/lib/structures/Task.ts#L29">home/runner/work/moonlight/moonlight/src/lib/structures/Task.ts:29</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -341,7 +345,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_lib_structures_basepiece_.basepiece.html">BasePiece</a>.<a href="_lib_structures_basepiece_.basepiece.html#enable">enable</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/526a7ff/src/lib/structures/Task.ts#L23">home/runner/work/moonlight/moonlight/src/lib/structures/Task.ts:23</a></li>
+									<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/3b4bb68/src/lib/structures/Task.ts#L23">home/runner/work/moonlight/moonlight/src/lib/structures/Task.ts:23</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -359,7 +363,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_lib_structures_basepiece_.basepiece.html">BasePiece</a>.<a href="_lib_structures_basepiece_.basepiece.html#init">init</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/526a7ff/src/lib/structures/BasePiece.ts#L23">home/runner/work/moonlight/moonlight/src/lib/structures/BasePiece.ts:23</a></li>
+									<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/3b4bb68/src/lib/structures/BasePiece.ts#L23">home/runner/work/moonlight/moonlight/src/lib/structures/BasePiece.ts:23</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -382,7 +386,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_lib_structures_basepiece_.basepiece.html">BasePiece</a>.<a href="_lib_structures_basepiece_.basepiece.html#reload">reload</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/526a7ff/src/lib/structures/BasePiece.ts#L28">home/runner/work/moonlight/moonlight/src/lib/structures/BasePiece.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/3b4bb68/src/lib/structures/BasePiece.ts#L28">home/runner/work/moonlight/moonlight/src/lib/structures/BasePiece.ts:28</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -405,7 +409,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_lib_structures_basepiece_.basepiece.html">BasePiece</a>.<a href="_lib_structures_basepiece_.basepiece.html#run">run</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/526a7ff/src/lib/structures/BasePiece.ts#L18">home/runner/work/moonlight/moonlight/src/lib/structures/BasePiece.ts:18</a></li>
+									<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/3b4bb68/src/lib/structures/BasePiece.ts#L18">home/runner/work/moonlight/moonlight/src/lib/structures/BasePiece.ts:18</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
