@@ -10,7 +10,7 @@ import { TaskPool } from './structures/Pools/TaskPool';
 import { Stopwatch } from './util';
 import path from 'path';
 
-import './extendables/MoonlightGuildMember';
+import './extendables/MoonlightUser';
 
 /**
  * @external ClientOptions

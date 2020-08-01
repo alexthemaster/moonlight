@@ -1,13 +1,13 @@
 import { Command } from '../structures/Command';
 import { Structures } from 'discord.js';
 
-const GuildMember = Structures.get('GuildMember');
+const User = Structures.get('User');
 
-class MoonlightGuildMember extends GuildMember {
+class MoonlightUser extends User {
     /** The Map that stores command cooldowns */
     public readonly cooldowns: Map<Command, Date> = new Map();
 }
 
-Structures.extend('GuildMember', () => MoonlightGuildMember);
+Structures.extend('User', () => MoonlightUser);
 
-export { MoonlightGuildMember };
+export { MoonlightUser };
