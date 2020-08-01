@@ -8,6 +8,7 @@ const discord_js_1 = require("discord.js");
 const CommandPool_1 = require("./structures/Pools/CommandPool");
 const EventPool_1 = require("./structures/Pools/EventPool");
 const MonitorPool_1 = require("./structures/Pools/MonitorPool");
+const TaskPool_1 = require("./structures/Pools/TaskPool");
 const util_1 = require("./util");
 const path_1 = __importDefault(require("path"));
 /**
@@ -42,10 +43,12 @@ class MoonlightClient extends discord_js_1.Client {
         this.commands = new CommandPool_1.CommandPool(this);
         /** A map which stores all command aliases */
         this.aliases = new Map();
-        /** The event pool that stores all */
+        /** The event pool that stores all events */
         this.events = new EventPool_1.EventPool(this);
         /** The monitor pool that stores all monitors */
         this.monitors = new MonitorPool_1.MonitorPool(this);
+        /** The task pool that stores all tasks */
+        this.tasks = new TaskPool_1.TaskPool(this);
         /** The Map that stores command cooldowns */
         this.cooldowns = new Map();
         /** An array of owners */
@@ -85,7 +88,8 @@ class MoonlightClient extends discord_js_1.Client {
         await Promise.all([
             this.events.init(),
             this.commands.init(),
-            this.monitors.init()
+            this.monitors.init(),
+            this.tasks.init()
         ]);
         stopwatch.stop();
         console.info(`Loaded everything in: ${stopwatch.getElapsedHuman}`);

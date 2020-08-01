@@ -27,6 +27,7 @@ __exportStar(require("./lib/structures/Pools/Base/BasePool"), exports);
 __exportStar(require("./lib/structures/Command"), exports);
 __exportStar(require("./lib/structures/Event"), exports);
 __exportStar(require("./lib/structures/Monitor"), exports);
+__exportStar(require("./lib/structures/Task"), exports);
 __exportStar(require("./lib/Client"), exports);
 var Client_1 = require("./lib/Client");
 Object.defineProperty(exports, "Client", { enumerable: true, get: function () { return Client_1.MoonlightClient; } });

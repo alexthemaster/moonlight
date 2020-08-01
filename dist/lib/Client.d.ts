@@ -4,7 +4,9 @@ import { CommandPool } from './structures/Pools/CommandPool';
 import { Event } from './structures/Event';
 import { EventPool } from './structures/Pools/EventPool';
 import { Monitor } from './structures/Monitor';
-import { MonitorPool } from "./structures/Pools/MonitorPool";
+import { MonitorPool } from './structures/Pools/MonitorPool';
+import { Task } from "./structures/Task";
+import { TaskPool } from './structures/Pools/TaskPool';
 /**
  * @external ClientOptions
  * @see {@link https://discord.js.org/#/docs/main/stable/typedef/ClientOptions}
@@ -31,10 +33,12 @@ export declare class MoonlightClient extends Client {
     readonly commands: CommandPool<string, Command>;
     /** A map which stores all command aliases */
     readonly aliases: Map<string, string>;
-    /** The event pool that stores all */
+    /** The event pool that stores all events */
     readonly events: EventPool<string, Event>;
     /** The monitor pool that stores all monitors */
     readonly monitors: MonitorPool<string, Monitor>;
+    /** The task pool that stores all tasks */
+    readonly tasks: TaskPool<string, Task>;
     /** The Map that stores command cooldowns */
     readonly cooldowns: Map<Command, Date>;
     /** An array of owners */

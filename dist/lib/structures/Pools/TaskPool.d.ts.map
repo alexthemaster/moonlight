@@ -1,0 +1,1 @@
+{"version":3,"file":"TaskPool.d.ts","sourceRoot":"","sources":["../../../../src/lib/structures/Pools/TaskPool.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,QAAQ,EAAE,MAAM,iBAAiB,CAAC;AAC3C,OAAO,EAAE,eAAe,EAAE,MAAM,UAAU,CAAC;AAG3C,qBAAa,QAAQ,CAAC,CAAC,EAAE,CAAC,CAAE,SAAQ,QAAQ,CAAC,CAAC,EAAE,CAAC,CAAC;gBAClC,MAAM,EAAE,eAAe;CAGtC"}
