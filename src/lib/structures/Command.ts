@@ -4,7 +4,7 @@ import { BasePiece, BasePieceOptions } from './BasePiece';
 import { Message, PermissionString } from "discord.js";
 
 /**
- * @class
+ * [[include:creatingCommands.md]]
  * @abstract
  */
 export class Command extends BasePiece<Command> {

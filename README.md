@@ -19,6 +19,8 @@ Moonlight will eventually be published on npm as `@penfoldium/moonlight` but for
 ## 📚 Documentation 
 [Getting started](https://penfoldium.github.io/moonlight/classes/_lib_client_.moonlightclient.html#getting-started-with-moonlight)
 
+[Creating commands](https://penfoldium.github.io/moonlight/classes/_lib_structures_command_.command.html#creating-commands)
+
 [Creating events](https://penfoldium.github.io/moonlight/classes/_lib_structures_event_.event.html#creating-events)
 
 [Creating tasks](https://penfoldium.github.io/moonlight/classes/_lib_structures_task_.task.html#creating-tasks)
