@@ -44,7 +44,7 @@ export class MoonlightClient extends Client {
     /** The command pool that stores all commands */
     public readonly commands: CommandPool<string, Command> = new CommandPool(this);
     /** A map which stores all command aliases */
-    public readonly aliases: Map<string, string> = new Map();
+    public readonly aliases: Map<string, string> = new Map<string, string>();
     /** The event pool that stores all events */
     public readonly events: EventPool<string, Event> = new EventPool(this);
     /** The monitor pool that stores all monitors */

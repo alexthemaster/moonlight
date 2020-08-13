@@ -5,7 +5,7 @@ const User = Structures.get('User');
 
 class MoonlightUser extends User {
     /** The Map that stores command cooldowns */
-    public readonly cooldowns: Map<Command, Date> = new Map();
+    public readonly cooldowns: Map<Command, Date> = new Map<Command, Date>();
 }
 
 Structures.extend('User', () => MoonlightUser);
