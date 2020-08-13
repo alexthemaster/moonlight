@@ -8,6 +8,7 @@ Moonlight is a feature-packed Discord bot framework built on top of the discord.
 Moonlight comes with a lot of features out of the box, including (but not limited to):
 - Command and event handling
 - Argument parsing (you can find the built-in arguments [here](https://github.com/penfoldium/moonlight/tree/master/src/lib/arguments))
+- Cron-based tasks (functions that run periodically)
 - Monitors
 - TypeScript support (Moonlight itself is also written in TypeScript to ensure fast, bug-free code)
 
