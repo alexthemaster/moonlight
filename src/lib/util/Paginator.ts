@@ -2,7 +2,7 @@ import { MessageEmbed, ReactionCollector, Message, User } from "discord.js";
 import { timeStamp } from "console";
 
 export class Paginator {
-    /** The embed all pages will be based upon */
+    /** The embed all pages will be based on */
     public templateEmbed: MessageEmbed | undefined;
     /** The current page */
     public currentPage: number = 1;
@@ -12,7 +12,7 @@ export class Paginator {
     private _customFooter: string | undefined;
     /** The emojis used for navigation */
     private _navigation: Navigation = {
-        initial_page: '⏮️',
+        first_page: '⏮️',
         backward: '◀️',
         forward: '▶️',
         last_page: '⏭️',
@@ -23,7 +23,7 @@ export class Paginator {
     /**
      * @param message The message sent by the user
      * @param templateEmbed The embed template
-     * @param navigation The navigation object containing the emojis, if you want to have it different from the defaults
+     * @param navigation The navigation object containing the emojis, if you want it to be different from the default 
      */
     constructor(message: Message, templateEmbed?: MessageEmbed, navigation?: Navigation) {
         this._message = message;
@@ -74,16 +74,16 @@ export class Paginator {
     }
 
     private async _removeReactions(message: Message): Promise<void> {
-        // We get the IDs of all users from the cache and create a Set then convert it back to an array to remove duplicates
+        // We get the IDs of all users from the cache and create a Set, then convert it back to an array to remove duplicates
         const users = [...new Set(message.reactions.cache.map(reaction => reaction.users.cache.filter(user => user !== message.author).map(user => user.id)).flat(undefined))];
         await Promise.all(users.map(user => message.reactions.cache.map(reaction => reaction.users.remove(user as unknown as User))));
     }
 
-    /** Set the page  paginator is on */
+    /** Jump to a page */
     public async page(): Promise<this> {
         const page = await this._askPage();
         if (page > this.pages.length) {
-            const tmp = await this._message.channel.send(`This page number is too big, please retry. (max page number: ${this.pages.length})`);
+            const tmp = await this._message.channel.send(`This page number is too large, please try again. (max page number: ${this.pages.length})`);
             setTimeout(async () => {
                 if (!tmp.deleted) await tmp.delete();
             }, 10000);
@@ -107,7 +107,7 @@ export class Paginator {
     }
 
     /** Jump to the first page */
-    public async initial_page(): Promise<this> {
+    public async first_page(): Promise<this> {
         this.currentPage = 1;
         return this;
     }
@@ -137,7 +137,7 @@ function getKeyByValue(object: { [x: string]: string; }, value: string) {
 
 type Navigation = {
     /** The emoji used for jumping to the first page */
-    'initial_page': string;
+    'first_page': string;
     /** The emoji used for going to the previous page */
     'backward': string;
     /** The emoji used for going to the next page */
