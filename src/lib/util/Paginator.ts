@@ -1,4 +1,5 @@
 import { MessageEmbed, ReactionCollector, Message, User } from "discord.js";
+import { timeStamp } from "console";
 
 export class Paginator {
     /** The embed all pages will be based upon */
@@ -82,7 +83,10 @@ export class Paginator {
     public async page(): Promise<this> {
         const page = await this._askPage();
         if (page > this.pages.length) {
-            await this._message.channel.send(`This page number is too big, please retry. (max page number: ${this.pages.length})`);
+            const tmp = await this._message.channel.send(`This page number is too big, please retry. (max page number: ${this.pages.length})`);
+            setTimeout(async () => {
+                if (!tmp.deleted) await tmp.delete();
+            }, 10000);
             return this;
         }
 
