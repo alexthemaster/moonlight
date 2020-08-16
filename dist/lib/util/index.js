@@ -13,4 +13,5 @@ Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("./Stopwatch"), exports);
 __exportStar(require("./ArgumentParser"), exports);
 __exportStar(require("./CronNonStandardToStandard"), exports);
+__exportStar(require("./Paginator"), exports);
 //# sourceMappingURL=index.js.map
