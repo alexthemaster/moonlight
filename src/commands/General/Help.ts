@@ -29,8 +29,6 @@ export default class extends Command {
     }
 
     private async _listAllCommands(message: Message) {
-        const tmp = await message.channel.send(`Loading...`);
-
         const categories: { [x: string]: Command[] } = {};
 
         // We create an array of commands for every available category there is
@@ -51,7 +49,6 @@ export default class extends Command {
             }
         };
 
-        await tmp.delete();
         await paginator.start();
     }
 }
