@@ -7,7 +7,11 @@ import { Message } from 'discord.js';
 /** @ignore */
 export default class extends Command {
     constructor(client: MoonlightClient, pool: BasePool<string, Command>) {
-        super(client, pool, { ownerOnly: true, usage: '[everything] [piece:string]' });
+        super(client, pool, {
+            ownerOnly: true,
+            description: 'Reloads everything or a specific piece',
+            usage: '[everything] [piece:string]'
+        });
     }
 
     public async run(message: Message, args: ReloadCommandArgs) {

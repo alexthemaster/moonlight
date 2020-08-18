@@ -11,7 +11,12 @@ const promiseExec = promisify(exec);
 /** @ignore */
 export default class extends Command {
     constructor(client: MoonlightClient, pool: BasePool<string, Command>) {
-        super(client, pool, { ownerOnly: true, usage: '<toExec:string>' });
+        super(client, pool, {
+            ownerOnly: true,
+            description: 'Executes a command on the host system',
+            usage: '<toExec:string>'
+        });
+
         this.customizeResponse('toExec', 'Please provide a string to execute!');
     }
 

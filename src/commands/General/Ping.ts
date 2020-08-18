@@ -6,7 +6,7 @@ import { Message } from 'discord.js';
 /** @ignore */
 export default class extends Command {
     constructor(client: MoonlightClient, pool: BasePool<string, Command>) {
-        super(client, pool, { cooldown: 5 });
+        super(client, pool, { cooldown: 5, description: 'Pong?' });
     }
 
     public async run(message: Message) {

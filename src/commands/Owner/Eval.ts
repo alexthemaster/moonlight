@@ -10,8 +10,8 @@ export default class extends Command {
     constructor(client: MoonlightClient, pool: BasePool<string, Command>) {
         super(client, pool, {
             ownerOnly: true,
-            usage: '<toEval:string>',
-            description: "Evaluates JavaScript. You can use the --async flag to be able to use await inside the command (be sure to have a return statement!) or the --inspect=number (number being the depth of the inspection) flag to display more things inside an object!"
+            description: "Evaluates JavaScript. You can use the --async flag to be able to use await inside the command (be sure to have a return statement!) or the --inspect=number (number being the depth of the inspection) flag to display more things inside an object!",
+            usage: '<toEval:string>'
         });
 
         this.customizeResponse('toEval', 'Please provide a string to eval!');
