@@ -36,8 +36,6 @@ export class Paginator {
         // Send a message with the default page embed
         const message = await this._message.channel.send(this.pages[this.currentPage - 1].setFooter(this.footer));
         this._collector = message.createReactionCollector((_reaction, user: User) => user === this._message.author);
-        // React to the sent message with all the navigation emojis
-        await Promise.all(Object.values(this._navigation).map(async value => await message.react(value)));
         // Use the collector created above to "listen" for new reactions
         this._collector.on('collect', async (reaction) => {
             const action = getKeyByValue(this._navigation, reaction.emoji.name);
@@ -48,6 +46,8 @@ export class Paginator {
             await this._updatePage(message);
             await this._removeReactions(message);
         })
+        // React to the sent message with all the navigation emojis
+        await Promise.all(Object.values(this._navigation).map(async value => await message.react(value)));
     }
 
     /** Add a page to the embed */
