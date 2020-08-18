@@ -9,7 +9,7 @@ class default_1 extends Command_1.Command {
             description: 'Disable a piece',
             usage: '<piece:string>'
         });
-        this.customizeResponse('piece', 'Please provide a piece name to enable!');
+        this.customizeResponse('piece', 'Please provide a piece name to disable!');
     }
     async run(message, args) {
         if (!this.client.pools.has(args.piece))
