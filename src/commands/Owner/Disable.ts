@@ -12,7 +12,7 @@ export default class extends Command {
             usage: '<piece:string>'
         });
 
-        this.customizeResponse('piece', 'Please provide a piece name to enable!');
+        this.customizeResponse('piece', 'Please provide a piece name to disable!');
     }
 
     public async run(message: Message, args: DisableCommandArgs) {
