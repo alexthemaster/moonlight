@@ -8,7 +8,11 @@ const promiseExec = util_2.promisify(child_process_1.exec);
 /** @ignore */
 class default_1 extends Command_1.Command {
     constructor(client, pool) {
-        super(client, pool, { ownerOnly: true, usage: '<toExec:string>' });
+        super(client, pool, {
+            ownerOnly: true,
+            description: 'Executes a command on the host system',
+            usage: '<toExec:string>'
+        });
         this.customizeResponse('toExec', 'Please provide a string to execute!');
     }
     async run(message, args) {

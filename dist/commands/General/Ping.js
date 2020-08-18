@@ -4,7 +4,7 @@ const Command_1 = require("../../lib/structures/Command");
 /** @ignore */
 class default_1 extends Command_1.Command {
     constructor(client, pool) {
-        super(client, pool, { cooldown: 5 });
+        super(client, pool, { cooldown: 5, description: 'Pong?' });
     }
     async run(message) {
         const msg = await message.channel.send('Ping?');

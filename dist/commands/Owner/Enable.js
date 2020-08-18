@@ -4,7 +4,11 @@ const Command_1 = require("../../lib/structures/Command");
 /** @ignore */
 class default_1 extends Command_1.Command {
     constructor(client, pool) {
-        super(client, pool, { ownerOnly: true, usage: '<piece:string>' });
+        super(client, pool, {
+            ownerOnly: true,
+            description: 'Enable a piece',
+            usage: '<piece:string>'
+        });
         this.customizeResponse('piece', 'Please provide a piece name to enable!');
     }
     async run(message, args) {
