@@ -69,6 +69,8 @@ export interface MoonlightClientOptions extends ClientOptions {
     useMentionPrefix?: boolean;
     /** Whether or not to use username prefix - e.g. if the bot is called "Penfold" then the username prefix will be "Penfold, " */
     useUsernamePrefix?: boolean;
+    /** Whether or not to use the built-in memory sweeper */
+    useSweeper?: boolean;
     /**
      * Set the ready message to display when the bot is ready -> should return a string
      * @example readyMessage: (client) => `Logged in and serving in ${client.guilds.size}!`

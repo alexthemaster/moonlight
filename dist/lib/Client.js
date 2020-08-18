@@ -32,7 +32,7 @@ require("./extendables/MoonlightUser");
 class MoonlightClient extends discord_js_1.Client {
     /** @param options The Moonlight Client Options */
     constructor(options = {}) {
-        var _a, _b, _c;
+        var _a, _b, _c, _d;
         super(options);
         // Directories
         /** The user's directory */
@@ -58,6 +58,7 @@ class MoonlightClient extends discord_js_1.Client {
         this.options.displayErrors = (_a = options.displayErrors) !== null && _a !== void 0 ? _a : true;
         this.options.useMentionPrefix = (_b = options.useMentionPrefix) !== null && _b !== void 0 ? _b : true;
         this.options.useUsernamePrefix = (_c = options.useUsernamePrefix) !== null && _c !== void 0 ? _c : true;
+        this.options.useSweeper = (_d = options.useSweeper) !== null && _d !== void 0 ? _d : true;
         if (options === null || options === void 0 ? void 0 : options.prefix) {
             if (Array.isArray(options.prefix))
                 this.prefixes.push(...options.prefix);
