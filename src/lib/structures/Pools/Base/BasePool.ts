@@ -1,6 +1,7 @@
 import klaw, { Item } from 'klaw';
 import fs from 'fs-extra';
 import path from 'path';
+import os from 'os';
 import { MoonlightClient, Command } from '../../../..';
 import { Stopwatch } from '../../../util';
 
@@ -81,7 +82,7 @@ export class BasePool<K, V> extends Map<K, V> {
                     init.aliases.forEach(alias => this.client.aliases.set(alias.toLowerCase(), name))
                 }
 
-                const category = path.parse(filePath).dir.split('commands\\')[1];
+                const category = (os.platform() === 'win32') ? path.parse(filePath).dir.split('commands\\')[1] : path.parse(filePath).dir.split('commands/')[1];
                 init.category = category ?? 'Uncategorized';
             }
 
