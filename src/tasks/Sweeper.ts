@@ -25,7 +25,7 @@ export default class extends Task {
             presences += guild.presences.cache.size;
             guild.presences.cache.clear();
 
-            // Clear members that haven't send a message in the last 30 minutes
+            // Clear members that haven't sent a message in the last 30 minutes
             const { me } = guild;
             for (const [id, member] of guild.members.cache) {
                 if (member === me) continue;
