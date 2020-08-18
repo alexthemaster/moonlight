@@ -64,6 +64,8 @@ class BasePool extends Map {
                 throw `The file at ${filePath} doesn't appear to be an instance of ${this.type.name}`;
             // If the user provided a name in the options then use that, otherwise use the name of the file
             const name = (_b = (_a = init.name) === null || _a === void 0 ? void 0 : _a.toLowerCase()) !== null && _b !== void 0 ? _b : path_1.default.parse(filePath).name.toLowerCase();
+            // Replace the name of the piece
+            init.name = name;
             // If the class is an instance of Command then do some extra stuff
             if (init instanceof __1.Command) {
                 if (init.aliases && Array.isArray(init.aliases)) {

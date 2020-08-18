@@ -5,6 +5,8 @@ import { BasePool } from './Pools/Base/BasePool';
  * @abstract
  */
 export declare class BasePiece<T> {
+    /** The name of the piece */
+    name: string | undefined;
     readonly client: MoonlightClient;
     /** Whether or not this piece is disabled */
     disabled: boolean;
