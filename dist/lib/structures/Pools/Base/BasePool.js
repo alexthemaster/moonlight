@@ -7,6 +7,7 @@ exports.BasePool = void 0;
 const klaw_1 = __importDefault(require("klaw"));
 const fs_extra_1 = __importDefault(require("fs-extra"));
 const path_1 = __importDefault(require("path"));
+const os_1 = __importDefault(require("os"));
 const __1 = require("../../../..");
 const util_1 = require("../../../util");
 /** @abstract */
@@ -71,7 +72,7 @@ class BasePool extends Map {
                 if (init.aliases && Array.isArray(init.aliases)) {
                     init.aliases.forEach(alias => this.client.aliases.set(alias.toLowerCase(), name));
                 }
-                const category = path_1.default.parse(filePath).dir.split('commands\\')[1];
+                const category = (os_1.default.platform() === 'win32') ? path_1.default.parse(filePath).dir.split('commands\\')[1] : path_1.default.parse(filePath).dir.split('commands/')[1];
                 init.category = category !== null && category !== void 0 ? category : 'Uncategorized';
             }
             // Dynamically instert the reload function into the class
