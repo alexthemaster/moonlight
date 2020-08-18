@@ -27,7 +27,6 @@ class default_1 extends Command_1.Command {
             return await this._listAllCommands(message);
     }
     async _listAllCommands(message) {
-        const tmp = await message.channel.send(`Loading...`);
         const categories = {};
         // We create an array of commands for every available category there is
         Array.from(this.client.commands).map(([_, cmd]) => {
@@ -45,7 +44,6 @@ class default_1 extends Command_1.Command {
             }
         }
         ;
-        await tmp.delete();
         await paginator.start();
     }
 }
