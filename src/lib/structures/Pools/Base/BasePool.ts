@@ -72,6 +72,9 @@ export class BasePool<K, V> extends Map<K, V> {
             const name = init.name?.toLowerCase() ?? path.parse(filePath).name.toLowerCase();
 
 
+            // Replace the name of the piece
+            init.name = name;
+
             // If the class is an instance of Command then do some extra stuff
             if (init instanceof Command) {
                 if (init.aliases && Array.isArray(init.aliases)) {

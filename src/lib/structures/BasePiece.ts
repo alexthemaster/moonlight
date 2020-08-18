@@ -6,6 +6,8 @@ import { BasePool } from './Pools/Base/BasePool';
  * @abstract
  */
 export class BasePiece<T> {
+    /** The name of the piece */
+    public name: string | undefined;
     public readonly client: MoonlightClient;
     /** Whether or not this piece is disabled */
     public disabled: boolean;
@@ -38,6 +40,7 @@ export class BasePiece<T> {
     constructor(client: MoonlightClient, pool: BasePool<string, T>, options?: BasePieceOptions) {
         this.client = client;
         this.options = options;
+        this.name = options?.name ?? undefined;
         this.description = options?.description;
         this.disabled = options?.disabled ?? false;
         this.pool = pool;
