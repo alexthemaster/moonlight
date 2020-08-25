@@ -55,7 +55,7 @@ class default_1 extends index_1.Task {
             users++;
         }
         // Emit a log
-        console.log(`
+        console.log(`Sweeping stats:
 ${presences} [Presence]s
 ${guildMembers} [GuildMember]s
 ${voiceStates} [VoiceState]s
