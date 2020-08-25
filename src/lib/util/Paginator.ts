@@ -1,5 +1,4 @@
 import { MessageEmbed, ReactionCollector, Message, User } from "discord.js";
-import { timeStamp } from "console";
 
 export class Paginator {
     /** The embed all pages will be based on */
