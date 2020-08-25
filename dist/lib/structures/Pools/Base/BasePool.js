@@ -96,22 +96,33 @@ class BasePool extends Map {
             if (await fs_extra_1.default.pathExists(path_1.default.join(this.client.coreDir, this.name))) {
                 klaw_1.default(path_1.default.join(this.client.coreDir, this.name))
                     .on('data', item => items.push(item))
-                    .on('end', async () => {
-                    const filtered = items.filter(item => item.path.endsWith('.js'));
-                    return resolve(filtered);
+                    .on('end', () => {
+                    klaw_1.default(path_1.default.join(this.client.mainDir, this.name))
+                        .on('data', item => items.push(item))
+                        .on('end', () => {
+                        const filtered = items.filter(item => item.path.endsWith('.js'));
+                        return resolve(filtered);
+                    })
+                        .on('error', () => {
+                        fs_extra_1.default.ensureDir(path_1.default.join(this.client.mainDir, this.name))
+                            .then(() => reject())
+                            .catch(err => new Error(err));
+                    });
                 });
             }
-            klaw_1.default(path_1.default.join(this.client.mainDir, this.name))
-                .on('data', item => items.push(item))
-                .on('end', () => {
-                const filtered = items.filter(item => item.path.endsWith('.js'));
-                resolve(filtered);
-            })
-                .on('error', () => {
-                fs_extra_1.default.ensureDir(path_1.default.join(this.client.mainDir, this.name))
-                    .then(() => reject())
-                    .catch(err => new Error(err));
-            });
+            else {
+                klaw_1.default(path_1.default.join(this.client.mainDir, this.name))
+                    .on('data', item => items.push(item))
+                    .on('end', () => {
+                    const filtered = items.filter(item => item.path.endsWith('.js'));
+                    return resolve(filtered);
+                })
+                    .on('error', () => {
+                    fs_extra_1.default.ensureDir(path_1.default.join(this.client.mainDir, this.name))
+                        .then(() => reject())
+                        .catch(err => new Error(err));
+                });
+            }
         });
     }
 }
