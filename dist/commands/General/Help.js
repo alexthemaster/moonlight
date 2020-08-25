@@ -37,6 +37,8 @@ class default_1 extends Command_1.Command {
         const paginator = new util_1.Paginator(message);
         for (const category in categories) {
             categories[category] = categories[category].sort();
+            if (category.toLowerCase() === 'owner' && !this.client.owners.includes(message.author.id))
+                continue;
             while (categories[category].length) {
                 // We get the first 10 commands in this array
                 const cmds = categories[category].splice(0, 10);
