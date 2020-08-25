@@ -91,22 +91,21 @@ class BasePool extends Map {
     }
     /** Returns an array of all the core and user files */
     _walk() {
-        return new Promise((resolve, reject) => {
+        return new Promise(async (resolve, reject) => {
             const items = new Array();
-            klaw_1.default(path_1.default.join(this.client.mainDir, this.name))
-                .on('data', item => items.push(item))
-                .on('end', async () => {
-                if (!await fs_extra_1.default.pathExists(path_1.default.join(this.client.coreDir, this.name))) {
-                    const filtered = items.filter(item => item.path.endsWith('.js'));
-                    return resolve(filtered);
-                }
-                ;
+            if (await fs_extra_1.default.pathExists(path_1.default.join(this.client.coreDir, this.name))) {
                 klaw_1.default(path_1.default.join(this.client.coreDir, this.name))
                     .on('data', item => items.push(item))
-                    .on('end', () => {
+                    .on('end', async () => {
                     const filtered = items.filter(item => item.path.endsWith('.js'));
-                    resolve(filtered);
+                    return resolve(filtered);
                 });
+            }
+            klaw_1.default(path_1.default.join(this.client.mainDir, this.name))
+                .on('data', item => items.push(item))
+                .on('end', () => {
+                const filtered = items.filter(item => item.path.endsWith('.js'));
+                resolve(filtered);
             })
                 .on('error', () => {
                 fs_extra_1.default.ensureDir(path_1.default.join(this.client.mainDir, this.name))
