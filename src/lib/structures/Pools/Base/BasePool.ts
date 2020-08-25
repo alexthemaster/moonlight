@@ -104,40 +104,29 @@ export class BasePool<K, V> extends Map<K, V> {
 
     /** Returns an array of all the core and user files */
     private _walk(): Promise<Item[]> {
-        return new Promise((resolve, reject) => {
+        return new Promise(async (resolve, reject) => {
             const items: Item[] = new Array();
-            klaw(
-                path.join(this.client.mainDir, this.name
-                )
-            )
-                .on('data', item => items.push(item))
-                .on('end', async () => {
-                    if (!await fs.pathExists(
-                        path.join(this.client.coreDir, this.name)
-                    )) {
+            if (await fs.pathExists(path.join(this.client.coreDir, this.name))) {
+                klaw(path.join(this.client.coreDir, this.name))
+                    .on('data', item => items.push(item))
+                    .on('end', async () => {
+
                         const filtered = items.filter(item => item.path.endsWith('.js'));
                         return resolve(filtered);
-                    };
+                    });
+            }
 
-                    klaw(
-                        path.join(this.client.coreDir, this.name)
-                    )
-                        .on('data', item => items.push(item))
-                        .on('end', () => {
-                            const filtered = items.filter(item => item.path.endsWith('.js'));
-                            resolve(filtered);
-                        });
+            klaw(path.join(this.client.mainDir, this.name))
+                .on('data', item => items.push(item))
+                .on('end', () => {
+                    const filtered = items.filter(item => item.path.endsWith('.js'));
+                    resolve(filtered);
                 })
-                .on(
-                    'error', () => {
-                        fs.ensureDir(
-                            path.join(this.client.mainDir, this.name)
-                        )
-                            .then(() => reject())
-                            .catch(err => new Error(err))
-                    }
-                );
-        })
-
+                .on('error', () => {
+                    fs.ensureDir(path.join(this.client.mainDir, this.name))
+                        .then(() => reject())
+                        .catch(err => new Error(err))
+                });
+        });
     }
 }
