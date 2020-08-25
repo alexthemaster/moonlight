@@ -57,7 +57,7 @@ export default class extends Task {
         }
 
         // Emit a log
-        console.log(`
+        console.log(`Sweeping stats:
 ${presences} [Presence]s
 ${guildMembers} [GuildMember]s
 ${voiceStates} [VoiceState]s
