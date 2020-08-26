@@ -1,0 +1,21 @@
+name: Build_Check
+on: [pull_request]
+
+jobs:
+    build_check:
+        runs-on: ubuntu-latest
+        steps: 
+            - name: Checkout project
+              uses: actions/checkout@v2
+            - name: Setup Node.js
+              uses: actions/setup-node@v2.1.1
+              with:
+                node-version: 12
+            - name: Set Git parameters
+              run: |
+                git config --global user.name Penfoldium
+                git config --global user.email crumbs@penfoldium.org
+            - name: Install packages
+              run: npm ci
+            - name: Build project
+              run: npx tsc
