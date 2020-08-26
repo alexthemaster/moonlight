@@ -64,6 +64,7 @@ export class MoonlightClient extends Client {
     constructor(options: MoonlightClientOptions = {}) {
         super(options);
 
+        this.options.editableCommands = options.editableCommands ?? true;
         this.options.displayErrors = options.displayErrors ?? true;
         this.options.useMentionPrefix = options.useMentionPrefix ?? true;
         this.options.useUsernamePrefix = options.useUsernamePrefix ?? true;
@@ -126,6 +127,8 @@ export class MoonlightClient extends Client {
 export interface MoonlightClientOptions extends ClientOptions {
     /** The prefix or an array of prefixes the bot will use */
     prefix?: string | string[];
+    /** Whether or not to allow editable commands */
+    editableCommands?: boolean;
     /** Whether or not to display error messages sent by the error event */
     displayErrors?: boolean;
     /** An array that contains the ID's of the owners */
