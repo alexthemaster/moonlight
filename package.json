@@ -7,7 +7,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "rm -rf dist && tsc",
+    "build": "tsc",
     "docs": "rm -rf docs && typedoc"
   },
   "types": "./dist/index.d.ts",
