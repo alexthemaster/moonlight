@@ -30,6 +30,8 @@ export class Command extends BasePiece<Command> {
     public readonly customizedResponses: Map<string, string> = new Map<string, string>();
     /** The flags provided by the user when running the command */
     public readonly flags: Map<string, string> = new Map<string, string>();
+    /** The raw (unprocessed) command arguments */
+    public rawArgs: string[] | undefined;
     /** The category this command is part of */
     public category!: string;
 

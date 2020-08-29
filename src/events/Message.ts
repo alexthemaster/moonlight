@@ -95,6 +95,8 @@ export default class extends Event {
             cmd.flags.set(flag, flagValue);
         }
 
+        cmd.rawArgs = args;
+
         // We parse the arguments
         let parsedArgs: object;
         try {
