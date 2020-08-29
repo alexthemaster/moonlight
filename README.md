@@ -1,6 +1,16 @@
 # 🌙 Moonlight
 Moonlight is a feature-packed Discord bot framework built on top of the discord.js wrapper.
 
+<!-- Badges -->
+![Dependency status](https://david-dm.org/penfoldium/moonlight.svg)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/penfoldium/moonlight)
+![GitHub](https://img.shields.io/github/license/penfoldium/moonlight)
+![GitHub issues](https://img.shields.io/github/issues/penfoldium/moonlight)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/penfoldium/moonlight)
+![GitHub contributors](https://img.shields.io/github/contributors/penfoldium/moonlight)
+[![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/penfoldium/moonlight.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/penfoldium/moonlight/context:javascript)
+
+
 ## 📝 Requirements
 - Node.js (to find out the specific minimum version required, check the [ECMAScript target](https://github.com/penfoldium/moonlight/blob/master/tsconfig.json#L3) and what Node.js version is [compatible](https://node.green) with it - for example, [Node.js v12.0.0 has 100% support for ES2019](https://i.imgur.com/eMsT1SV.png))
 
