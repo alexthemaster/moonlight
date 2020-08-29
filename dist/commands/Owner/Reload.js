@@ -12,9 +12,7 @@ class default_1 extends Command_1.Command {
         });
     }
     async run(message, args) {
-        if (!args.everything && !args.piece)
-            return await this._reloadEverything(message);
-        if (args.everything)
+        if (args.everything || (!args.everything && !args.piece))
             return await this._reloadEverything(message);
         if (!args.piece)
             return message.channel.send('Please provide a piece name to reload!');
