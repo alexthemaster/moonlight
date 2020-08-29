@@ -15,15 +15,7 @@ export default class extends Command {
     }
 
     public async run(message: Message, args: ReloadCommandArgs) {
-        if (!args.everything && !args.piece) return message.channel.send('Please provide the name of a piece you want to reload or provide "everything" as an argument to reload everything.');
-
-        if (args.everything) {
-            const stopwatch = new Stopwatch();
-            await Promise.all(Array.from(this.client.pools).map(async ([_, poolPiece]) => await poolPiece.reload()));
-            stopwatch.stop();
-
-            return message.channel.send(`Done! Reloaded everything in: ${stopwatch.getElapsedHuman}`);
-        }
+        if (args.everything || (!args.everything && !args.piece)) return await this._reloadEverything(message);
 
         if (!args.piece) return message.channel.send('Please provide a piece name to reload!');
 
@@ -37,6 +29,14 @@ export default class extends Command {
 
         if (pieces.length === 1) return message.channel.send(`Done! Reloaded ${args.piece} in: ${stopwatch.getElapsedHuman}`);
         else return message.channel.send(`Done! Reloaded every piece with the name of ${args.piece} in: ${stopwatch.getElapsedHuman}`);
+    }
+
+    private async _reloadEverything(message: Message) {
+        const stopwatch = new Stopwatch();
+        await Promise.all(Array.from(this.client.pools).map(async ([_, poolPiece]) => await poolPiece.reload()));
+        stopwatch.stop();
+
+        return message.channel.send(`Done! Reloaded everything in: ${stopwatch.getElapsedHuman}`);
     }
 }
 
