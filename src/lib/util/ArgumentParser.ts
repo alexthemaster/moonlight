@@ -71,7 +71,7 @@ export class ArgumentParser {
             else {
                 try {
                     // @ts-expect-error
-                    parsed[arg] = await Arguments[argumentObject.argumentType](toParse, this._client, this._message)
+                    parsed[arg] = await Arguments[argumentObject.argumentType](toParse, this._client, this._message);
                     this.text.shift();
                 } catch (err) {
                     if (argumentObject.type === 'optional') return;

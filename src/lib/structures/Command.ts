@@ -43,7 +43,7 @@ export class Command extends BasePiece<Command> {
     }
 
     constructor(client: MoonlightClient, pool: BasePool<string, Command>, options?: CommandOptions) {
-        super(client, pool, options)
+        super(client, pool, options);
         this.aliases = options?.aliases ?? new Array();
         this.nsfw = options?.nsfw ?? false;
         this.canRunInDM = options?.canRunInDM ?? true;

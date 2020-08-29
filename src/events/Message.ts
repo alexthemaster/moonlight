@@ -33,7 +33,7 @@ export default class extends Event {
 
         // Extract the prefix and the other arguments
         const prefix: string = this.client.prefixes.filter(prefix => message.content.startsWith(prefix))[0];
-        const args: string[] = message.content.substring(prefix.length).trim().split(/ +/g)
+        const args: string[] = message.content.substring(prefix.length).trim().split(/ +/g);
         if (!args[0]) return;
 
         const command = args.shift()?.toLowerCase();
