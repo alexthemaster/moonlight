@@ -6,6 +6,7 @@ import { Message } from 'discord.js';
 export default class extends Command {
     constructor(client: MoonlightClient, pool: BasePool<string, Command>);
     run(message: Message, args: ReloadCommandArgs): Promise<Message>;
+    private _reloadEverything;
 }
 interface ReloadCommandArgs {
     everything?: string;
