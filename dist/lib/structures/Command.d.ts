@@ -29,6 +29,8 @@ export declare class Command extends BasePiece<Command> {
     readonly customizedResponses: Map<string, string>;
     /** The flags provided by the user when running the command */
     readonly flags: Map<string, string>;
+    /** The raw (unprocessed) command arguments */
+    rawArgs: string[] | undefined;
     /** The category this command is part of */
     category: string;
     run(_message: Message, ..._arg: any[]): void;

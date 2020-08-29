@@ -88,6 +88,7 @@ class default_1 extends Event_1.Event {
             const flagValue = arg[1];
             cmd.flags.set(flag, flagValue);
         }
+        cmd.rawArgs = args;
         // We parse the arguments
         let parsedArgs;
         try {
