@@ -100,7 +100,7 @@ class default_1 extends Event_1.Event {
             return message.channel.send(res.message);
         }
         try {
-            await cmd.run(message, parsedArgs);
+            await cmd.run(message, parsedArgs || {});
         }
         catch (err) {
             message.channel.send(`Something went wrong: \`\`\`${err}\`\`\``);
