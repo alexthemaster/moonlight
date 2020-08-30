@@ -1,4 +1,4 @@
-import { Client, ClientOptions } from 'discord.js';
+import { Client, ClientOptions, Guild } from 'discord.js';
 import { Command } from './structures/Command';
 import { CommandPool } from './structures/Pools/CommandPool';
 import { Event } from './structures/Event';
@@ -141,6 +141,14 @@ export interface MoonlightClientOptions extends ClientOptions {
      * @example readyMessage: (client) => `Logged in and serving in ${client.guilds.size}!` 
      */
     readyMessage?(client: MoonlightClient): string;
+    /**
+     * The function the framework will use to fetch a prefix for a guild
+     * @example fetchGuildPrefix: async (guild) => {
+     * const prefix = await fetchPrefix(guild.id);
+     * return prefix; 
+     * }
+     */
+    fetchGuildPrefix?(guild: Guild): string | Promise<string>;
 };
 
 declare module 'discord.js' {

@@ -21,6 +21,7 @@ Moonlight comes with a lot of features out of the box, including (but not limite
 - Cron-based tasks (functions that run periodically)
 - Paginator util for multi-page embeds
 - Monitors
+- The ability to have custom guild prefixes ([through the fetchGuildPrefix function](https://github.com/penfoldium/moonlight/blob/master/src/lib/Client.ts#L151))
 - TypeScript support (Moonlight itself is also written in TypeScript to ensure fast, bug-free code)
 
 Upcoming features can be found [here](https://github.com/penfoldium/moonlight/projects/1).
