@@ -32,7 +32,7 @@ export default class extends Event {
 
         // If the guild has a specific prefix and the message doesn't start with it
         if (guildPrefix && !message.content.startsWith(guildPrefix)) {
-            // If the message is just a mention of the bot then mention to guild's prefix else return
+            // If the message is just a mention of the bot then mention the guilds prefix else return
             if (message.content === `<@!${this.client.user!.id}>`) return message.channel.send(`The guild's current prefix is: ${Util.removeMentions(guildPrefix)}`);
             else return;
         }
