@@ -29,20 +29,23 @@ class default_1 extends Event_1.Event {
         // Return if the author of a message is a bot
         if (message.author.bot)
             return;
-        const guildPrefix = message.guild ? (this.client.options.fetchGuildPrefix ? (await this.client.options.fetchGuildPrefix(message.guild) || undefined) : undefined) : undefined;
+        let guildOrMentionPrefix = message.guild ? (this.client.options.fetchGuildPrefix ? (await this.client.options.fetchGuildPrefix(message.guild) || undefined) : undefined) : undefined;
         // If the guild has a specific prefix and the message doesn't start with it
-        if (guildPrefix && !message.content.startsWith(guildPrefix)) {
+        if (guildOrMentionPrefix && !message.content.startsWith(guildOrMentionPrefix)) {
+            // If the message starts with a mention of the bot and has some characters after it too, then set the prefix to the mention
+            if (message.content.startsWith(`<@!${this.client.user.id}>`) && message.content.length > `<@!${this.client.user.id}>`.length && this.client.options.useMentionPrefix)
+                guildOrMentionPrefix = `<@!${this.client.user.id}>`;
             // If the message is just a mention of the bot then mention the guild's prefix else return
-            if (message.content === `<@!${this.client.user.id}>`)
-                return message.channel.send(`The guild's current prefix is: ${discord_js_1.Util.removeMentions(guildPrefix)}`);
+            else if (message.content === `<@!${this.client.user.id}>`)
+                return message.channel.send(`The guild's current prefix is: ${discord_js_1.Util.removeMentions(guildOrMentionPrefix)}`);
             else
                 return;
         }
         // If there's no guild specific prefix and the message doesn't start with ANY other prefix then return
-        if (!guildPrefix && !this.client.prefixes.some(prefix => message.content.startsWith(prefix)))
+        if (!guildOrMentionPrefix && !this.client.prefixes.some(prefix => message.content.startsWith(prefix)))
             return;
         // Extract the prefix and the other arguments
-        const prefix = guildPrefix !== null && guildPrefix !== void 0 ? guildPrefix : this.client.prefixes.filter(prefix => message.content.startsWith(prefix))[0];
+        const prefix = guildOrMentionPrefix !== null && guildOrMentionPrefix !== void 0 ? guildOrMentionPrefix : this.client.prefixes.filter(prefix => message.content.startsWith(prefix))[0];
         const args = message.content.substring(prefix.length).trim().split(/ +/g);
         const command = (_a = args.shift()) === null || _a === void 0 ? void 0 : _a.toLowerCase();
         if (!command)
