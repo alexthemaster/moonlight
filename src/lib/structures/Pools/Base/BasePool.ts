@@ -5,8 +5,7 @@ import os from 'os';
 import { MoonlightClient, Command } from '../../../..';
 import { Stopwatch } from '../../../util';
 
-/** @abstract */
-export class BasePool<K, V> extends Map<K, V> {
+export abstract class BasePool<K, V> extends Map<K, V> {
     public readonly client: MoonlightClient;
     /** The name of the pool */
     public readonly name: string;
