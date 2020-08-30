@@ -57,7 +57,7 @@ export declare class MoonlightClient extends Client {
      */
     login(token?: string | undefined): Promise<string>;
 }
-/** @example { ..., prefix: ['p.', 'p!'], displayErrors: false, readyMessage: (client) => `Logged in as ${client.user.tag}` } */
+/** @example { ..., prefix: ['p.', 'p!'], displayErrors: false, readyMessage: (client) => `Logged in as ${client.user.tag}` }, fetchGuildPrefix: guild => getPrefix(guild.id) */
 export interface MoonlightClientOptions extends ClientOptions {
     /** The prefix or an array of prefixes the bot will use */
     prefix?: string | string[];
