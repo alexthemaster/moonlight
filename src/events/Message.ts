@@ -4,7 +4,7 @@ import { MoonlightUser } from '../lib/extendables/MoonlightUser';
 import { BasePool } from '../lib/structures/Pools/Base/BasePool';
 import { Command } from '../lib/structures/Command';
 import { ArgumentParser } from '../lib/util';
-import { Message } from 'discord.js';
+import { Message, Util } from 'discord.js';
 import moment from 'moment';
 
 export default class extends Event {
@@ -28,11 +28,20 @@ export default class extends Event {
         // Return if the author of a message is a bot
         if (message.author.bot) return;
 
-        // If the message doesn't start with ANY prefix then return
-        if (!this.client.prefixes.some(prefix => message.content.startsWith(prefix))) return;
+        const guildPrefix: string | undefined = message.guild ? (this.client.options.fetchGuildPrefix ? (await this.client.options.fetchGuildPrefix(message.guild) || undefined) : undefined) : undefined;
+
+        // If the guild has a specific prefix and the message doesn't start with it
+        if (guildPrefix && !message.content.startsWith(guildPrefix)) {
+            // If the message is just a mention of the bot then mention to guild's prefix else return
+            if (message.content === `<@!${this.client.user!.id}>`) return message.channel.send(`The guild's current prefix is: ${Util.removeMentions(guildPrefix)}`);
+            else return;
+        }
+
+        // If there's no guild specific prefix and the message doesn't start with ANY other prefix then return
+        if (!guildPrefix && !this.client.prefixes.some(prefix => message.content.startsWith(prefix))) return;
 
         // Extract the prefix and the other arguments
-        const prefix: string = this.client.prefixes.filter(prefix => message.content.startsWith(prefix))[0];
+        const prefix: string = guildPrefix ?? this.client.prefixes.filter(prefix => message.content.startsWith(prefix))[0];
         const args: string[] = message.content.substring(prefix.length).trim().split(/ +/g);
         if (!args[0]) return;
 
