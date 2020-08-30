@@ -1,10 +1,6 @@
 import { MoonlightClient } from '../Client';
 import { BasePool } from './Pools/Base/BasePool';
-/**
- * @class
- * @abstract
- */
-export declare class BasePiece<T> {
+export declare abstract class BasePiece<T> {
     /** The name of the piece */
     name: string | undefined;
     readonly client: MoonlightClient;

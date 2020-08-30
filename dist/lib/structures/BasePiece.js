@@ -1,10 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BasePiece = void 0;
-/**
- * @class
- * @abstract
- */
 class BasePiece {
     constructor(client, pool, options) {
         var _a, _b;

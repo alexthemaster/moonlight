@@ -1,6 +1,5 @@
 import { MoonlightClient } from '../../../..';
-/** @abstract */
-export declare class BasePool<K, V> extends Map<K, V> {
+export declare abstract class BasePool<K, V> extends Map<K, V> {
     readonly client: MoonlightClient;
     /** The name of the pool */
     readonly name: string;

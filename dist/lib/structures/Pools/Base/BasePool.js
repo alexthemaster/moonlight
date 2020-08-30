@@ -10,7 +10,6 @@ const path_1 = __importDefault(require("path"));
 const os_1 = __importDefault(require("os"));
 const __1 = require("../../../..");
 const util_1 = require("../../../util");
-/** @abstract */
 class BasePool extends Map {
     constructor(client, name, type) {
         super();
