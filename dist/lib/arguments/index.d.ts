@@ -3,4 +3,5 @@ export * from './Number';
 export * from './User';
 export * from './Member';
 export * from './Channel';
+export * from './Guild';
 //# sourceMappingURL=index.d.ts.map

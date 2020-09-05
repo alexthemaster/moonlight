@@ -15,4 +15,5 @@ __exportStar(require("./Number"), exports);
 __exportStar(require("./User"), exports);
 __exportStar(require("./Member"), exports);
 __exportStar(require("./Channel"), exports);
+__exportStar(require("./Guild"), exports);
 //# sourceMappingURL=index.js.map
