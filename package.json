@@ -41,7 +41,7 @@
     "@types/cron": "^1.7.2",
     "@types/fs-extra": "^9.0.1",
     "@types/klaw": "^3.0.1",
-    "@types/node": "^14.11.2",
+    "@types/node": "^14.11.5",
     "@types/ws": "^7.2.7",
     "discord.js": "^12.3.1",
     "typedoc": "^0.19.2",
@@ -52,6 +52,6 @@
     "cron": "^1.8.2",
     "fs-extra": "^9.0.1",
     "klaw": "^3.0.0",
-    "moment": "^2.29.0"
+    "moment": "^2.29.1"
   }
 }
