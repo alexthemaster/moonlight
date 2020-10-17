@@ -101,7 +101,7 @@ export class Paginator {
 
     /** Go to the previous page */
     public async backward(): Promise<this> {
-        if (this.currentPage >= this.pages.length) this.currentPage -= 1;
+        if (this.currentPage >= 2) this.currentPage -= 1;
         return this;
     }
 
