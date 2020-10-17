@@ -120,6 +120,9 @@ export default class extends Event {
             await cmd.run(message, parsedArgs);
         } catch (err) {
             message.channel.send(`Something went wrong: \`\`\`${err}\`\`\``);
+        } finally {
+            // We clear the flags from the command so they don't persist
+            cmd.flags.clear();
         }
     }
 }
