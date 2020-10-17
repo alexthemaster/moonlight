@@ -116,6 +116,10 @@ class default_1 extends Event_1.Event {
         catch (err) {
             message.channel.send(`Something went wrong: \`\`\`${err}\`\`\``);
         }
+        finally {
+            // We clear the flags from the command so they don't persist
+            cmd.flags.clear();
+        }
     }
 }
 exports.default = default_1;
