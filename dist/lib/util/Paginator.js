@@ -94,7 +94,7 @@ class Paginator {
     }
     /** Go to the previous page */
     async backward() {
-        if (this.currentPage >= this.pages.length)
+        if (this.currentPage >= 2)
             this.currentPage -= 1;
         return this;
     }
