@@ -112,7 +112,7 @@ export default class extends Event {
         try {
             parsedArgs = await new ArgumentParser(cmd.usage, args.join(' '), cmd.usageDelim, this.client, message).parse();
         } catch (res) {
-            if (cmd.customizedResponses.has(res.arg)) return message.channel.send(cmd.customizedResponses.get(res.arg));
+            if (cmd.customizedResponses.has(res.arg)) return message.channel.send(cmd.customizedResponses.get(res.arg)!);
             return message.channel.send(res.message);
         }
 
