@@ -79,7 +79,7 @@
 						<pre><code class="language-js"><span class="hljs-keyword">const</span> { Event } = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;@penfoldium/moonlight&#x27;</span>);
 
 <span class="hljs-built_in">module</span>.exports = <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Event</span> </span>{
-    <span class="hljs-keyword">constructor</span>(...args) {
+    <span class="hljs-function"><span class="hljs-title">constructor</span>(<span class="hljs-params">...args</span>)</span> {
         <span class="hljs-built_in">super</span>(...args, {
             <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;name&#x27;</span>, <span class="hljs-comment">// defaults to the filename</span>
             <span class="hljs-attr">disabled</span>: <span class="hljs-literal">false</span>, <span class="hljs-comment">// defaults to false</span>
@@ -89,35 +89,35 @@
     }
 
     <span class="hljs-comment">// Any arguments the event receives will be passed to the run function (for example `message` for the message event)</span>
-    run() {
+    <span class="hljs-function"><span class="hljs-title">run</span>(<span class="hljs-params"></span>)</span> {
 
     }
 
     <span class="hljs-comment">// This function runs when the bot is first started</span>
-    init() {
+    <span class="hljs-function"><span class="hljs-title">init</span>(<span class="hljs-params"></span>)</span> {
 
     }
 }</code></pre>
 						<p>or the following for TypeScript:</p>
 						<pre><code class="language-ts"><span class="hljs-keyword">import</span> { Event, MoonlightClient, BasePool } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@penfoldium/moonlight&#x27;</span>;
 
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">class</span> <span class="hljs-keyword">extends</span> Event {
-    <span class="hljs-keyword">constructor</span>(<span class="hljs-params">client: MoonlightClient, pool: BasePool&lt;<span class="hljs-built_in">string</span>, Event&gt;</span>) {
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Event</span> </span>{
+    <span class="hljs-function"><span class="hljs-title">constructor</span>(<span class="hljs-params">client: MoonlightClient, pool: BasePool&lt;<span class="hljs-built_in">string</span>, Event&gt;</span>)</span> {
         <span class="hljs-built_in">super</span>(client, pool, {
-            name: <span class="hljs-string">&#x27;name&#x27;</span>, <span class="hljs-comment">// defaults to the filename</span>
-            disabled: <span class="hljs-literal">false</span>, <span class="hljs-comment">// defaults to false</span>
-            event: <span class="hljs-string">&#x27;ready&#x27;</span>, <span class="hljs-comment">// the event this file listens to (autocomplete is available and all!)</span>
-            once: <span class="hljs-literal">false</span> <span class="hljs-comment">// whether or not to only listen to the event above once, defaults to false</span>
+            <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;name&#x27;</span>, <span class="hljs-comment">// defaults to the filename</span>
+            <span class="hljs-attr">disabled</span>: <span class="hljs-literal">false</span>, <span class="hljs-comment">// defaults to false</span>
+            <span class="hljs-attr">event</span>: <span class="hljs-string">&#x27;ready&#x27;</span>, <span class="hljs-comment">// the event this file listens to (autocomplete is available and all!)</span>
+            <span class="hljs-attr">once</span>: <span class="hljs-literal">false</span> <span class="hljs-comment">// whether or not to only listen to the event above once, defaults to false</span>
         })
     }
 
     <span class="hljs-comment">// Any arguments the event receives will be passed to the run function (for example `message` for the message event)</span>
-    <span class="hljs-keyword">public</span> run() {
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-title">run</span>(<span class="hljs-params"></span>)</span> {
 
     }
 
     <span class="hljs-comment">// This function runs when the bot is first started</span>
-    <span class="hljs-keyword">public</span> init() {
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-title">init</span>(<span class="hljs-params"></span>)</span> {
 
     }
 }</code></pre>
@@ -190,7 +190,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_lib_structures_basepiece_.basepiece.html">BasePiece</a>.<a href="_lib_structures_basepiece_.basepiece.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/73dd812/src/lib/structures/Event.ts#L21">home/runner/work/moonlight/moonlight/src/lib/structures/Event.ts:21</a></li>
+									<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/aadc1f4/src/lib/structures/Event.ts#L21">home/runner/work/moonlight/moonlight/src/lib/structures/Event.ts:21</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -219,7 +219,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_lib_structures_basepiece_.basepiece.html">BasePiece</a>.<a href="_lib_structures_basepiece_.basepiece.html#client">client</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/73dd812/src/lib/structures/BasePiece.ts#L7">home/runner/work/moonlight/moonlight/src/lib/structures/BasePiece.ts:7</a></li>
+							<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/aadc1f4/src/lib/structures/BasePiece.ts#L7">home/runner/work/moonlight/moonlight/src/lib/structures/BasePiece.ts:7</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -230,7 +230,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_lib_structures_basepiece_.basepiece.html">BasePiece</a>.<a href="_lib_structures_basepiece_.basepiece.html#description">description</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/73dd812/src/lib/structures/BasePiece.ts#L11">home/runner/work/moonlight/moonlight/src/lib/structures/BasePiece.ts:11</a></li>
+							<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/aadc1f4/src/lib/structures/BasePiece.ts#L11">home/runner/work/moonlight/moonlight/src/lib/structures/BasePiece.ts:11</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -246,7 +246,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_lib_structures_basepiece_.basepiece.html">BasePiece</a>.<a href="_lib_structures_basepiece_.basepiece.html#disabled">disabled</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/73dd812/src/lib/structures/BasePiece.ts#L9">home/runner/work/moonlight/moonlight/src/lib/structures/BasePiece.ts:9</a></li>
+							<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/aadc1f4/src/lib/structures/BasePiece.ts#L9">home/runner/work/moonlight/moonlight/src/lib/structures/BasePiece.ts:9</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -261,7 +261,7 @@
 					<div class="tsd-signature tsd-kind-icon">event<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">keyof </span><a href="../interfaces/_lib_client_._discord_js_.clientevents.html" class="tsd-signature-type">ClientEvents</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/73dd812/src/lib/structures/Event.ts#L11">home/runner/work/moonlight/moonlight/src/lib/structures/Event.ts:11</a></li>
+							<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/aadc1f4/src/lib/structures/Event.ts#L11">home/runner/work/moonlight/moonlight/src/lib/structures/Event.ts:11</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -277,7 +277,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_lib_structures_basepiece_.basepiece.html">BasePiece</a>.<a href="_lib_structures_basepiece_.basepiece.html#name">name</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/73dd812/src/lib/structures/BasePiece.ts#L6">home/runner/work/moonlight/moonlight/src/lib/structures/BasePiece.ts:6</a></li>
+							<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/aadc1f4/src/lib/structures/BasePiece.ts#L6">home/runner/work/moonlight/moonlight/src/lib/structures/BasePiece.ts:6</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -292,7 +292,7 @@
 					<div class="tsd-signature tsd-kind-icon">once<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/73dd812/src/lib/structures/Event.ts#L13">home/runner/work/moonlight/moonlight/src/lib/structures/Event.ts:13</a></li>
+							<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/aadc1f4/src/lib/structures/Event.ts#L13">home/runner/work/moonlight/moonlight/src/lib/structures/Event.ts:13</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -308,7 +308,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_lib_structures_basepiece_.basepiece.html">BasePiece</a>.<a href="_lib_structures_basepiece_.basepiece.html#options">options</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/73dd812/src/lib/structures/BasePiece.ts#L14">home/runner/work/moonlight/moonlight/src/lib/structures/BasePiece.ts:14</a></li>
+							<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/aadc1f4/src/lib/structures/BasePiece.ts#L14">home/runner/work/moonlight/moonlight/src/lib/structures/BasePiece.ts:14</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -319,7 +319,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_lib_structures_basepiece_.basepiece.html">BasePiece</a>.<a href="_lib_structures_basepiece_.basepiece.html#pool">pool</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/73dd812/src/lib/structures/BasePiece.ts#L13">home/runner/work/moonlight/moonlight/src/lib/structures/BasePiece.ts:13</a></li>
+							<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/aadc1f4/src/lib/structures/BasePiece.ts#L13">home/runner/work/moonlight/moonlight/src/lib/structures/BasePiece.ts:13</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -342,7 +342,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_lib_structures_basepiece_.basepiece.html">BasePiece</a>.<a href="_lib_structures_basepiece_.basepiece.html#disable">disable</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/73dd812/src/lib/structures/Event.ts#L19">home/runner/work/moonlight/moonlight/src/lib/structures/Event.ts:19</a></li>
+									<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/aadc1f4/src/lib/structures/Event.ts#L19">home/runner/work/moonlight/moonlight/src/lib/structures/Event.ts:19</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -360,7 +360,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_lib_structures_basepiece_.basepiece.html">BasePiece</a>.<a href="_lib_structures_basepiece_.basepiece.html#enable">enable</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/73dd812/src/lib/structures/Event.ts#L15">home/runner/work/moonlight/moonlight/src/lib/structures/Event.ts:15</a></li>
+									<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/aadc1f4/src/lib/structures/Event.ts#L15">home/runner/work/moonlight/moonlight/src/lib/structures/Event.ts:15</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -378,7 +378,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_lib_structures_basepiece_.basepiece.html">BasePiece</a>.<a href="_lib_structures_basepiece_.basepiece.html#init">init</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/73dd812/src/lib/structures/BasePiece.ts#L21">home/runner/work/moonlight/moonlight/src/lib/structures/BasePiece.ts:21</a></li>
+									<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/aadc1f4/src/lib/structures/BasePiece.ts#L21">home/runner/work/moonlight/moonlight/src/lib/structures/BasePiece.ts:21</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -401,7 +401,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_lib_structures_basepiece_.basepiece.html">BasePiece</a>.<a href="_lib_structures_basepiece_.basepiece.html#reload">reload</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/73dd812/src/lib/structures/BasePiece.ts#L26">home/runner/work/moonlight/moonlight/src/lib/structures/BasePiece.ts:26</a></li>
+									<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/aadc1f4/src/lib/structures/BasePiece.ts#L26">home/runner/work/moonlight/moonlight/src/lib/structures/BasePiece.ts:26</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -424,7 +424,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_lib_structures_basepiece_.basepiece.html">BasePiece</a>.<a href="_lib_structures_basepiece_.basepiece.html#run">run</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/73dd812/src/lib/structures/BasePiece.ts#L16">home/runner/work/moonlight/moonlight/src/lib/structures/BasePiece.ts:16</a></li>
+									<li>Defined in <a href="https://github.com/penfoldium/moonlight/blob/aadc1f4/src/lib/structures/BasePiece.ts#L16">home/runner/work/moonlight/moonlight/src/lib/structures/BasePiece.ts:16</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
