@@ -39,7 +39,7 @@
   },
   "devDependencies": {
     "@types/cron": "^1.7.2",
-    "@types/fs-extra": "^9.0.2",
+    "@types/fs-extra": "^9.0.3",
     "@types/klaw": "^3.0.1",
     "@types/node": "^14.14.6",
     "@types/ws": "^7.2.9",
