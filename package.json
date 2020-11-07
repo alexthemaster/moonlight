@@ -1,5 +1,5 @@
 {
-  "name": "@penfoldium/moonlight",
+  "name": "@alexthemaster/moonlight",
   "version": "1.0.0",
   "description": "Yet another discord.js framework",
   "main": "./dist/index.js",
@@ -13,7 +13,7 @@
   "types": "./dist/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/penfoldium/moonlight.git"
+    "url": "git+https://github.com/alexthemaster/moonlight.git"
   },
   "engines": {
     "node": ">= 12.0.0"
@@ -23,17 +23,16 @@
     "framework",
     "discord.js",
     "framework",
-    "penfoldium",
     "d.js",
     "d.js",
     "framework"
   ],
-  "author": "Penfoldium",
+  "author": "Alex Kovacs",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/penfoldium/moonlight/issues"
+    "url": "https://github.com/alexthemaster/moonlight/issues"
   },
-  "homepage": "https://github.com/penfoldium/moonlight#readme",
+  "homepage": "https://github.com/alexthemaster/moonlight#readme",
   "peerDependencies": {
     "discord.js": "^12.4.1"
   },
