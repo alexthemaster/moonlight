@@ -132,7 +132,7 @@ export interface MoonlightClientOptions extends ClientOptions {
     owners?: string[];
     /** Whether or not to use mention prefix */
     useMentionPrefix?: boolean;
-    /** Whether or not to use username prefix - e.g. if the bot is called "Penfold" then the username prefix will be "Penfold, " */
+    /** Whether or not to use username prefix - e.g. if the bot is called "Sensei" then the username prefix will be "Sensei, " */
     useUsernamePrefix?: boolean;
     /** Whether or not to use the built-in memory sweeper */
     useSweeper?: boolean;

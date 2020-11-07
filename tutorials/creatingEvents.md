@@ -7,7 +7,7 @@ An event is arguably one of the most important things your bot will listen to.
 To get started with events, just add a file in your `events` folder and use the following example for JavaScript: 
 
 ```js
-const { Event } = require('@penfoldium/moonlight');
+const { Event } = require('@alexthemaster/moonlight');
 
 module.exports = class extends Event {
     constructor(...args) {
@@ -34,7 +34,7 @@ module.exports = class extends Event {
 or the following for TypeScript:
 
 ```ts
-import { Event, MoonlightClient, BasePool } from '@penfoldium/moonlight';
+import { Event, MoonlightClient, BasePool } from '@alexthemaster/moonlight';
 
 export default class extends Event {
     constructor(client: MoonlightClient, pool: BasePool<string, Event>) {

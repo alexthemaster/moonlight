@@ -7,7 +7,7 @@ To create a cron, you can head over to [crontab.guru](https://crontab.guru) - we
 To get started with tasks, just add a file in your `tasks` folder and use the following example for JavaScript: 
 
 ```js
-const { Task } = require('@penfoldium/moonlight');
+const { Task } = require('@alexthemaster/moonlight');
 
 module.exports = class extends Task {
     constructor(...args) {
@@ -32,7 +32,7 @@ module.exports = class extends Task {
 or the following for TypeScript:
 
 ```ts
-import { Task, MoonlightClient, BasePool } from '@penfoldium/moonlight';
+import { Task, MoonlightClient, BasePool } from '@alexthemaster/moonlight';
 
 export default class extends Task {
     constructor(client: MoonlightClient, pool: BasePool<string, Task>) {

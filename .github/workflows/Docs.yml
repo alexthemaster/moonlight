@@ -15,15 +15,15 @@ jobs:
                 node-version: 12
             - name: Set Git parameters
               run: |
-                git config --global user.name Penfoldium
-                git config --global user.email crumbs@penfoldium.org
+                git config --global user.name Kovacs Alex
+                git config --global user.email 31011461+alexthemaster@users.noreply.github.com
             - name: Install packages
               run: npm ci
             - name: Clone the gh-pages branch
               run: |
                 mkdir gh-pages
                 cd gh-pages
-                git clone https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/penfoldium/moonlight.git .
+                git clone https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/alexthemaster/moonlight.git .
                 git checkout gh-pages
             - name: Install typedoc and typescript
               run: npm install --global typedoc typescript

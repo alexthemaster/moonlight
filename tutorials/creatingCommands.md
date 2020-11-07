@@ -7,7 +7,7 @@ Note: commands have flags which you can access by running this.flags (the flags 
 To get started with commands, just add a file in your `commands` folder and use the following example for JavaScript: 
 
 ```js
-const { Command } = require('@penfoldium/moonlight');
+const { Command } = require('@alexthemaster/moonlight');
 
 module.exports = class extends Command {
     constructor(...args) {
@@ -46,7 +46,7 @@ module.exports = class extends Command {
 or the following for TypeScript:
 
 ```ts
-import { Command, MoonlightClient, BasePool } from '@penfoldium/moonlight';
+import { Command, MoonlightClient, BasePool } from '@alexthemaster/moonlight';
 import { Message } from 'discord.js';
 
 export default class extends Command {
