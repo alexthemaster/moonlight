@@ -40,7 +40,7 @@
     "@types/cron": "^1.7.2",
     "@types/fs-extra": "^9.0.4",
     "@types/klaw": "^3.0.1",
-    "@types/node": "^14.14.10",
+    "@types/node": "^14.14.11",
     "@types/ws": "^7.4.0",
     "discord.js": "^12.5.1",
     "typedoc": "^0.19.2",
