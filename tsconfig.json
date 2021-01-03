@@ -15,7 +15,6 @@
   },
   "typedocOptions": {
     "out": "docs",
-    "includes": "tutorials",
-    "excludeNotExported": true,
+    "includes": "tutorials"
   }
 }
