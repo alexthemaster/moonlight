@@ -15,6 +15,7 @@
   },
   "typedocOptions": {
     "out": "docs",
-    "includes": "tutorials"
+    "includes": "tutorials",
+    "entryPoints": "src/index.ts"
   }
 }
