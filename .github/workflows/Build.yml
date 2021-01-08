@@ -13,28 +13,9 @@ jobs:
               uses: actions/setup-node@v2.1.4
               with:
                 node-version: 12
-            - name: Set Git parameters
-              run: |
-                git config --global user.name Kovacs Alex
-                git config --global user.email 31011461+alexthemaster@users.noreply.github.com
-            - name: Install packages
-              run: npm ci
-            - name: Build project
-              run: npx tsc
-            - name: Clone the build branch
-              run: |
-                mkdir build
-                cd build
-                git clone https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/alexthemaster/moonlight.git .
-                git checkout build
-            - name: Add files to git and commit them
-              run: |
-                rsync -r ./dist ./build 
-                rsync ./package* ./build
-                cd build
-                git add .
-                git commit -m "build: ${{ github.sha }}" || true
-            - name: Push files to GitHub
-              run: |
-                cd build
-                git push origin build || true
+            - name: Build and push
+              uses: alexthemaster/action-build-typescript@v1.1.0
+              with:
+                pushToBranch: true
+                branch: 'build'
+                githubToken: ${{ secrets.GITHUB_TOKEN }} 
