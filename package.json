@@ -8,7 +8,8 @@
   ],
   "scripts": {
     "build": "rm -rf dist && tsc",
-    "docs": "rm -rf docs && typedoc"
+    "docs": "rm -rf docs && typedoc",
+    "publish": "npm run build && npm publish"
   },
   "types": "./dist/index.d.ts",
   "repository": {
