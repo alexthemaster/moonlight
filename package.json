@@ -1,6 +1,6 @@
 {
   "name": "@alexthemaster/moonlight",
-  "version": "1.0.0",
+  "version": "1.0.0-alpha.0",
   "description": "Yet another discord.js framework",
   "main": "./dist/index.js",
   "files": [
