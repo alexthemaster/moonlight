@@ -27,7 +27,7 @@ Moonlight comes with a lot of features out of the box, including (but not limite
 Upcoming features can be found [here](https://github.com/alexthemaster/moonlight/projects/1).
 
 ## 💿 Installation
-Moonlight will eventually be published on npm as `@alexthemaster/moonlight` but for now, feel free to use the #build branch (`npm install alexthemaster/moonlight#build`) **(rolling release, can break any time)**
+Moonlight can be installed via npm by doing `npm install @alexthemaster/moonlight@<version>` where version is any version from [here](https://github.com/alexthemaster/moonlight/releases) or you can install the #build branch (`npm install alexthemaster/moonlight#build`) **(rolling release, can break any time)**
 
 ## 📚 Documentation 
 [Getting started](https://alexthemaster.github.io/moonlight/classes/_lib_client_.moonlightclient.html#getting-started-with-moonlight)
