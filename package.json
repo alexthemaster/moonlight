@@ -41,10 +41,10 @@
     "@types/cron": "^1.7.2",
     "@types/fs-extra": "^9.0.11",
     "@types/klaw": "^3.0.1",
-    "@types/node": "^14.14.41",
-    "@types/ws": "^7.4.1",
+    "@types/node": "^14.14.43",
+    "@types/ws": "^7.4.2",
     "discord.js": "^12.5.3",
-    "typedoc": "^0.20.35",
+    "typedoc": "^0.20.36",
     "typescript": "^4.2.4"
   },
   "dependencies": {
